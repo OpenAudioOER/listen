@@ -4,10 +4,11 @@ import { ChevronRight, Headphones } from 'lucide-react';
 interface NavbarProps {
   bookTitle?: string;
   currentChapter?: number;
+  customPageTitle?: string;
   onGoHome?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ bookTitle, currentChapter, onGoHome }) => {
+export const Navbar: React.FC<NavbarProps> = ({ bookTitle, currentChapter, customPageTitle, onGoHome }) => {
   return (
     <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 px-4 py-3 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto flex items-center justify-between">
@@ -27,8 +28,8 @@ export const Navbar: React.FC<NavbarProps> = ({ bookTitle, currentChapter, onGoH
           <ChevronRight size={14} className="mx-2" />
           <button 
             onClick={onGoHome}
-            className={`hover:text-brand-600 transition-colors ${!currentChapter ? 'font-bold text-slate-900 cursor-default' : 'cursor-pointer'}`}
-            disabled={!currentChapter}
+            className={`hover:text-brand-600 transition-colors ${!currentChapter && !customPageTitle ? 'font-bold text-slate-900 cursor-default' : 'cursor-pointer'}`}
+            disabled={(!currentChapter && !customPageTitle)}
           >
             {bookTitle || 'Textbook'}
           </button>
@@ -38,6 +39,15 @@ export const Navbar: React.FC<NavbarProps> = ({ bookTitle, currentChapter, onGoH
               <ChevronRight size={14} className="mx-2" />
               <span className="text-slate-900 bg-slate-100 px-2 py-0.5 rounded-md">
                 Chapter {currentChapter}
+              </span>
+            </>
+          )}
+
+          {customPageTitle && (
+            <>
+              <ChevronRight size={14} className="mx-2" />
+              <span className="text-slate-900 bg-slate-100 px-2 py-0.5 rounded-md">
+                {customPageTitle}
               </span>
             </>
           )}
