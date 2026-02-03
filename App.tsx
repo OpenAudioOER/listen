@@ -11,18 +11,26 @@ import { BookOpen, PlayCircle, ChevronRight } from 'lucide-react';
 function App() {
   // Helper to get parameters from URL
   const getParamsFromUrl = () => {
-    if (typeof window === 'undefined') return { bookId: 'am-gov-4e', chapterId: null };
+    if (typeof window === 'undefined') return { bookId: 'am-gov-4e', chapterId: null, isEmbed: false };
     const params = new URLSearchParams(window.location.search);
     const bookId = params.get('book') || 'am-gov-4e';
     const chapterParam = params.get('chapter');
+    const modeParam = params.get('mode');
+    
     let chapterId = null;
     if (chapterParam) chapterId = parseInt(chapterParam, 10);
-    return { bookId, chapterId };
+    
+    return { 
+      bookId, 
+      chapterId,
+      isEmbed: modeParam === 'embed'
+    };
   };
 
   const initialParams = getParamsFromUrl();
   const [bookId, setBookId] = useState<string>(initialParams.bookId);
   const [chapterId, setChapterId] = useState<number | null>(initialParams.chapterId);
+  const [isEmbed, setIsEmbed] = useState<boolean>(initialParams.isEmbed);
 
   // Derive active data
   const activeBook = library[bookId] || library['am-gov-4e'];
@@ -31,9 +39,10 @@ function App() {
   // Listen for browser "Back" and "Forward" button clicks
   useEffect(() => {
     const handlePopState = () => {
-      const { bookId: b, chapterId: c } = getParamsFromUrl();
+      const { bookId: b, chapterId: c, isEmbed: e } = getParamsFromUrl();
       setBookId(b);
       setChapterId(c);
+      setIsEmbed(e);
     };
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
@@ -42,31 +51,37 @@ function App() {
   // Handlers
   const goHome = () => {
     setChapterId(null);
-    // Go to the book landing page
-    const newUrl = `${window.location.pathname}?book=${activeBook.id}`;
+    const params = new URLSearchParams(window.location.search);
+    params.delete('chapter');
+    // Keep embed mode if active
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
     window.history.pushState({}, '', newUrl);
     window.scrollTo(0, 0);
   };
 
   const selectChapter = (id: number) => {
     setChapterId(id);
-    const newUrl = `${window.location.pathname}?book=${activeBook.id}&chapter=${id}`;
+    const params = new URLSearchParams(window.location.search);
+    params.set('chapter', id.toString());
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
     window.history.pushState({}, '', newUrl);
     window.scrollTo(0, 0);
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
-      <Navbar 
-        bookTitle={activeBook.title}
-        currentChapter={activeChapter?.chapterNumber} 
-        onGoHome={goHome}
-      />
+    <div className={`min-h-screen bg-gray-50 flex flex-col ${isEmbed ? 'bg-transparent' : ''}`}>
+      {!isEmbed && (
+        <Navbar 
+          bookTitle={activeBook.title}
+          currentChapter={activeChapter?.chapterNumber} 
+          onGoHome={goHome}
+        />
+      )}
       
       <main className="flex-grow">
         {/* VIEW: BOOK OVERVIEW (List of Chapters) */}
         {!activeChapter && (
-          <div className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto pt-12">
+          <div className={`px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto ${isEmbed ? 'pt-4' : 'pt-12'}`}>
              <header className="text-center mb-16">
                <span className="inline-block px-3 py-1 bg-brand-50 text-brand-600 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-brand-100">
                  Audiobook & Companion
@@ -129,6 +144,7 @@ function App() {
               courseTitle={activeChapter.courseTitle}
               title={activeChapter.title}
               subtitle={activeChapter.subtitle}
+              isEmbed={isEmbed}
             />
             
             <Overview 
@@ -148,7 +164,7 @@ function App() {
         )}
       </main>
 
-      <Footer />
+      {!isEmbed && <Footer />}
     </div>
   );
 }
