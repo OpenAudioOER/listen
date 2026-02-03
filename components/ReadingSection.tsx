@@ -65,14 +65,14 @@ export const ReadingSection: React.FC<ReadingSectionProps> = ({ textbookUrl }) =
                    <iframe 
                      src={textbookUrl} 
                      title="Embedded Textbook"
-                     className="w-full h-full border-0"
+                     className="w-full h-full border-0 relative z-10"
                      loading="lazy"
                    />
-                 ) : (
-                    <div className="absolute inset-0 flex items-center justify-center text-slate-400">
-                      Loading...
-                    </div>
-                 )}
+                 ) : null}
+                 {/* Loading Spinner Background */}
+                 <div className="absolute inset-0 flex items-center justify-center text-slate-400 bg-white">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-600"></div>
+                 </div>
               </div>
               <div className="p-2 text-center text-xs text-slate-500">
                 Note: Some external providers may prevent embedding. If the content does not load, please use the "Read on OpenStax" button above.

@@ -30,6 +30,7 @@ function App() {
   const initialParams = getParamsFromUrl();
   const [bookId, setBookId] = useState<string>(initialParams.bookId);
   const [chapterId, setChapterId] = useState<number | null>(initialParams.chapterId);
+  // We use state for isEmbed to ensure it persists during navigation
   const [isEmbed, setIsEmbed] = useState<boolean>(initialParams.isEmbed);
 
   // Derive active data
@@ -48,24 +49,41 @@ function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
+  // UPDATE TITLE: Update the browser tab title based on navigation
+  useEffect(() => {
+    if (activeChapter) {
+      document.title = `${activeChapter.courseTitle}: ${activeChapter.title} | ${activeBook.title}`;
+    } else {
+      document.title = activeBook.title;
+    }
+  }, [activeChapter, activeBook]);
+
   // Handlers
   const goHome = () => {
     setChapterId(null);
-    const params = new URLSearchParams(window.location.search);
-    params.delete('chapter');
-    // Keep embed mode if active
-    const newUrl = `${window.location.pathname}?${params.toString()}`;
-    window.history.pushState({}, '', newUrl);
     window.scrollTo(0, 0);
+
+    // CRITICAL FIX: Do not update URL history if we are in an iframe/embed mode.
+    // Browsers often block history manipulation inside iframes, causing the app to crash.
+    if (!isEmbed) {
+      const params = new URLSearchParams(window.location.search);
+      params.delete('chapter');
+      const newUrl = `${window.location.pathname}?${params.toString()}`;
+      window.history.pushState({}, '', newUrl);
+    }
   };
 
   const selectChapter = (id: number) => {
     setChapterId(id);
-    const params = new URLSearchParams(window.location.search);
-    params.set('chapter', id.toString());
-    const newUrl = `${window.location.pathname}?${params.toString()}`;
-    window.history.pushState({}, '', newUrl);
     window.scrollTo(0, 0);
+
+    // CRITICAL FIX: Do not update URL history if we are in an iframe/embed mode.
+    if (!isEmbed) {
+      const params = new URLSearchParams(window.location.search);
+      params.set('chapter', id.toString());
+      const newUrl = `${window.location.pathname}?${params.toString()}`;
+      window.history.pushState({}, '', newUrl);
+    }
   };
 
   return (
