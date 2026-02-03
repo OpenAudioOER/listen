@@ -19,3 +19,10 @@ export interface ChapterData {
   resourceLinks: ResourceLink[];
   timestamps: Timestamp[];
 }
+
+export interface Book {
+  id: string;
+  title: string;
+  description: string;
+  chapters: ChapterData[];
+}

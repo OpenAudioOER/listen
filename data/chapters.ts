@@ -1,6 +1,6 @@
-import { ChapterData } from '../types';
+import { ChapterData, Book } from '../types';
 
-export const chapters: ChapterData[] = [
+const amGovChapters: ChapterData[] = [
   {
     chapterNumber: 1,
     courseTitle: "Chapter 1",
@@ -402,3 +402,12 @@ export const chapters: ChapterData[] = [
     ]
   }
 ];
+
+export const library: Record<string, Book> = {
+  'am-gov-4e': {
+    id: 'am-gov-4e',
+    title: 'American Government 4e',
+    description: 'Select a chapter below to access the full text, audio narration, and study resources.',
+    chapters: amGovChapters
+  }
+};

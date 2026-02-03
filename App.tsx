@@ -1,41 +1,70 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Overview } from './components/Overview';
 import { ReadingSection } from './components/ReadingSection';
 import { AudioSection } from './components/AudioSection';
 import { Footer } from './components/Footer';
-import { chapters } from './data/chapters';
-import { BookOpen, PlayCircle, ChevronRight, Clock } from 'lucide-react';
+import { library } from './data/chapters';
+import { BookOpen, PlayCircle, ChevronRight } from 'lucide-react';
 
 function App() {
-  // Navigation State
-  // null = Home (Chapter List)
-  // number = Chapter ID (e.g., 1, 2, 3)
-  const [activeChapterId, setActiveChapterId] = useState<number | null>(null);
+  // Helper to get parameters from URL
+  const getParamsFromUrl = () => {
+    if (typeof window === 'undefined') return { bookId: 'am-gov-4e', chapterId: null };
+    const params = new URLSearchParams(window.location.search);
+    const bookId = params.get('book') || 'am-gov-4e';
+    const chapterParam = params.get('chapter');
+    let chapterId = null;
+    if (chapterParam) chapterId = parseInt(chapterParam, 10);
+    return { bookId, chapterId };
+  };
 
-  const activeChapter = chapters.find(c => c.chapterNumber === activeChapterId);
+  const initialParams = getParamsFromUrl();
+  const [bookId, setBookId] = useState<string>(initialParams.bookId);
+  const [chapterId, setChapterId] = useState<number | null>(initialParams.chapterId);
+
+  // Derive active data
+  const activeBook = library[bookId] || library['am-gov-4e'];
+  const activeChapter = activeBook.chapters.find(c => c.chapterNumber === chapterId);
+
+  // Listen for browser "Back" and "Forward" button clicks
+  useEffect(() => {
+    const handlePopState = () => {
+      const { bookId: b, chapterId: c } = getParamsFromUrl();
+      setBookId(b);
+      setChapterId(c);
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   // Handlers
   const goHome = () => {
-    setActiveChapterId(null);
+    setChapterId(null);
+    // Go to the book landing page
+    const newUrl = `${window.location.pathname}?book=${activeBook.id}`;
+    window.history.pushState({}, '', newUrl);
     window.scrollTo(0, 0);
   };
 
   const selectChapter = (id: number) => {
-    setActiveChapterId(id);
+    setChapterId(id);
+    const newUrl = `${window.location.pathname}?book=${activeBook.id}&chapter=${id}`;
+    window.history.pushState({}, '', newUrl);
     window.scrollTo(0, 0);
   };
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <Navbar 
+        bookTitle={activeBook.title}
         currentChapter={activeChapter?.chapterNumber} 
         onGoHome={goHome}
       />
       
       <main className="flex-grow">
-        {/* VIEW: HOME (List of Chapters) */}
+        {/* VIEW: BOOK OVERVIEW (List of Chapters) */}
         {!activeChapter && (
           <div className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto pt-12">
              <header className="text-center mb-16">
@@ -43,15 +72,15 @@ function App() {
                  Audiobook & Companion
                </span>
                <h1 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900 mb-6">
-                 American Government 4e
+                 {activeBook.title}
                </h1>
                <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-                 Select a chapter below to access the full text, audio narration, and study resources.
+                 {activeBook.description}
                </p>
              </header>
 
              <div className="grid gap-6 pb-20">
-               {chapters.map((chapter) => (
+               {activeBook.chapters.map((chapter) => (
                  <button 
                    key={chapter.chapterNumber}
                    onClick={() => selectChapter(chapter.chapterNumber)}
