@@ -7,7 +7,7 @@ import { AudioSection } from './components/AudioSection';
 import { AudioCollection } from './components/AudioCollection';
 import { Footer } from './components/Footer';
 import { library } from './data/chapters';
-import { BookOpen, PlayCircle, ChevronRight, Headphones } from 'lucide-react';
+import { BookOpen, PlayCircle, ChevronRight, Headphones, Library } from 'lucide-react';
 
 type ViewMode = 'home' | 'chapter' | 'audio-collection';
 
@@ -15,25 +15,30 @@ function App() {
   // Helper to get parameters from URL
   const getParamsFromUrl = () => {
     if (typeof window === 'undefined') return { bookId: 'am-gov-4e', chapterId: null, isEmbed: false, view: 'home' as ViewMode };
-    const params = new URLSearchParams(window.location.search);
-    const bookId = params.get('book') || 'am-gov-4e';
-    const chapterParam = params.get('chapter');
-    const modeParam = params.get('mode');
-    const viewParam = params.get('view');
-    
-    let chapterId = null;
-    if (chapterParam) chapterId = parseInt(chapterParam, 10);
-    
-    let view: ViewMode = 'home';
-    if (chapterId) view = 'chapter';
-    else if (viewParam === 'audio') view = 'audio-collection';
-    
-    return { 
-      bookId, 
-      chapterId,
-      isEmbed: modeParam === 'embed',
-      view
-    };
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const bookId = params.get('book') || 'am-gov-4e';
+      const chapterParam = params.get('chapter');
+      const modeParam = params.get('mode');
+      const viewParam = params.get('view');
+      
+      let chapterId = null;
+      if (chapterParam) chapterId = parseInt(chapterParam, 10);
+      
+      let view: ViewMode = 'home';
+      if (chapterId) view = 'chapter';
+      else if (viewParam === 'audio') view = 'audio-collection';
+      
+      return { 
+        bookId, 
+        chapterId,
+        isEmbed: modeParam === 'embed',
+        view
+      };
+    } catch (e) {
+      console.warn('Error reading URL parameters:', e);
+      return { bookId: 'am-gov-4e', chapterId: null, isEmbed: false, view: 'home' as ViewMode };
+    }
   };
 
   const initialParams = getParamsFromUrl();
@@ -72,6 +77,14 @@ function App() {
   }, [view, activeChapter, activeBook]);
 
   // Handlers
+  const safeUpdateHistory = (url: string) => {
+    try {
+      window.history.pushState({}, '', url);
+    } catch (e) {
+      console.warn('Unable to update history state (likely in a restricted iframe):', e);
+    }
+  };
+
   const goHome = () => {
     setChapterId(null);
     setView('home');
@@ -79,11 +92,15 @@ function App() {
 
     // CRITICAL FIX: Do not update URL history if we are in an iframe/embed mode.
     if (!isEmbed) {
-      const params = new URLSearchParams(window.location.search);
-      params.delete('chapter');
-      params.delete('view');
-      const newUrl = `${window.location.pathname}?${params.toString()}`;
-      window.history.pushState({}, '', newUrl);
+      try {
+        const params = new URLSearchParams(window.location.search);
+        params.delete('chapter');
+        params.delete('view');
+        const newUrl = `${window.location.pathname}?${params.toString()}`;
+        safeUpdateHistory(newUrl);
+      } catch (e) {
+        console.warn('Error constructing URL:', e);
+      }
     }
   };
 
@@ -93,11 +110,15 @@ function App() {
     window.scrollTo(0, 0);
 
     if (!isEmbed) {
-      const params = new URLSearchParams(window.location.search);
-      params.set('chapter', id.toString());
-      params.delete('view');
-      const newUrl = `${window.location.pathname}?${params.toString()}`;
-      window.history.pushState({}, '', newUrl);
+      try {
+        const params = new URLSearchParams(window.location.search);
+        params.set('chapter', id.toString());
+        params.delete('view');
+        const newUrl = `${window.location.pathname}?${params.toString()}`;
+        safeUpdateHistory(newUrl);
+      } catch (e) {
+         console.warn('Error constructing URL:', e);
+      }
     }
   };
 
@@ -107,11 +128,15 @@ function App() {
     window.scrollTo(0, 0);
 
     if (!isEmbed) {
-      const params = new URLSearchParams(window.location.search);
-      params.delete('chapter');
-      params.set('view', 'audio');
-      const newUrl = `${window.location.pathname}?${params.toString()}`;
-      window.history.pushState({}, '', newUrl);
+      try {
+        const params = new URLSearchParams(window.location.search);
+        params.delete('chapter');
+        params.set('view', 'audio');
+        const newUrl = `${window.location.pathname}?${params.toString()}`;
+        safeUpdateHistory(newUrl);
+      } catch (e) {
+        console.warn('Error constructing URL:', e);
+      }
     }
   };
 
@@ -130,26 +155,41 @@ function App() {
         {/* VIEW: BOOK OVERVIEW (List of Chapters) */}
         {view === 'home' && (
           <div className={`px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto ${isEmbed ? 'pt-4' : 'pt-12'}`}>
-             <header className="text-center mb-12">
-               <span className="inline-block px-3 py-1 bg-brand-50 text-brand-600 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-brand-100">
-                 Audiobook & Companion
-               </span>
-               <h1 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900 mb-6">
-                 {activeBook.title}
-               </h1>
-               <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed mb-8">
-                 {activeBook.description}
-               </p>
-
-               {/* New CTA for Audio Archive */}
-               <button 
-                 onClick={goToAudioCollection}
-                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-full font-medium transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
-               >
-                 <Headphones size={18} />
-                 Browse Audio Archive
-                 <ChevronRight size={16} />
-               </button>
+             
+             {/* Updated Split Header with Image */}
+             <header className="mb-16 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+               <div className="flex-1 text-center md:text-left order-2 md:order-1">
+                 <span className="inline-block px-3 py-1 bg-brand-50 text-brand-600 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-brand-100">
+                   Textbook & Audiobook
+                 </span>
+                 <h1 className="text-3xl sm:text-5xl font-serif font-bold text-slate-900 mb-6 leading-tight">
+                   {activeBook.title}
+                 </h1>
+                 <p className="text-lg text-slate-600 leading-relaxed mb-8">
+                   {activeBook.description}
+                 </p>
+               </div>
+               
+               <div className="w-48 sm:w-64 md:w-72 flex-shrink-0 order-1 md:order-2">
+                 <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl border-4 border-white rotate-3 hover:rotate-0 transition-transform duration-500">
+                   <img 
+                     src="/cover.png" 
+                     alt="American Government Textbook Cover" 
+                     className="w-full h-full object-cover"
+                     onError={(e) => {
+                       // This fallback ensures the preview looks good even without the local file.
+                       // In production, when you add 'cover.png' to the root folder, this won't run.
+                       const target = e.target as HTMLImageElement;
+                       target.onerror = null; // Prevent infinite loop
+                       target.src = "https://images.unsplash.com/photo-1540910419868-4749459ca6c8?auto=format&fit=crop&q=80&w=1000"; // Placeholder: US Capitol
+                     }}
+                   />
+                   {/* Fallback placeholder (only visible if image fails completely) */}
+                   <div className="w-full h-full bg-brand-600 flex items-center justify-center text-white p-6 text-center -z-10 absolute inset-0">
+                      <span className="font-serif font-bold text-xl">American Government 4e</span>
+                   </div>
+                 </div>
+               </div>
              </header>
 
              <div className="grid gap-6 pb-20">
@@ -161,7 +201,8 @@ function App() {
                  >
                    <div className="flex-grow space-y-3">
                      <div className="flex items-center gap-3">
-                        <span className="text-xs font-bold text-white bg-slate-900 px-2 py-1 rounded">
+                        {/* CHANGED: Badge color to accent-600 (Navy) */}
+                        <span className="text-xs font-bold text-white bg-accent-600 px-2 py-1 rounded shadow-sm">
                           CH {chapter.chapterNumber}
                         </span>
                         <h2 className="text-xl font-bold text-slate-900 group-hover:text-brand-700 transition-colors">
@@ -185,12 +226,46 @@ function App() {
                    </div>
 
                    <div className="flex-shrink-0 self-start sm:self-center">
-                      <div className="h-12 w-12 rounded-full bg-brand-50 text-brand-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-all transform group-hover:scale-110">
+                      <div className="h-12 w-12 rounded-full bg-slate-50 text-slate-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-all transform group-hover:scale-110">
                         <ChevronRight size={24} />
                       </div>
                    </div>
                  </button>
                ))}
+
+               {/* Audio Archive Tile */}
+               <button 
+                 onClick={goToAudioCollection}
+                 className="group relative bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-brand-200 transition-all duration-300 text-left w-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
+               >
+                 <div className="flex-grow space-y-3">
+                   <div className="flex items-center gap-3">
+                      {/* CHANGED: Badge color to accent-600 (Navy) */}
+                      <span className="text-xs font-bold text-white bg-accent-600 px-2 py-1 rounded shadow-sm uppercase tracking-wider">
+                        Archive
+                      </span>
+                      <h2 className="text-xl font-bold text-slate-900 group-hover:text-brand-700 transition-colors">
+                        All Audio Resources
+                      </h2>
+                   </div>
+                   <p className="text-slate-600 line-clamp-2 leading-relaxed pr-0 sm:pr-8">
+                     Access the complete collection of audio narrations, timestamps, and external platform links for every chapter in one place.
+                   </p>
+                   
+                   <div className="flex items-center gap-4 pt-2">
+                      <div className="flex items-center gap-1.5 text-xs font-semibold text-brand-600">
+                        <Headphones size={16} />
+                        <span>Complete Collection</span>
+                      </div>
+                   </div>
+                 </div>
+
+                 <div className="flex-shrink-0 self-start sm:self-center">
+                    <div className="h-12 w-12 rounded-full bg-slate-50 text-slate-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-all transform group-hover:scale-110">
+                      <ChevronRight size={24} />
+                    </div>
+                 </div>
+               </button>
              </div>
           </div>
         )}

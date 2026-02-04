@@ -28,7 +28,7 @@ export const ReadingSection: React.FC<ReadingSectionProps> = ({ textbookUrl }) =
             href={textbookUrl} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="w-full sm:w-auto px-5 py-2.5 bg-accent-500 hover:bg-accent-600 text-white font-medium rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm shadow-accent-500/20"
+            className="w-full sm:w-auto px-5 py-2.5 bg-accent-600 hover:bg-accent-700 text-white font-medium rounded-lg transition-colors flex items-center justify-center gap-2 shadow-sm shadow-accent-600/20"
           >
             Read on OpenStax
             <ExternalLink size={16} />

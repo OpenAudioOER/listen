@@ -30,7 +30,7 @@ export const AudioSection: React.FC<AudioSectionProps> = ({ embedUrl, links, tim
         
         {/* Left Column: Player (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
-          <div className="bg-slate-900 rounded-2xl p-1 shadow-lg overflow-hidden h-[352px]">
+          <div className="bg-slate-900 rounded-2xl p-1 shadow-lg overflow-hidden">
              {/* Spotify Embed */}
              <iframe 
                 style={{ borderRadius: '12px' }} 

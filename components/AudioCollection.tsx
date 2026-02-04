@@ -15,12 +15,19 @@ export const AudioCollection: React.FC<AudioCollectionProps> = ({ chapters, book
     setExpandedId(expandedId === id ? null : id);
   };
 
-  const handleShare = () => {
-    const url = window.location.href;
-    navigator.clipboard.writeText(url).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
+  const handleShare = async () => {
+    try {
+      const url = window.location.href;
+      if (navigator.clipboard) {
+        await navigator.clipboard.writeText(url);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      } else {
+        console.warn("Clipboard API not available in this context");
+      }
+    } catch (err) {
+      console.warn("Failed to copy URL to clipboard:", err);
+    }
   };
 
   const getIconForPlatform = (platform: string) => {
