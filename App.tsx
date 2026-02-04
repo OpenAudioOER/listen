@@ -45,12 +45,16 @@ function App() {
   const [bookId, setBookId] = useState<string>(initialParams.bookId);
   const [chapterId, setChapterId] = useState<number | null>(initialParams.chapterId);
   const [view, setView] = useState<ViewMode>(initialParams.view);
-  // We use state for isEmbed to ensure it persists during navigation
   const [isEmbed, setIsEmbed] = useState<boolean>(initialParams.isEmbed);
 
   // Derive active data
   const activeBook = library[bookId] || library['am-gov-4e'];
   const activeChapter = activeBook.chapters.find(c => c.chapterNumber === chapterId);
+
+  // Attempt to resolve the image URL.
+  // We use a direct path relative to the public root. 
+  // This avoids runtime errors if 'import.meta.url' is undefined in specific environments.
+  const coverImageSrc = '/cover.png';
 
   // Listen for browser "Back" and "Forward" button clicks
   useEffect(() => {
@@ -90,7 +94,6 @@ function App() {
     setView('home');
     window.scrollTo(0, 0);
 
-    // CRITICAL FIX: Do not update URL history if we are in an iframe/embed mode.
     if (!isEmbed) {
       try {
         const params = new URLSearchParams(window.location.search);
@@ -173,18 +176,20 @@ function App() {
                <div className="w-48 sm:w-64 md:w-72 flex-shrink-0 order-1 md:order-2">
                  <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl border-4 border-white rotate-3 hover:rotate-0 transition-transform duration-500">
                    <img 
-                     src="/cover.png" 
+                     src={coverImageSrc} 
                      alt="American Government Textbook Cover" 
                      className="w-full h-full object-cover"
                      onError={(e) => {
-                       // This fallback ensures the preview looks good even without the local file.
-                       // In production, when you add 'cover.png' to the root folder, this won't run.
+                       console.warn("Cover image failed to load from:", coverImageSrc);
+                       console.info("Tip: Ensure 'cover.png' is placed in the 'public' folder of your project.");
+                       
                        const target = e.target as HTMLImageElement;
                        target.onerror = null; // Prevent infinite loop
-                       target.src = "https://images.unsplash.com/photo-1540910419868-4749459ca6c8?auto=format&fit=crop&q=80&w=1000"; // Placeholder: US Capitol
+                       // Fallback to high-quality Unsplash image to keep layout intact during preview
+                       target.src = "https://images.unsplash.com/photo-1540910419868-4749459ca6c8?auto=format&fit=crop&q=80&w=1000"; 
                      }}
                    />
-                   {/* Fallback placeholder (only visible if image fails completely) */}
+                   {/* Background placeholder if image fails to load entirely */}
                    <div className="w-full h-full bg-brand-600 flex items-center justify-center text-white p-6 text-center -z-10 absolute inset-0">
                       <span className="font-serif font-bold text-xl">American Government 4e</span>
                    </div>
@@ -201,7 +206,6 @@ function App() {
                  >
                    <div className="flex-grow space-y-3">
                      <div className="flex items-center gap-3">
-                        {/* CHANGED: Badge color to accent-600 (Navy) */}
                         <span className="text-xs font-bold text-white bg-accent-600 px-2 py-1 rounded shadow-sm">
                           CH {chapter.chapterNumber}
                         </span>
@@ -240,7 +244,6 @@ function App() {
                >
                  <div className="flex-grow space-y-3">
                    <div className="flex items-center gap-3">
-                      {/* CHANGED: Badge color to accent-600 (Navy) */}
                       <span className="text-xs font-bold text-white bg-accent-600 px-2 py-1 rounded shadow-sm uppercase tracking-wider">
                         Archive
                       </span>
