@@ -7,37 +7,74 @@ import { AudioSection } from './components/AudioSection';
 import { AudioCollection } from './components/AudioCollection';
 import { Footer } from './components/Footer';
 import { library } from './data/chapters';
-import { BookOpen, PlayCircle, ChevronRight, Headphones, Library } from 'lucide-react';
+import { BookOpen, PlayCircle, ChevronRight, Headphones } from 'lucide-react';
 
 type ViewMode = 'home' | 'chapter' | 'audio-collection';
 
+const DEFAULT_BOOK_ID = 'am-gov-4e';
+
 function App() {
-  // Helper to get parameters from URL
+  // Helper to get parameters from URL (Supports both Path and Query params)
   const getParamsFromUrl = () => {
-    if (typeof window === 'undefined') return { bookId: 'am-gov-4e', chapterId: null, isEmbed: false, view: 'home' as ViewMode };
+    if (typeof window === 'undefined') return { bookId: DEFAULT_BOOK_ID, chapterId: null, isEmbed: false, view: 'home' as ViewMode };
     try {
-      const params = new URLSearchParams(window.location.search);
-      const bookId = params.get('book') || 'am-gov-4e';
-      const chapterParam = params.get('chapter');
-      const modeParam = params.get('mode');
-      const viewParam = params.get('view');
+      const path = window.location.pathname;
+      const searchParams = new URLSearchParams(window.location.search);
+      const modeParam = searchParams.get('mode');
+      const isEmbed = modeParam === 'embed';
       
-      let chapterId = null;
-      if (chapterParam) chapterId = parseInt(chapterParam, 10);
-      
+      // Parse Path Segments: /bookId/chapterId
+      // Remove trailing slash and split
+      const segments = path.replace(/\/$/, '').split('/').filter(p => p.length > 0);
+
+      // Default values
+      let bookId = DEFAULT_BOOK_ID;
+      let chapterId: number | null = null;
       let view: ViewMode = 'home';
-      if (chapterId) view = 'chapter';
-      else if (viewParam === 'audio') view = 'audio-collection';
+
+      // ROUTING STRATEGY
+      // 1. Path-based (Primary Scheme): /book-id/chapter-id
+      if (segments.length > 0) {
+         bookId = segments[0]; // First segment is always Book ID
+         
+         const secondSegment = segments[1];
+         if (secondSegment) {
+            if (secondSegment === 'archive') {
+               view = 'audio-collection';
+            } else {
+               const parsed = parseInt(secondSegment, 10);
+               if (!isNaN(parsed)) {
+                  chapterId = parsed;
+                  view = 'chapter';
+               }
+            }
+         }
+      } 
+      // 2. Query-based (Legacy Support): ?chapter=1
+      else {
+         const qBook = searchParams.get('book');
+         const qChapter = searchParams.get('chapter');
+         const qView = searchParams.get('view');
+
+         if (qBook) bookId = qBook;
+         
+         if (qChapter) {
+            chapterId = parseInt(qChapter, 10);
+            view = 'chapter';
+         } else if (qView === 'audio') {
+            view = 'audio-collection';
+         }
+      }
       
       return { 
         bookId, 
         chapterId,
-        isEmbed: modeParam === 'embed',
+        isEmbed,
         view
       };
     } catch (e) {
       console.warn('Error reading URL parameters:', e);
-      return { bookId: 'am-gov-4e', chapterId: null, isEmbed: false, view: 'home' as ViewMode };
+      return { bookId: DEFAULT_BOOK_ID, chapterId: null, isEmbed: false, view: 'home' as ViewMode };
     }
   };
 
@@ -48,12 +85,10 @@ function App() {
   const [isEmbed, setIsEmbed] = useState<boolean>(initialParams.isEmbed);
 
   // Derive active data
-  const activeBook = library[bookId] || library['am-gov-4e'];
+  const activeBook = library[bookId] || library[DEFAULT_BOOK_ID];
   const activeChapter = activeBook.chapters.find(c => c.chapterNumber === chapterId);
 
-  // Attempt to resolve the image URL.
-  // We use a direct path relative to the public root. 
-  // This avoids runtime errors if 'import.meta.url' is undefined in specific environments.
+  // Image resolution
   const coverImageSrc = '/cover.png';
 
   // Listen for browser "Back" and "Forward" button clicks
@@ -69,7 +104,7 @@ function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  // UPDATE TITLE: Update the browser tab title based on navigation
+  // Update Page Title
   useEffect(() => {
     if (view === 'chapter' && activeChapter) {
       document.title = `${activeChapter.courseTitle}: ${activeChapter.title} | ${activeBook.title}`;
@@ -80,67 +115,52 @@ function App() {
     }
   }, [view, activeChapter, activeBook]);
 
-  // Handlers
-  const safeUpdateHistory = (url: string) => {
-    try {
-      window.history.pushState({}, '', url);
-    } catch (e) {
-      console.warn('Unable to update history state (likely in a restricted iframe):', e);
-    }
+  // Unified Navigation Handler
+  const navigate = (newBookId: string, newChapterId: number | null, newView: ViewMode) => {
+     // Update State
+     setBookId(newBookId);
+     setChapterId(newChapterId);
+     setView(newView);
+     window.scrollTo(0, 0);
+
+     // Update URL (History)
+     if (!isEmbed) {
+       try {
+         // Construct Path: /bookId/chapterId
+         let path = `/${newBookId}`;
+         if (newView === 'audio-collection') {
+             path += '/archive';
+         } else if (newView === 'chapter' && newChapterId) {
+             path += `/${newChapterId}`;
+         }
+
+         // Preserve essential query params (e.g., mode)
+         const currentSearchParams = new URLSearchParams(window.location.search);
+         const newSearchParams = new URLSearchParams();
+         if (currentSearchParams.has('mode')) {
+             newSearchParams.set('mode', currentSearchParams.get('mode')!);
+         }
+         
+         const queryString = newSearchParams.toString();
+         const finalUrl = queryString ? `${path}?${queryString}` : path;
+         
+         window.history.pushState({}, '', finalUrl);
+       } catch (e) {
+         console.warn('Unable to update history state:', e);
+       }
+     }
   };
 
   const goHome = () => {
-    setChapterId(null);
-    setView('home');
-    window.scrollTo(0, 0);
-
-    if (!isEmbed) {
-      try {
-        const params = new URLSearchParams(window.location.search);
-        params.delete('chapter');
-        params.delete('view');
-        const newUrl = `${window.location.pathname}?${params.toString()}`;
-        safeUpdateHistory(newUrl);
-      } catch (e) {
-        console.warn('Error constructing URL:', e);
-      }
-    }
+    navigate(bookId, null, 'home');
   };
 
   const selectChapter = (id: number) => {
-    setChapterId(id);
-    setView('chapter');
-    window.scrollTo(0, 0);
-
-    if (!isEmbed) {
-      try {
-        const params = new URLSearchParams(window.location.search);
-        params.set('chapter', id.toString());
-        params.delete('view');
-        const newUrl = `${window.location.pathname}?${params.toString()}`;
-        safeUpdateHistory(newUrl);
-      } catch (e) {
-         console.warn('Error constructing URL:', e);
-      }
-    }
+    navigate(bookId, id, 'chapter');
   };
 
   const goToAudioCollection = () => {
-    setChapterId(null);
-    setView('audio-collection');
-    window.scrollTo(0, 0);
-
-    if (!isEmbed) {
-      try {
-        const params = new URLSearchParams(window.location.search);
-        params.delete('chapter');
-        params.set('view', 'audio');
-        const newUrl = `${window.location.pathname}?${params.toString()}`;
-        safeUpdateHistory(newUrl);
-      } catch (e) {
-        console.warn('Error constructing URL:', e);
-      }
-    }
+    navigate(bookId, null, 'audio-collection');
   };
 
   return (
