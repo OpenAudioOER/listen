@@ -288,10 +288,17 @@ function App() {
                          alt={`${activeBook.title} Cover`}
                          className="w-full h-full object-cover"
                          onError={(e) => {
-                           console.warn("Cover image failed to load:", coverImageSrc);
                            const target = e.target as HTMLImageElement;
-                           target.onerror = null; 
-                           target.src = "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=1000"; 
+                           const absoluteUrl = `https://raw.githubusercontent.com/OpenAudioOER/listen/main/${activeBook.coverImage}`;
+                           
+                           if (!target.src.includes('raw.githubusercontent.com')) {
+                               console.warn(`Failed to load local image: ${target.src}. Trying absolute URL: ${absoluteUrl}`);
+                               target.src = absoluteUrl;
+                           } else {
+                               console.warn("Cover image failed to load:", coverImageSrc);
+                               target.onerror = null; 
+                               target.src = "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=1000"; 
+                           }
                          }}
                        />
                      </div>

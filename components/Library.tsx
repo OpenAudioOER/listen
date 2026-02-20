@@ -43,11 +43,21 @@ export const Library: React.FC<LibraryProps> = ({ books, onSelectBook }) => {
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
                      const target = e.target as HTMLImageElement;
-                     // Check if we're already trying the fallback to avoid infinite loop
-                     if (!target.src.endsWith(book.coverImage)) {
-                        target.src = book.coverImage;
-                     } else {
-                        // Fallback if both missing
+                     const absoluteWideUrl = `https://raw.githubusercontent.com/OpenAudioOER/listen/main/${book.coverImageWide}`;
+                     const absoluteSquareUrl = `https://raw.githubusercontent.com/OpenAudioOER/listen/main/${book.coverImage}`;
+                     
+                     // 1. If current src is relative (or base-prefixed) and fails, try absolute GitHub Wide URL
+                     if (!target.src.includes('raw.githubusercontent.com')) {
+                        console.warn(`Failed to load local image: ${target.src}. Trying absolute URL: ${absoluteWideUrl}`);
+                        target.src = absoluteWideUrl;
+                     } 
+                     // 2. If absolute Wide URL fails, try absolute Square URL
+                     else if (target.src === absoluteWideUrl) {
+                        console.warn(`Failed to load absolute wide image: ${absoluteWideUrl}. Trying square fallback: ${absoluteSquareUrl}`);
+                        target.src = absoluteSquareUrl;
+                     }
+                     // 3. If all fails, show placeholder
+                     else {
                         target.style.display = 'none';
                         target.parentElement!.classList.add('flex', 'items-center', 'justify-center', 'bg-slate-200');
                         target.parentElement!.innerHTML = `<span class="text-slate-400 font-serif text-lg font-bold p-8 text-center">${book.title}</span>`;
