@@ -42,11 +42,16 @@ export const Library: React.FC<LibraryProps> = ({ books, onSelectBook }) => {
                   alt={book.title}
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
-                     // Fallback if image missing
                      const target = e.target as HTMLImageElement;
-                     target.style.display = 'none';
-                     target.parentElement!.classList.add('flex', 'items-center', 'justify-center', 'bg-slate-200');
-                     target.parentElement!.innerHTML = `<span class="text-slate-400 font-serif text-lg font-bold p-8 text-center">${book.title}</span>`;
+                     // Check if we're already trying the fallback to avoid infinite loop
+                     if (!target.src.endsWith(book.coverImage)) {
+                        target.src = book.coverImage;
+                     } else {
+                        // Fallback if both missing
+                        target.style.display = 'none';
+                        target.parentElement!.classList.add('flex', 'items-center', 'justify-center', 'bg-slate-200');
+                        target.parentElement!.innerHTML = `<span class="text-slate-400 font-serif text-lg font-bold p-8 text-center">${book.title}</span>`;
+                     }
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
