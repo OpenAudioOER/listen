@@ -38,6 +38,7 @@ export interface Book {
   author: string;
   description: string;
   coverImage: string;
+  coverImageWide: string;
   theme: ThemeColors;
   chapters: ChapterData[];
 }

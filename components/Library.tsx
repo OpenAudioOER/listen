@@ -38,7 +38,7 @@ export const Library: React.FC<LibraryProps> = ({ books, onSelectBook }) => {
             >
               <div className="aspect-[4/3] bg-slate-100 relative overflow-hidden">
                 <img 
-                  src={book.coverImage} 
+                  src={book.coverImageWide} 
                   alt={book.title}
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
