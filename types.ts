@@ -20,9 +20,24 @@ export interface ChapterData {
   timestamps: Timestamp[];
 }
 
+export interface ThemeColors {
+  brand50: string;
+  brand100: string;
+  brand500: string;
+  brand600: string;
+  brand700: string;
+  brand900: string;
+  accent500: string;
+  accent600: string;
+  accent700: string;
+}
+
 export interface Book {
   id: string;
   title: string;
+  author: string;
   description: string;
+  coverImage: string;
+  theme: ThemeColors;
   chapters: ChapterData[];
 }
