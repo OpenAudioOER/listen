@@ -1,8 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 interface LandingPageProps {
   onNavigateLibrary: () => void;
   onNavigateBook: (bookId: string) => void;
+}
+
+function Counter({ target, duration = 2000, suffix = "" }: { target: number, duration?: number, suffix?: string }) {
+  const [count, setCount] = useState(0);
+  const countRef = useRef<HTMLSpanElement>(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !hasAnimated.current) {
+        hasAnimated.current = true;
+        let startTimestamp: number | null = null;
+        const step = (timestamp: number) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+          setCount(Math.floor(progress * target));
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
+        };
+        window.requestAnimationFrame(step);
+      }
+    }, { threshold: 0.1 });
+
+    if (countRef.current) {
+      observer.observe(countRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [target, duration]);
+
+  return <span ref={countRef}>{count.toLocaleString()}{suffix}</span>;
 }
 
 export function LandingPage({ onNavigateLibrary, onNavigateBook }: LandingPageProps) {
@@ -61,11 +93,11 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook }: LandingPagePr
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 pt-12">
               {[
-                { id: 'am-gov-4e', title: 'American Government', edition: 'OpenStax 4e', isNew: true, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCEZ_E4Tw8D5x25Rfp7Js4PKaDP6mCoL2vcJ2qdZvDP_KA4wAxiHluXvA-JCVNTnsSozdpXHna_e5ES0KOylw07vI4VNlj6QN0Sz6t18AMeO_wrZQgfpy-POkRDQIb3refoeoFDMLkr1PuAuH_FHgwrraBwatBXndF5C798cLa4SHnwXFNVyYwbzLUs8HLfR8r5-Sz_3c-lpPgNB-xjeDxO8IBlLm98WRefFrOuDUVMvCI7wJz_xDxFopwCjJnRNkW4pmvxPibl2h9L', color: 'text-blue-100' },
-                { id: 'intro-soc-3e', title: 'Introduction to Sociology', edition: 'OpenStax 3e', isNew: false, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCuqFLlhrSG9YOcyRJd4JFQtly-X3CGqMiCx61OXO-JyUXlWrFsrsZv1hvmfDSY_1iTjLfKtEYLdyQzjE7xDLD6WgyCeEFcnbWmnzlfWWoGlmqx724_WVaIgB__TBuj4ymie8QIkeT2Fjm-FEXVpSXuTNAlPMNVsP-S4Alatx-HWqwzCYhZ3d0Tf3Sm1dSP0bSCJi4WHNwkz7Qhd6ANNzBPzPu2cx_u4Ide64RCwuAXatNMz-mJD54hXXgIbjKB7Hy1XUXe79FQ9z9-', color: 'text-emerald-50' },
-                { id: 'us-history', title: 'US History', edition: 'OpenStax', isNew: false, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDABb7NeOdQO4RDJbgaNcQ33j9aUoUhgGhZvqi1uvXw4348__bgaYdEzEf1CYvU_4A5hztBqG7BF3CzbSnY5HvhRUkaAUe6CeGhml7-3BwjNPcUWQpel3c6ffs_C5xtGfzbqfRC7QNaUhmEJyvxMaKBJrcGr39RhsYA0Pr5SC2hBP0c71TyA_dsfAt-kQjhbWMnwSn1m0AUW9-Pe1tibbyFv2IXLSaV_q5RPW-F8azwnudTJmhrsfO_6zScKervZ9KuJwe_adoGstUR', color: 'text-fuchsia-50' },
-                { id: 'world-hist-v1', title: 'World History: To 1500', edition: 'OpenStax Vol. 1', isNew: false, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC4I-yKshf9kIqJDPDi50lKFdTIikRJamhjFRU0ko2jkNXCTE_iYyQwoECCFT9JrBu7AxsuhrWUt8Uf_DTusNt3tAfu6MkE8E6-HuXYhR56vt7CACE651WSkUwdWZjtCf8jqOvo1XV3w4vChETN70CGU7fvnuTrJtYlC-KlT-KcIeQrzWoR27WxYjRVk3vxsXXErVew2GLGHdOP3078GR3rOuPb7CVUB3wh3cfctxxgcFgrjxYYHpEbYnYi3cCKCqgKZ0QIk-PSWJUT', color: 'text-amber-50' },
-                { id: 'am-gov-3e', title: 'American Government', edition: 'OpenStax 3e', isNew: false, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBJQzqdp9VO6AF1kOsmS_ucmabKC64tlTiYoAABvuwEk8nl5YxB7TFtTjQye16cMok6gXwZCzfxT7jKfcrYRYYJ2k1kQvgocnQjyCL3SAbqbzwWnU3eZ4TtKABrAMzNVOxgn9aZfHU2UgoVQcD31n1rM87W6l9US4ySFgvnfqkrga7WuT4rwy-Wfby9gQSJErk4M-MXedptxpVjjcYo5p9t6qZHg-EulGCURUVjEJnCSzF7Cfaa9nBXj6fg22rQUE0b7E0C8aJgMSil', color: 'text-rose-50' },
+                { id: 'am-gov-4e', title: 'American Government', edition: 'OpenStax 4e', isNew: true, img: '/cover.png', color: 'text-blue-100' },
+                { id: 'intro-soc-3e', title: 'Introduction to Sociology', edition: 'OpenStax 3e', isNew: false, img: '/cover_soc.png', color: 'text-emerald-50' },
+                { id: 'us-history', title: 'US History', edition: 'OpenStax', isNew: false, img: '/cover_us_history.png', color: 'text-fuchsia-50' },
+                { id: 'world-hist-v1', title: 'World History: To 1500', edition: 'OpenStax Vol. 1', isNew: false, img: '/cover_world_hist.png', color: 'text-amber-50' },
+                { id: 'am-gov-3e', title: 'American Government', edition: 'OpenStax 3e', isNew: false, img: '/cover_am_gov_3e.png', color: 'text-rose-50' },
               ].map((book, idx) => (
                 <div key={idx} onClick={() => onNavigateBook(book.id)} className="group cursor-pointer flex flex-col gap-4 transition-transform hover:-translate-y-2">
                   <div className="w-full aspect-[4/5] bg-slate-100 rounded-2xl overflow-hidden shadow-soft group-hover:shadow-hover transition-all relative border border-slate-200">
@@ -131,22 +163,26 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook }: LandingPagePr
         <section className="bg-background-tint-cream">
           <div className="px-6 py-20 lg:px-20 max-w-[1440px] mx-auto w-full">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="flex flex-col justify-center gap-4 rounded-3xl p-10 bg-white shadow-sm border border-orange-100 text-center md:text-left relative overflow-hidden">
-                <div className="absolute -right-10 -top-10 w-40 h-40 bg-orange-100 rounded-full opacity-50"></div>
+              <div className="flex flex-col justify-center gap-4 rounded-3xl p-10 bg-white shadow-sm border border-orange-100 text-center md:text-left relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-orange-200 group">
+                <div className="absolute -right-10 -top-10 w-40 h-40 bg-orange-100 rounded-full opacity-50 transition-transform duration-500 group-hover:scale-110"></div>
                 <div className="flex items-center justify-center md:justify-start gap-3 mb-2 relative z-10">
                   <span className="material-symbols-outlined text-orange-500 text-3xl">play_circle</span>
                   <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">Total Streams</p>
                 </div>
-                <p className="text-slate-900 tracking-tight text-6xl lg:text-7xl font-bold font-serif-polished leading-tight relative z-10">680,000<span className="text-orange-500">+</span></p>
+                <p className="text-slate-900 tracking-tight text-6xl lg:text-7xl font-bold font-serif-polished leading-tight relative z-10">
+                  <Counter target={680000} suffix="+" />
+                </p>
                 <p className="text-slate-600 text-lg relative z-10">Downloads and Streams as of February 2026</p>
               </div>
-              <div className="flex flex-col justify-center gap-4 rounded-3xl p-10 bg-white shadow-sm border border-blue-100 text-center md:text-left relative overflow-hidden">
-                <div className="absolute -right-10 -top-10 w-40 h-40 bg-blue-100 rounded-full opacity-50"></div>
+              <div className="flex flex-col justify-center gap-4 rounded-3xl p-10 bg-white shadow-sm border border-blue-100 text-center md:text-left relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-blue-200 group">
+                <div className="absolute -right-10 -top-10 w-40 h-40 bg-blue-100 rounded-full opacity-50 transition-transform duration-500 group-hover:scale-110"></div>
                 <div className="flex items-center justify-center md:justify-start gap-3 mb-2 relative z-10">
                   <span className="material-symbols-outlined text-primary text-3xl">schedule</span>
                   <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">Streaming Time</p>
                 </div>
-                <p className="text-slate-900 tracking-tight text-6xl lg:text-7xl font-bold font-serif-polished leading-tight relative z-10">22<span className="text-primary">+</span> Years</p>
+                <p className="text-slate-900 tracking-tight text-6xl lg:text-7xl font-bold font-serif-polished leading-tight relative z-10">
+                  <Counter target={22} suffix="+" /> Years
+                </p>
                 <p className="text-slate-600 text-lg relative z-10">Of cumulative listening across platforms</p>
               </div>
             </div>
@@ -211,7 +247,7 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook }: LandingPagePr
               <p className="text-slate-600 text-lg">Join thousands of students who are improving their grades and saving time with our accessible audio resources.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="flex flex-col gap-6 p-8 rounded-3xl bg-white border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_15px_40px_rgb(84,134,237,0.15)] hover:border-primary/20 transition-all duration-300 group">
+              <div className="flex flex-col gap-6 p-8 rounded-3xl bg-white border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl hover:border-primary/20 transition-all duration-300 hover:-translate-y-2 group">
                 <div className="flex gap-1 text-yellow-400">
                   <span className="material-symbols-outlined text-xl fill-current">star</span>
                   <span className="material-symbols-outlined text-xl fill-current">star</span>
@@ -232,7 +268,7 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook }: LandingPagePr
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col gap-6 p-8 rounded-3xl bg-primary text-white shadow-xl shadow-primary/20 transform md:-translate-y-6 md:scale-105 z-10 relative overflow-hidden">
+              <div className="flex flex-col gap-6 p-8 rounded-3xl bg-primary text-white shadow-xl shadow-primary/20 transform md:-translate-y-6 md:scale-105 z-10 relative overflow-hidden transition-all duration-300 hover:-translate-y-8">
                 <div className="absolute -right-12 -bottom-12 w-48 h-48 bg-white/10 rounded-full"></div>
                 <div className="flex gap-1 text-yellow-300 relative z-10">
                   <span className="material-symbols-outlined text-xl fill-current">star</span>
@@ -254,7 +290,7 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook }: LandingPagePr
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col gap-6 p-8 rounded-3xl bg-white border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_15px_40px_rgb(84,134,237,0.15)] hover:border-primary/20 transition-all duration-300 group">
+              <div className="flex flex-col gap-6 p-8 rounded-3xl bg-white border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-xl hover:border-primary/20 transition-all duration-300 hover:-translate-y-2 group">
                 <div className="flex gap-1 text-yellow-400">
                   <span className="material-symbols-outlined text-xl fill-current">star</span>
                   <span className="material-symbols-outlined text-xl fill-current">star</span>
