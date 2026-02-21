@@ -41,6 +41,15 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook }: LandingPagePr
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isMenuOpen]);
 
   useEffect(() => {
     const handleFsChange = () => {
@@ -66,6 +75,55 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook }: LandingPagePr
 
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root bg-background-light text-slate-800 antialiased overflow-x-hidden">
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`fixed inset-0 z-[45] bg-white/95 backdrop-blur-xl transition-all duration-300 lg:hidden ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
+      >
+        <div className="flex flex-col items-center justify-center h-full gap-8">
+          <button
+            onClick={() => {
+              setIsMenuOpen(false);
+              onNavigateLibrary();
+            }}
+            className="text-2xl font-serif text-slate-900 hover:text-primary transition-colors"
+          >
+            Listen
+          </button>
+          <a
+            href="#instructors"
+            onClick={() => setIsMenuOpen(false)}
+            className="text-2xl font-serif text-slate-900 hover:text-primary transition-colors"
+          >
+            Instructor Resources
+          </a>
+          <a
+            href="#"
+            onClick={() => setIsMenuOpen(false)}
+            className="text-2xl font-serif text-slate-900 hover:text-primary transition-colors"
+          >
+            Recognition
+          </a>
+          <a
+            href="#"
+            onClick={() => setIsMenuOpen(false)}
+            className="text-2xl font-serif text-slate-900 hover:text-primary transition-colors"
+          >
+            About
+          </a>
+
+          <div className="mt-8 pt-8 border-t border-slate-100 flex flex-col items-center gap-4">
+            <p className="text-slate-400 text-sm">Get in touch</p>
+            <a
+              className="text-slate-400 hover:text-primary transition-colors bg-white h-12 w-12 rounded-full shadow-sm hover:shadow-md border border-slate-100 flex items-center justify-center"
+              href="mailto:audiobook@fastmail.com?subject=OpenAudio%20Website%20Inquiry"
+              title="Email us"
+            >
+              <span className="material-symbols-outlined text-2xl">mail</span>
+            </a>
+          </div>
+        </div>
+      </div>
       <header className="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-blue-100 bg-white/95 backdrop-blur-md px-6 py-4 lg:px-20 shadow-sm">
         <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -87,8 +145,13 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook }: LandingPagePr
               <a className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">About</a>
             </nav>
           </div>
-          <button className="lg:hidden text-slate-700 p-2 hover:bg-slate-50 rounded-lg">
-            <span className="material-symbols-outlined">menu</span>
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden text-slate-700 p-2 hover:bg-slate-50 rounded-lg z-50 relative"
+          >
+            <span className="material-symbols-outlined">
+              {isMenuOpen ? 'close' : 'menu'}
+            </span>
           </button>
         </div>
       </header>
