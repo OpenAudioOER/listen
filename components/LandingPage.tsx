@@ -41,9 +41,12 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook }: LandingPagePr
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleExpandVideo = () => {
-    if (videoRef.current) {
-      if (videoRef.current.requestFullscreen) {
-        videoRef.current.requestFullscreen();
+    const video = videoRef.current as any;
+    if (video) {
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      } else if (video.webkitEnterFullscreen) {
+        video.webkitEnterFullscreen();
       }
     }
   };
