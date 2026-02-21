@@ -6,7 +6,7 @@ interface LandingPageProps {
   onNavigateRecognition: () => void;
 }
 
-function Counter({ target, duration = 2000, suffix = "" }: { target: number, duration?: number, suffix?: string }) {
+function Counter({ target, duration = 2000, suffix = "", suffixClassName = "" }: { target: number, duration?: number, suffix?: string, suffixClassName?: string }) {
   const [count, setCount] = useState(0);
   const countRef = useRef<HTMLSpanElement>(null);
   const hasAnimated = useRef(false);
@@ -35,7 +35,12 @@ function Counter({ target, duration = 2000, suffix = "" }: { target: number, dur
     return () => observer.disconnect();
   }, [target, duration]);
 
-  return <span ref={countRef}>{count.toLocaleString()}{suffix}</span>;
+  return (
+    <span ref={countRef}>
+      {count.toLocaleString()}
+      {suffix && <span className={suffixClassName}>{suffix}</span>}
+    </span>
+  );
 }
 
 export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecognition }: LandingPageProps) {
@@ -263,7 +268,7 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
                   <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">Total Streams</p>
                 </div>
                 <p className="text-slate-900 tracking-tight text-6xl lg:text-7xl font-bold font-serif-polished leading-tight relative z-10">
-                  <Counter target={680000} suffix="+" />
+                  <Counter target={680000} suffix="+" suffixClassName="text-orange-500" />
                 </p>
                 <p className="text-slate-600 text-lg relative z-10">Downloads and Streams as of February 2026</p>
               </div>
@@ -274,7 +279,7 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
                   <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">Streaming Time</p>
                 </div>
                 <p className="text-slate-900 tracking-tight text-6xl lg:text-7xl font-bold font-serif-polished leading-tight relative z-10">
-                  <Counter target={22} suffix="+" /> Years
+                  <Counter target={22} suffix="+" suffixClassName="text-primary" /> Years
                 </p>
                 <p className="text-slate-600 text-lg relative z-10">Of cumulative listening across platforms</p>
               </div>
