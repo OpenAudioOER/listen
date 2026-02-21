@@ -39,13 +39,26 @@ function Counter({ target, duration = 2000, suffix = "" }: { target: number, dur
 
 export function LandingPage({ onNavigateLibrary, onNavigateBook }: LandingPageProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
-  const handleExpandVideo = () => {
-    const video = videoRef.current as any;
-    if (video) {
-      if (video.requestFullscreen) {
-        video.requestFullscreen();
-      } else if (video.webkitEnterFullscreen) {
+  useEffect(() => {
+    const handleFsChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    document.addEventListener('fullscreenchange', handleFsChange);
+    return () => document.removeEventListener('fullscreenchange', handleFsChange);
+  }, []);
+
+  const handleToggleFullscreen = () => {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      const container = containerRef.current;
+      const video = videoRef.current as any;
+      if (container && container.requestFullscreen) {
+        container.requestFullscreen();
+      } else if (video && video.webkitEnterFullscreen) {
         video.webkitEnterFullscreen();
       }
     }
@@ -238,10 +251,13 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook }: LandingPagePr
                 </div>
               </div>
               <div className="flex-1 w-full">
-                <div className="w-full aspect-[1814/1080] rounded-2xl overflow-hidden shadow-2xl shadow-purple-900/10 bg-slate-900 relative group border-4 border-white">
+                <div
+                  ref={containerRef}
+                  className={`w-full ${isFullscreen ? 'h-full flex items-center justify-center bg-black' : 'aspect-[1814/1080] rounded-2xl border-4 border-white shadow-2xl shadow-purple-900/10'} overflow-hidden bg-slate-900 relative group transition-all duration-300`}
+                >
                   <video
                     ref={videoRef}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className={`w-full h-full object-cover transition-transform duration-500 ${!isFullscreen && 'group-hover:scale-105'}`}
                     autoPlay
                     loop
                     muted
@@ -250,11 +266,13 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook }: LandingPagePr
                     title="Canvas LMS interface with OpenAudio player embedded"
                   />
                   <button
-                    onClick={handleExpandVideo}
-                    className="absolute bottom-4 right-4 z-20 h-10 w-10 bg-slate-900/40 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-slate-900/60 transition-all opacity-0 group-hover:opacity-100 shadow-xl"
-                    title="Expand Video"
+                    onClick={handleToggleFullscreen}
+                    className={`absolute bottom-4 right-4 z-20 h-10 w-10 bg-slate-900/40 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center text-white hover:bg-slate-900/60 transition-all ${isFullscreen ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} shadow-xl`}
+                    title={isFullscreen ? "Exit Fullscreen" : "Expand Video"}
                   >
-                    <span className="material-symbols-outlined text-xl">open_in_full</span>
+                    <span className="material-symbols-outlined text-xl">
+                      {isFullscreen ? 'close_fullscreen' : 'open_in_full'}
+                    </span>
                   </button>
                 </div>
               </div>
