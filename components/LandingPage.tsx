@@ -244,10 +244,13 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook }: LandingPagePr
                     <span className="text-slate-800 font-medium text-lg">Free forever for all instructors</span>
                   </li>
                 </ul>
-                <div className="pt-2">
-                  <span className="text-primary font-bold font-sans text-lg">
-                    Search "OpenAudio" in the Canvas Commons
-                  </span>
+                <div className="pt-4">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/5 border border-primary/10">
+                    <span className="material-symbols-outlined text-primary text-sm">info</span>
+                    <span className="text-slate-700 text-sm font-semibold tracking-tight">
+                      Search <span className="text-primary font-bold">“OpenAudio”</span> in the Canvas Commons
+                    </span>
+                  </div>
                 </div>
               </div>
               <div className="flex-1 w-full">
