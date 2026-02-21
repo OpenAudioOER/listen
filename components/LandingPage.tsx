@@ -93,26 +93,22 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook }: LandingPagePr
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 pt-12">
               {[
-                { id: 'am-gov-4e', title: 'American Government', edition: 'OpenStax 4e', isNew: true, img: '/cover.png', color: 'text-blue-100' },
-                { id: 'intro-soc-3e', title: 'Introduction to Sociology', edition: 'OpenStax 3e', isNew: false, img: '/cover_soc.png', color: 'text-emerald-50' },
-                { id: 'us-history', title: 'US History', edition: 'OpenStax', isNew: false, img: '/cover_us_history.png', color: 'text-fuchsia-50' },
-                { id: 'world-hist-v1', title: 'World History: To 1500', edition: 'OpenStax Vol. 1', isNew: false, img: '/cover_world_hist.png', color: 'text-amber-50' },
-                { id: 'am-gov-3e', title: 'American Government', edition: 'OpenStax 3e', isNew: false, img: '/cover_am_gov_3e.png', color: 'text-rose-50' },
+                { id: 'am-gov-4e', title: 'American Government', edition: 'OpenStax 4e', isNew: true, img: '/cover.png', color: '#cf013d' },
+                { id: 'intro-soc-3e', title: 'Introduction to Sociology', edition: 'OpenStax 3e', isNew: false, img: '/cover_soc.png', color: '#273a7a' },
+                { id: 'us-history', title: 'US History', edition: 'OpenStax', isNew: false, img: '/cover_us_history.png', color: '#253472' },
+                { id: 'world-hist-v1', title: 'World History: To 1500', edition: 'OpenStax Vol. 1', isNew: false, img: '/cover_world_hist.png', color: '#20856d' },
+                { id: 'am-gov-3e', title: 'American Government', edition: 'OpenStax 3e', isNew: false, img: '/cover_am_gov_3e.png', color: '#009ec8' },
               ].map((book, idx) => (
-                <div key={idx} onClick={() => onNavigateBook(book.id)} className="group cursor-pointer flex flex-col gap-4 transition-transform hover:-translate-y-2">
-                  <div className="w-full aspect-[4/5] bg-slate-100 rounded-2xl overflow-hidden shadow-soft group-hover:shadow-hover transition-all relative border border-slate-200">
-                    <div className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style={{ backgroundImage: `url('${book.img}')` }}>
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent"></div>
-                    </div>
-                    <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
-                      {book.isNew && (
-                        <div className="z-10 bg-white/20 backdrop-blur-md w-fit px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-auto self-start">New</div>
-                      )}
-                      <div className="z-10">
-                        <h3 className="font-serif-polished text-2xl font-bold leading-tight mb-1 text-white">{book.title}</h3>
-                        <p className={`${book.color} text-sm font-medium`}>{book.edition}</p>
-                      </div>
-                    </div>
+                <div key={idx} onClick={() => onNavigateBook(book.id)} className="group cursor-pointer flex flex-col bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-soft hover:shadow-hover transition-all duration-300 hover:-translate-y-2">
+                  <div className="w-full aspect-square overflow-hidden relative border-b border-slate-100 bg-slate-50">
+                    <div className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110" style={{ backgroundImage: `url('${book.img}')` }}></div>
+                    {book.isNew && (
+                      <div className="absolute top-4 left-4 z-10 bg-primary/95 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-white shadow-sm">New</div>
+                    )}
+                  </div>
+                  <div className="p-5 flex flex-col gap-1.5" style={{ backgroundColor: book.color }}>
+                    <h3 className="font-serif-polished text-xl font-bold leading-tight text-white line-clamp-2">{book.title}</h3>
+                    <p className="text-white/80 text-xs font-bold uppercase tracking-wider">{book.edition}</p>
                   </div>
                 </div>
               ))}
