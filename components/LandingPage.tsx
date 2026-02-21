@@ -55,6 +55,9 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
     } else {
       document.body.style.overflow = 'unset';
     }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
   }, [isMenuOpen]);
 
   useEffect(() => {
