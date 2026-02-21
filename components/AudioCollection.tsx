@@ -42,42 +42,42 @@ export const AudioCollection: React.FC<AudioCollectionProps> = ({ chapters, book
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="text-center mb-12">
-         <div className="flex items-center justify-center gap-2 mb-4">
-            <span className="inline-block px-3 py-1 bg-brand-50 text-brand-600 rounded-full text-xs font-bold uppercase tracking-wider border border-brand-100">
-              Complete Archive
-            </span>
-         </div>
-         
-         <div className="flex flex-col items-center justify-center relative">
-            <h1 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900 mb-4 leading-tight">
-              {bookTitle}:<br />Audio Resources
-            </h1>
-            
-            <button 
-              onClick={handleShare}
-              className="mt-2 inline-flex items-center gap-2 px-3 py-1.5 text-sm text-slate-400 hover:text-brand-600 hover:bg-brand-50 rounded-full transition-all"
-              title="Copy link to this collection"
-            >
-              {copied ? <Check size={16} className="text-green-500" /> : <Share2 size={16} />}
-              <span className="font-medium">{copied ? 'Copied!' : 'Share Collection'}</span>
-            </button>
-         </div>
+        <div className="flex items-center justify-center gap-2 mb-4">
+          <span className="inline-block px-3 py-1 bg-brand-50 text-brand-600 rounded-full text-xs font-bold uppercase tracking-wider border border-brand-100">
+            Complete Archive
+          </span>
+        </div>
 
-         <p className="text-lg text-slate-600 max-w-2xl mx-auto mt-4">
-           Access the full collection of audio narrations, timestamps, and external platform links for every chapter.
-         </p>
+        <div className="flex flex-col items-center justify-center relative">
+          <h1 className="text-4xl lg:text-5xl font-black hero-title text-slate-900 mb-4 leading-tight font-serif">
+            {bookTitle}:<br />Audio Resources
+          </h1>
+
+          <button
+            onClick={handleShare}
+            className="mt-2 inline-flex items-center gap-2 px-3 py-1.5 text-sm text-slate-400 hover:text-brand-600 hover:bg-brand-50 rounded-full transition-all"
+            title="Copy link to this collection"
+          >
+            {copied ? <Check size={16} className="text-green-500" /> : <Share2 size={16} />}
+            <span className="font-medium">{copied ? 'Copied!' : 'Share Collection'}</span>
+          </button>
+        </div>
+
+        <p className="text-lg text-slate-600 max-w-2xl mx-auto mt-4">
+          Access the full collection of audio narrations, timestamps, and external platform links for every chapter.
+        </p>
       </div>
-      
+
       <div className="space-y-4">
         {chapters.map((chapter) => {
           const isExpanded = expandedId === chapter.chapterNumber;
-          
+
           return (
-            <div 
-              key={chapter.chapterNumber} 
+            <div
+              key={chapter.chapterNumber}
               className={`bg-white rounded-xl border transition-all duration-300 overflow-hidden ${isExpanded ? 'border-brand-200 shadow-lg ring-1 ring-brand-100' : 'border-slate-200 shadow-sm hover:border-brand-200'}`}
             >
-              <button 
+              <button
                 onClick={() => toggleChapter(chapter.chapterNumber)}
                 className="w-full px-6 py-5 flex items-center justify-between bg-white text-left focus:outline-none"
               >
@@ -98,24 +98,24 @@ export const AudioCollection: React.FC<AudioCollectionProps> = ({ chapters, book
                   <ChevronDown size={20} />
                 </div>
               </button>
-              
-              <div 
+
+              <div
                 className={`transition-all duration-500 ease-in-out ${isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}
               >
                 <div className="border-t border-slate-100 bg-slate-50 p-4 sm:p-6 space-y-6">
-                  
+
                   {/* Embedded Player */}
                   <div className="bg-slate-900 rounded-xl overflow-hidden shadow-md">
-                    <iframe 
-                        style={{ borderRadius: '12px' }} 
-                        src={chapter.audioEmbedUrl} 
-                        width="100%" 
-                        height="152" 
-                        frameBorder="0" 
-                        allowFullScreen={false} 
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                        loading="lazy"
-                        title={`Chapter ${chapter.chapterNumber} Audio`}
+                    <iframe
+                      style={{ borderRadius: '12px' }}
+                      src={chapter.audioEmbedUrl}
+                      width="100%"
+                      height="152"
+                      frameBorder="0"
+                      allowFullScreen={false}
+                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                      loading="lazy"
+                      title={`Chapter ${chapter.chapterNumber} Audio`}
                     ></iframe>
                   </div>
 
@@ -125,7 +125,7 @@ export const AudioCollection: React.FC<AudioCollectionProps> = ({ chapters, book
                       <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Listen on Platforms</h4>
                       <div className="space-y-2">
                         {chapter.resourceLinks.map((link, idx) => (
-                          <a 
+                          <a
                             key={idx}
                             href={link.url}
                             target="_blank"
@@ -145,18 +145,18 @@ export const AudioCollection: React.FC<AudioCollectionProps> = ({ chapters, book
                     {/* Timestamps */}
                     <div>
                       <div className="flex items-center gap-2 mb-3 text-slate-400">
-                         <Headphones size={16} />
-                         <h4 className="text-xs font-bold uppercase tracking-wider">Audio Timestamps</h4>
+                        <Headphones size={16} />
+                        <h4 className="text-xs font-bold uppercase tracking-wider">Audio Timestamps</h4>
                       </div>
                       <div className="bg-white rounded-lg border border-slate-200 overflow-hidden">
                         <div className="divide-y divide-slate-100">
                           {chapter.timestamps.map((ts, idx) => (
                             <div key={idx} className="flex items-start gap-3 px-3 py-2 text-sm hover:bg-slate-50">
-                                <div className="flex items-center gap-1.5 flex-shrink-0 text-brand-600 font-mono text-xs bg-brand-50 px-1.5 py-0.5 rounded border border-brand-100 mt-0.5">
-                                    <Clock size={10} />
-                                    <span>{ts.time}</span>
-                                </div>
-                                <span className="text-slate-600 leading-snug">{ts.label}</span>
+                              <div className="flex items-center gap-1.5 flex-shrink-0 text-brand-600 font-mono text-xs bg-brand-50 px-1.5 py-0.5 rounded border border-brand-100 mt-0.5">
+                                <Clock size={10} />
+                                <span>{ts.time}</span>
+                              </div>
+                              <span className="text-slate-600 leading-snug">{ts.label}</span>
                             </div>
                           ))}
                         </div>

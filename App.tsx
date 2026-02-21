@@ -7,12 +7,13 @@ import { AudioSection } from './components/AudioSection';
 import { AudioCollection } from './components/AudioCollection';
 import { Library } from './components/Library';
 import { LandingPage } from './components/LandingPage';
+import { Recognition } from './components/Recognition';
 import { Footer } from './components/Footer';
 import { SEO } from './components/SEO';
 import { library } from './data/chapters';
 import { BookOpen, PlayCircle, ChevronRight, Headphones } from 'lucide-react';
 
-type ViewMode = 'landing' | 'library' | 'home' | 'chapter' | 'audio-collection';
+type ViewMode = 'landing' | 'library' | 'home' | 'chapter' | 'audio-collection' | 'recognition';
 
 // Legacy default for backward compatibility with ?chapter=X links
 const DEFAULT_LEGACY_BOOK = 'am-gov-4e';
@@ -40,6 +41,7 @@ function App() {
 
         if (chapterId) view = 'chapter';
         else if (qView === 'audio') view = 'audio-collection';
+        else if (qView === 'recognition') view = 'recognition';
 
         return { bookId, chapterId, isEmbed, view };
       }
@@ -56,6 +58,10 @@ function App() {
 
       if (bookId === 'library') {
         return { bookId: null, chapterId: null, isEmbed, view: 'library' };
+      }
+
+      if (bookId === 'recognition') {
+        return { bookId: null, chapterId: null, isEmbed, view: 'recognition' };
       }
 
       let chapterId: number | null = null;
@@ -149,6 +155,13 @@ function App() {
       };
     }
 
+    if (view === 'recognition') {
+      return {
+        title: 'Recognition & Awards | OpenAudio',
+        description: 'Highlighting our impact in innovation, accessibility, and open education through awards and grants.'
+      };
+    }
+
     if (activeBook) {
       if (view === 'chapter' && activeChapter) {
         return {
@@ -197,6 +210,8 @@ function App() {
           path = '/';
         } else if (newView === 'library') {
           path = '/library';
+        } else if (newView === 'recognition') {
+          path = '/recognition';
         } else if (newBookId) {
           path = `/${newBookId}`;
           if (newView === 'audio-collection') {
@@ -239,6 +254,10 @@ function App() {
     navigate(null, null, 'landing');
   };
 
+  const goRecognition = () => {
+    navigate(null, null, 'recognition');
+  };
+
   const selectChapter = (id: number) => {
     if (activeBook) {
       navigate(activeBook.id, id, 'chapter');
@@ -262,7 +281,9 @@ function App() {
       <SEO title={seoData.title} description={seoData.description} />
 
       {view === 'landing' ? (
-        <LandingPage onNavigateLibrary={goLibrary} onNavigateBook={selectBook} />
+        <LandingPage onNavigateLibrary={goLibrary} onNavigateBook={selectBook} onNavigateRecognition={goRecognition} />
+      ) : view === 'recognition' ? (
+        <Recognition onNavigateHome={goLanding} onNavigateLibrary={goLibrary} />
       ) : view === 'library' || !activeBook ? (
         <Library books={Object.values(library)} onSelectBook={selectBook} onNavigateHome={goLanding} />
       ) : (

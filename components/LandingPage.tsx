@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 interface LandingPageProps {
   onNavigateLibrary: () => void;
   onNavigateBook: (bookId: string) => void;
+  onNavigateRecognition: () => void;
 }
 
 function Counter({ target, duration = 2000, suffix = "" }: { target: number, duration?: number, suffix?: string }) {
@@ -37,7 +38,7 @@ function Counter({ target, duration = 2000, suffix = "" }: { target: number, dur
   return <span ref={countRef}>{count.toLocaleString()}{suffix}</span>;
 }
 
-export function LandingPage({ onNavigateLibrary, onNavigateBook }: LandingPageProps) {
+export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecognition }: LandingPageProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -97,13 +98,15 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook }: LandingPagePr
           >
             Instructor Resources
           </a>
-          <a
-            href="#"
-            onClick={() => setIsMenuOpen(false)}
-            className="text-2xl font-serif text-slate-900 hover:text-primary transition-colors"
+          <button
+            onClick={() => {
+              setIsMenuOpen(false);
+              onNavigateRecognition();
+            }}
+            className="text-2xl font-serif text-slate-900 hover:text-primary transition-colors font-bold"
           >
             Recognition
-          </a>
+          </button>
           <a
             href="#"
             onClick={() => setIsMenuOpen(false)}
@@ -141,7 +144,12 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook }: LandingPagePr
                 Listen
               </button>
               <a className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#instructors">Instructor Resources</a>
-              <a className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Recognition</a>
+              <button
+                onClick={onNavigateRecognition}
+                className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal"
+              >
+                Recognition
+              </button>
               <a className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">About</a>
             </nav>
           </div>
@@ -182,11 +190,11 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook }: LandingPagePr
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 pt-12">
               {[
-                { id: 'am-gov-4e', title: 'American Government', edition: 'OpenStax 4e', isNew: true, img: '/cover.png', color: '#c60033' },
-                { id: 'intro-soc-3e', title: 'Introduction to Sociology', edition: 'OpenStax 3e', isNew: false, img: '/cover_soc.png', color: '#1e3366' },
-                { id: 'us-history', title: 'US History', edition: 'OpenStax', isNew: false, img: '/cover_us_history.png', color: '#212e66' },
-                { id: 'world-hist-v1', title: 'World History: To 1500', edition: 'OpenStax Vol. 1', isNew: false, img: '/cover_world_hist.png', color: '#29a078' },
-                { id: 'am-gov-3e', title: 'American Government', edition: 'OpenStax 3e', isNew: false, img: '/cover_am_gov_3e.png', color: '#00c0dd' },
+                { id: 'am-gov-4e', title: 'American Government', edition: 'OpenStax 4e', isNew: true, img: '/cover.webp', color: '#c60033' },
+                { id: 'intro-soc-3e', title: 'Introduction to Sociology', edition: 'OpenStax 3e', isNew: false, img: '/cover_soc.webp', color: '#1e3366' },
+                { id: 'us-history', title: 'US History', edition: 'OpenStax', isNew: false, img: '/cover_us_history.webp', color: '#212e66' },
+                { id: 'world-hist-v1', title: 'World History: To 1500', edition: 'OpenStax Vol. 1', isNew: false, img: '/cover_world_hist.webp', color: '#29a078' },
+                { id: 'am-gov-3e', title: 'American Government', edition: 'OpenStax 3e', isNew: false, img: '/cover_am_gov_3e.webp', color: '#00c0dd' },
               ].map((book, idx) => (
                 <div key={idx} onClick={() => onNavigateBook(book.id)} className="group cursor-pointer flex flex-col rounded-2xl overflow-hidden border border-slate-200 shadow-soft hover:shadow-hover transition-all duration-300 hover:-translate-y-2">
                   <div className="w-full aspect-square overflow-hidden relative" style={{ backgroundColor: book.color }}>
@@ -366,7 +374,7 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook }: LandingPagePr
                 </p>
                 <div className="flex items-center gap-4 mt-auto pt-4 border-t border-slate-50">
                   <div className="h-12 w-12 rounded-full bg-slate-200 overflow-hidden ring-2 ring-white shadow-sm">
-                    <div className="w-full h-full bg-center bg-cover" data-alt="Avatar of Professor" style={{ backgroundImage: "url('/avatar1.png')" }}></div>
+                    <div className="w-full h-full bg-center bg-cover" data-alt="Avatar of Professor" style={{ backgroundImage: "url('/avatar1.webp')" }}></div>
                   </div>
                   <div>
                     <p className="text-slate-900 font-bold text-sm">Sociology Professor</p>
@@ -388,7 +396,7 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook }: LandingPagePr
                 </p>
                 <div className="flex items-center gap-4 mt-auto pt-4 border-t border-white/20 relative z-10">
                   <div className="h-12 w-12 rounded-full bg-white/20 overflow-hidden ring-2 ring-white/30 shadow-sm">
-                    <div className="w-full h-full bg-center bg-cover" data-alt="Avatar of student 1" style={{ backgroundImage: "url('/avatar3.png')" }}></div>
+                    <div className="w-full h-full bg-center bg-cover" data-alt="Avatar of student 1" style={{ backgroundImage: "url('/avatar3.webp')" }}></div>
                   </div>
                   <div>
                     <p className="text-white font-bold text-sm">Sociology Student</p>
@@ -409,7 +417,7 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook }: LandingPagePr
                 </p>
                 <div className="flex items-center gap-4 mt-auto pt-4 border-t border-slate-50">
                   <div className="h-12 w-12 rounded-full bg-slate-200 overflow-hidden ring-2 ring-white shadow-sm">
-                    <div className="w-full h-full bg-center bg-cover" data-alt="Avatar of student 2" style={{ backgroundImage: "url('/avatar2.png')" }}></div>
+                    <div className="w-full h-full bg-center bg-cover" data-alt="Avatar of student 2" style={{ backgroundImage: "url('/avatar2.webp')" }}></div>
                   </div>
                   <div>
                     <p className="text-slate-900 font-bold text-sm">Political Science Student</p>

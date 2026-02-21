@@ -78,8 +78,8 @@ export const library: Record<string, Book> = {
     title: 'American Government 4e',
     author: 'Glen Krutz, Sylvie Waskiewicz',
     description: 'Explore the foundations of U.S. politics and government with comprehensive audio narrations for every chapter.',
-    coverImage: '/cover.png',
-    coverImageWide: '/cover-wide.png',
+    coverImage: '/cover.webp',
+    coverImageWide: '/cover-wide.webp',
     theme: amGovTheme,
     chapters: amGovChapters
   },
@@ -88,8 +88,8 @@ export const library: Record<string, Book> = {
     title: 'Introduction to Sociology 3e',
     author: 'Tonja R. Conerly, Kathleen Holmes, Asha Lal Tamang',
     description: 'Dive into the study of society, social behavior, and human interaction, enhanced with accessible audio for on-the-go learning.',
-    coverImage: '/cover_soc.png',
-    coverImageWide: '/cover_soc-wide.png',
+    coverImage: '/cover_soc.webp',
+    coverImageWide: '/cover_soc-wide.webp',
     theme: socTheme,
     chapters: introSocChapters
   },
@@ -98,8 +98,8 @@ export const library: Record<string, Book> = {
     title: 'U.S. History',
     author: 'P. Scott Corbett, Volker Janssen, John M. Lund',
     description: 'Journey through the pivotal events and figures that shaped the nation, featuring engaging audio narrations to bring history to life.',
-    coverImage: '/cover_us_history.png',
-    coverImageWide: '/cover_us_history-wide.png',
+    coverImage: '/cover_us_history.webp',
+    coverImageWide: '/cover_us_history-wide.webp',
     theme: usHistoryTheme,
     chapters: usHistoryChapters
   },
@@ -108,8 +108,8 @@ export const library: Record<string, Book> = {
     title: 'World History, Volume 1: to 1500',
     author: 'Ann Kordas, Ryan J. Lynch, Brooke Nelson',
     description: 'Discover the diverse civilizations and global connections of the ancient and medieval world, supported by full audio chapter guides.',
-    coverImage: '/cover_world_hist.png',
-    coverImageWide: '/cover_world_hist-wide.png',
+    coverImage: '/cover_world_hist.webp',
+    coverImageWide: '/cover_world_hist-wide.webp',
     theme: worldHistTheme,
     chapters: worldHistChapters
   },
@@ -118,8 +118,8 @@ export const library: Record<string, Book> = {
     title: 'American Government 3e',
     author: 'Glen Krutz, Sylvie Waskiewicz',
     description: 'Master the core concepts of American democracy and political systems with clear, professional audio narrations.',
-    coverImage: '/cover_am_gov_3e.png',
-    coverImageWide: '/cover_am_gov_3e-wide.png',
+    coverImage: '/cover_am_gov_3e.webp',
+    coverImageWide: '/cover_am_gov_3e-wide.webp',
     theme: amGov3eTheme,
     chapters: amGov3eChapters
   }
