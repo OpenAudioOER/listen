@@ -49,8 +49,10 @@ export const Library: React.FC<LibraryProps> = ({ books, onSelectBook, onNavigat
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
-                    const absoluteWideUrl = `https://raw.githubusercontent.com/OpenAudioOER/listen/main/${book.coverImageWide}`;
-                    const absoluteSquareUrl = `https://raw.githubusercontent.com/OpenAudioOER/listen/main/${book.coverImage}`;
+                    const cleanWidePath = book.coverImageWide.startsWith('/') ? book.coverImageWide.substring(1) : book.coverImageWide;
+                    const cleanSquarePath = book.coverImage.startsWith('/') ? book.coverImage.substring(1) : book.coverImage;
+                    const absoluteWideUrl = `https://raw.githubusercontent.com/OpenAudioOER/listen/main/${cleanWidePath}`;
+                    const absoluteSquareUrl = `https://raw.githubusercontent.com/OpenAudioOER/listen/main/${cleanSquarePath}`;
 
                     // 1. If current src is relative (or base-prefixed) and fails, try absolute GitHub Wide URL
                     if (!target.src.includes('raw.githubusercontent.com')) {
