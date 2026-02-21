@@ -228,6 +228,11 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook }: LandingPagePr
                     <span className="text-slate-800 font-medium text-lg">Free forever for all instructors</span>
                   </li>
                 </ul>
+                <div className="pt-2">
+                  <span className="text-primary font-bold font-sans text-lg">
+                    Search "OpenAudio" in the Canvas Commons
+                  </span>
+                </div>
               </div>
               <div className="flex-1 w-full">
                 <div className="w-full aspect-[1814/1080] rounded-2xl overflow-hidden shadow-2xl shadow-purple-900/10 bg-slate-900 relative group border-4 border-white">
