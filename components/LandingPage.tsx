@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { EmailLink } from './EmailLink';
 
 interface LandingPageProps {
   onNavigateLibrary: () => void;
@@ -125,13 +126,12 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
 
           <div className="mt-8 pt-8 border-t border-slate-100 flex flex-col items-center gap-4">
             <p className="text-slate-400 text-sm">Get in touch</p>
-            <a
+            <EmailLink
               className="text-slate-400 hover:text-primary transition-colors bg-white h-12 w-12 rounded-full shadow-sm hover:shadow-md border border-slate-100 flex items-center justify-center"
-              href="mailto:audiobook@fastmail.com?subject=OpenAudio%20Website%20Inquiry"
               title="Email us"
             >
               <span className="material-symbols-outlined text-2xl">mail</span>
-            </a>
+            </EmailLink>
           </div>
         </div>
       </div>
@@ -449,13 +449,12 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
             © 2026 OpenAudio. Creative Commons CC-BY-SA.
           </div>
           <div className="flex gap-6">
-            <a
+            <EmailLink
               className="text-slate-400 hover:text-primary transition-colors bg-white h-10 w-10 rounded-full shadow-sm hover:shadow-md border border-slate-100 flex items-center justify-center"
-              href="mailto:audiobook@fastmail.com?subject=OpenAudio%20Website%20Inquiry"
               title="Email us"
             >
               <span className="material-symbols-outlined text-xl">mail</span>
-            </a>
+            </EmailLink>
           </div>
         </div>
       </footer>

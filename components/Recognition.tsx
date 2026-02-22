@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { EmailLink } from './EmailLink';
 
 interface RecognitionProps {
     onNavigateHome: () => void;
@@ -64,13 +65,12 @@ export const Recognition: React.FC<RecognitionProps> = ({ onNavigateHome, onNavi
 
                     <div className="mt-8 pt-8 border-t border-slate-100 flex flex-col items-center gap-4">
                         <p className="text-slate-400 text-sm">Get in touch</p>
-                        <a
+                        <EmailLink
                             className="text-slate-400 hover:text-primary transition-colors bg-white h-12 w-12 rounded-full shadow-sm hover:shadow-md border border-slate-100 flex items-center justify-center"
-                            href="mailto:audiobook@fastmail.com?subject=OpenAudio%20Website%20Inquiry"
                             title="Email us"
                         >
                             <span className="material-symbols-outlined text-2xl">mail</span>
-                        </a>
+                        </EmailLink>
                     </div>
                 </div>
             </div>
@@ -275,7 +275,7 @@ export const Recognition: React.FC<RecognitionProps> = ({ onNavigateHome, onNavi
                                     <span className="text-xs font-bold uppercase text-slate-400 tracking-wider text-center">Hours of Audio</span>
                                 </div>
                                 <div className="flex flex-col items-center bg-white p-6 rounded-2xl shadow-sm border border-slate-100 w-32 md:w-40 transition-transform hover:-translate-y-1">
-                                    <span className="text-4xl font-bold text-primary font-serif mb-1">160K</span>
+                                    <span className="text-4xl font-bold text-primary font-serif mb-1">680K</span>
                                     <span className="text-xs font-bold uppercase text-slate-400 tracking-wider text-center">Streams & Downloads</span>
                                 </div>
                             </div>
@@ -299,13 +299,12 @@ export const Recognition: React.FC<RecognitionProps> = ({ onNavigateHome, onNavi
                         © 2026 OpenAudio. Creative Commons CC-BY-SA.
                     </div>
                     <div className="flex gap-6">
-                        <a
+                        <EmailLink
                             className="text-slate-400 hover:text-primary transition-colors bg-white h-10 w-10 rounded-full shadow-sm hover:shadow-md border border-slate-100 flex items-center justify-center"
-                            href="mailto:audiobook@fastmail.com?subject=OpenAudio%20Website%20Inquiry"
                             title="Email us"
                         >
                             <span className="material-symbols-outlined text-xl">mail</span>
-                        </a>
+                        </EmailLink>
                     </div>
                 </div>
             </footer>
