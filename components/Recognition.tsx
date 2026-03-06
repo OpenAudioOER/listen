@@ -17,6 +17,23 @@ export const Recognition: React.FC<RecognitionProps> = ({ onNavigateHome, onNavi
         }
     }, [isMenuOpen]);
 
+    const handleNavClick = (e: React.MouseEvent, type: 'home' | 'library' | 'instructors' | 'about') => {
+        if (e.metaKey || e.ctrlKey) return;
+        e.preventDefault();
+        setIsMenuOpen(false);
+        if (type === 'home') onNavigateHome();
+        else if (type === 'library') onNavigateLibrary();
+        else if (type === 'instructors') {
+            onNavigateHome();
+            setTimeout(() => {
+                document.getElementById('instructors')?.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        } else if (type === 'about') {
+            onNavigateHome();
+            // Scroll to about if/when implemented
+        }
+    };
+
     return (
         <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root bg-background-light text-slate-800 antialiased overflow-x-hidden">
             {/* Mobile Menu Overlay */}
@@ -25,43 +42,34 @@ export const Recognition: React.FC<RecognitionProps> = ({ onNavigateHome, onNavi
                     }`}
             >
                 <div className="flex flex-col items-center justify-center h-full gap-8">
-                    <button
-                        onClick={() => {
-                            setIsMenuOpen(false);
-                            onNavigateLibrary();
-                        }}
+                    <a
+                        href="/library"
+                        onClick={(e) => handleNavClick(e, 'library')}
                         className="text-2xl font-serif text-slate-900 hover:text-primary transition-colors"
                     >
                         Listen
-                    </button>
-                    <button
-                        onClick={() => {
-                            setIsMenuOpen(false);
-                            onNavigateHome();
-                            setTimeout(() => {
-                                document.getElementById('instructors')?.scrollIntoView({ behavior: 'smooth' });
-                            }, 100);
-                        }}
+                    </a>
+                    <a
+                        href="/#instructors"
+                        onClick={(e) => handleNavClick(e, 'instructors')}
                         className="text-2xl font-serif text-slate-900 hover:text-primary transition-colors"
                     >
                         Instructor Resources
-                    </button>
-                    <button
+                    </a>
+                    <a
+                        href="/recognition"
                         onClick={() => setIsMenuOpen(false)}
-                        className="text-2xl font-serif text-primary font-bold"
+                        className="text-2xl font-serif text-primary font-bold underline"
                     >
                         Recognition
-                    </button>
-                    <button
-                        onClick={() => {
-                            setIsMenuOpen(false);
-                            onNavigateHome();
-                            // Scroll to about if/when implemented
-                        }}
+                    </a>
+                    <a
+                        href="/#"
+                        onClick={(e) => handleNavClick(e, 'about')}
                         className="text-2xl font-serif text-slate-900 hover:text-primary transition-colors"
                     >
                         About
-                    </button>
+                    </a>
 
                     <div className="mt-8 pt-8 border-t border-slate-100 flex flex-col items-center gap-4">
                         <p className="text-slate-400 text-sm">Get in touch</p>
@@ -78,46 +86,47 @@ export const Recognition: React.FC<RecognitionProps> = ({ onNavigateHome, onNavi
             <header className="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-blue-100 bg-white/95 backdrop-blur-md px-6 py-4 lg:px-20 shadow-sm">
                 <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                        <button
-                            onClick={onNavigateHome}
+                        <a
+                            href="/"
+                            onClick={(e) => handleNavClick(e, 'home')} // Corrected: use handleNavClick for home too
                             className="flex items-center gap-3 hover:opacity-80 transition-opacity"
                         >
                             <div className="flex h-10 w-10 items-center justify-center bg-primary/10 rounded-full text-primary">
                                 <span className="material-symbols-outlined text-2xl">headphones</span>
                             </div>
                             <h2 className="text-slate-900 text-xl font-bold hero-title leading-tight tracking-[-0.015em] font-serif">OpenAudio</h2>
-                        </button>
+                        </a>
                     </div>
                     <div className="hidden lg:flex flex-1 justify-end gap-8 items-center">
                         <nav className="flex items-center gap-9">
-                            <button
-                                onClick={onNavigateLibrary}
+                            <a
+                                href="/library"
+                                onClick={(e) => handleNavClick(e, 'library')}
                                 className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal"
                             >
                                 Listen
-                            </button>
-                            <button
-                                onClick={() => {
-                                    onNavigateHome();
-                                    setTimeout(() => {
-                                        document.getElementById('instructors')?.scrollIntoView({ behavior: 'smooth' });
-                                    }, 100);
-                                }}
+                            </a>
+                            <a
+                                href="/#instructors"
+                                onClick={(e) => handleNavClick(e, 'instructors')}
                                 className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal"
                             >
                                 Instructor Resources
-                            </button>
-                            <button
-                                className="text-primary transition-colors text-sm font-bold leading-normal"
+                            </a>
+                            <a
+                                href="/recognition"
+                                className="text-primary transition-colors text-sm font-bold leading-normal underline"
+                                onClick={(e) => e.preventDefault()}
                             >
                                 Recognition
-                            </button>
-                            <button
-                                onClick={onNavigateHome}
+                            </a>
+                            <a
+                                href="/#"
+                                onClick={(e) => handleNavClick(e, 'about')}
                                 className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal"
                             >
                                 About
-                            </button>
+                            </a>
                         </nav>
                     </div>
                     <button
@@ -287,12 +296,13 @@ export const Recognition: React.FC<RecognitionProps> = ({ onNavigateHome, onNavi
             <footer className="bg-slate-50 border-t border-slate-200 py-16 px-6 lg:px-20">
                 <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
                     <div className="flex items-center gap-3">
-                        <button
-                            onClick={onNavigateHome}
-                            className="bg-primary/10 p-2 rounded-full text-primary"
+                        <a
+                            href="/"
+                            onClick={(e) => handleNavClick(e, 'home')}
+                            className="bg-primary/10 p-2 rounded-full text-primary hover:opacity-80 transition-opacity"
                         >
                             <span className="material-symbols-outlined text-2xl">headphones</span>
-                        </button>
+                        </a>
                         <span className="text-slate-800 font-bold font-serif-polished text-xl">OpenAudio</span>
                     </div>
                     <div className="text-slate-500 text-sm font-medium">

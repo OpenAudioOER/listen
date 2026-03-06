@@ -9,19 +9,32 @@ interface LibraryProps {
 }
 
 export const Library: React.FC<LibraryProps> = ({ books, onSelectBook, onNavigateHome }) => {
+  const handleHomeClick = (e: React.MouseEvent) => {
+    if (e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    onNavigateHome();
+  };
+
+  const handleBookClick = (e: React.MouseEvent, id: string) => {
+    if (e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    onSelectBook(id);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 px-4 py-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto w-full flex">
-          <button
-            onClick={onNavigateHome}
+          <a
+            href="/"
+            onClick={handleHomeClick}
             className="flex items-center gap-3 hover:opacity-80 transition-opacity focus:outline-none"
           >
             <div className="flex h-10 w-10 items-center justify-center bg-primary/10 rounded-full text-primary">
               <span className="material-symbols-outlined text-2xl">headphones</span>
             </div>
             <span className="text-slate-900 text-xl font-bold hero-title leading-tight tracking-[-0.015em] font-serif">OpenAudio</span>
-          </button>
+          </a>
         </div>
       </nav>
 
@@ -37,9 +50,10 @@ export const Library: React.FC<LibraryProps> = ({ books, onSelectBook, onNavigat
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {books.map((book) => (
-            <button
+            <a
               key={book.id}
-              onClick={() => onSelectBook(book.id)}
+              href={`/${book.id}`}
+              onClick={(e) => handleBookClick(e, book.id)}
               className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:border-brand-300 transition-all duration-300 text-left h-full"
             >
               <div className="aspect-[4/3] bg-slate-100 relative overflow-hidden">
@@ -102,7 +116,7 @@ export const Library: React.FC<LibraryProps> = ({ books, onSelectBook, onNavigat
                   <span>View Content</span>
                 </div>
               </div>
-            </button>
+            </a>
           ))}
         </div>
       </div>

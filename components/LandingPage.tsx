@@ -83,6 +83,14 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
     }
   };
 
+  const handleNavClick = (e: React.MouseEvent, type: 'library' | 'recognition' | 'book', id?: string) => {
+    if (e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    if (type === 'library') onNavigateLibrary();
+    else if (type === 'recognition') onNavigateRecognition();
+    else if (type === 'book' && id) onNavigateBook(id);
+  };
+
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root bg-background-light text-slate-800 antialiased overflow-x-hidden">
       {/* Mobile Menu Overlay */}
@@ -91,15 +99,16 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
           }`}
       >
         <div className="flex flex-col items-center justify-center h-full gap-8">
-          <button
-            onClick={() => {
+          <a
+            href="/library"
+            onClick={(e) => {
               setIsMenuOpen(false);
-              onNavigateLibrary();
+              handleNavClick(e, 'library');
             }}
             className="text-2xl font-serif text-slate-900 hover:text-primary transition-colors"
           >
             Listen
-          </button>
+          </a>
           <a
             href="#instructors"
             onClick={() => setIsMenuOpen(false)}
@@ -107,15 +116,16 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
           >
             Instructor Resources
           </a>
-          <button
-            onClick={() => {
+          <a
+            href="/recognition"
+            onClick={(e) => {
               setIsMenuOpen(false);
-              onNavigateRecognition();
+              handleNavClick(e, 'recognition');
             }}
             className="text-2xl font-serif text-slate-900 hover:text-primary transition-colors font-bold"
           >
             Recognition
-          </button>
+          </a>
           <a
             href="#"
             onClick={() => setIsMenuOpen(false)}
@@ -145,19 +155,21 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
           </div>
           <div className="hidden lg:flex flex-1 justify-end gap-8 items-center">
             <nav className="flex items-center gap-9">
-              <button
-                onClick={onNavigateLibrary}
+              <a
+                href="/library"
+                onClick={(e) => handleNavClick(e, 'library')}
                 className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal"
               >
                 Listen
-              </button>
+              </a>
               <a className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#instructors">Instructor Resources</a>
-              <button
-                onClick={onNavigateRecognition}
+              <a
+                href="/recognition"
+                onClick={(e) => handleNavClick(e, 'recognition')}
                 className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal"
               >
                 Recognition
-              </button>
+              </a>
               <a className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">About</a>
             </nav>
           </div>
@@ -188,12 +200,13 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
                 Free, high-quality audio resources for students and educators. Making education accessible, free, and engaging one chapter at a time.
               </p>
               <div className="flex flex-wrap gap-4 justify-center pt-6">
-                <button
-                  onClick={onNavigateLibrary}
+                <a
+                  href="/library"
+                  onClick={(e) => handleNavClick(e, 'library')}
                   className="flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-14 px-8 bg-primary hover:bg-primary-dark transition-all transform hover:-translate-y-0.5 text-white text-lg font-bold leading-normal tracking-[0.015em] shadow-lg shadow-primary/30"
                 >
                   Start Listening
-                </button>
+                </a>
               </div>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 pt-12">
@@ -204,7 +217,12 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
                 { id: 'world-hist-v1', title: 'World History: To 1500', edition: 'OpenStax Vol. 1', isNew: false, img: '/cover_world_hist.webp', color: '#29a078' },
                 { id: 'am-gov-3e', title: 'American Government', edition: 'OpenStax 3e', isNew: false, img: '/cover_am_gov_3e.webp', color: '#00c0dd' },
               ].map((book, idx) => (
-                <div key={idx} onClick={() => onNavigateBook(book.id)} className="group cursor-pointer flex flex-col rounded-2xl overflow-hidden border border-slate-200 shadow-soft hover:shadow-hover transition-all duration-300 hover:-translate-y-2">
+                <a
+                  key={idx}
+                  href={`/${book.id}`}
+                  onClick={(e) => handleNavClick(e, 'book', book.id)}
+                  className="group cursor-pointer flex flex-col rounded-2xl overflow-hidden border border-slate-200 shadow-soft hover:shadow-hover transition-all duration-300 hover:-translate-y-2"
+                >
                   <div className="w-full aspect-square overflow-hidden relative" style={{ backgroundColor: book.color }}>
                     <div className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110 will-change-transform" style={{ backgroundImage: `url('${book.img}')` }}></div>
                     {book.isNew && (
@@ -215,7 +233,7 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
                     <h3 className="font-serif-polished text-xl font-bold leading-tight text-white line-clamp-2">{book.title}</h3>
                     <p className="text-white/80 text-xs font-bold uppercase tracking-wider">{book.edition}</p>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           </div>

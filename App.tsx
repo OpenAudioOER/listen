@@ -141,53 +141,162 @@ function App() {
 
   // Determine SEO Metadata
   const getSEO = () => {
+    const baseUrl = 'https://www.openaudio.us';
+    let path = '/';
+    const breadcrumbs = [
+      { name: 'Home', item: baseUrl }
+    ];
+
     if (view === 'landing') {
       return {
         title: 'OpenAudio | Textbooks that speak to you',
-        description: 'Free, high-quality audio resources for students and educators. Making education accessible, free, and engaging one chapter at a time.'
+        description: 'Free, high-quality audio resources for students and educators. Making education accessible, free, and engaging one chapter at a time.',
+        canonicalUrl: baseUrl,
+        schemaData: {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "OpenAudio",
+          "url": baseUrl,
+          "description": "Free, high-quality audio resources for students and educators."
+        }
       };
     }
 
     if (view === 'library') {
+      path = '/library';
+      breadcrumbs.push({ name: 'Library', item: `${baseUrl}${path}` });
       return {
         title: 'OpenAudio Library | Free Audio Textbooks',
-        description: 'Access free, open-source textbooks enhanced with professional audio narration, timestamps, and study resources. Subjects include American Government, Sociology, and History.'
+        description: 'Access free, open-source textbooks enhanced with professional audio narration, timestamps, and study resources. Subjects include American Government, Sociology, and History.',
+        canonicalUrl: `${baseUrl}${path}`,
+        schemaData: {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": breadcrumbs.map((b, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": b.name,
+            "item": b.item
+          }))
+        }
       };
     }
 
     if (view === 'recognition') {
+      path = '/recognition';
+      breadcrumbs.push({ name: 'Recognition', item: `${baseUrl}${path}` });
       return {
         title: 'Recognition & Awards | OpenAudio',
-        description: 'Highlighting our impact in innovation, accessibility, and open education through awards and grants.'
+        description: 'Highlighting our impact in innovation, accessibility, and open education through awards and grants.',
+        canonicalUrl: `${baseUrl}${path}`,
+        schemaData: {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": breadcrumbs.map((b, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": b.name,
+            "item": b.item
+          }))
+        }
       };
     }
 
     if (activeBook) {
+      path = `/${activeBook.id}`;
+      breadcrumbs.push({ name: 'Library', item: `${baseUrl}/library` });
+      breadcrumbs.push({ name: activeBook.title, item: `${baseUrl}${path}` });
+
+      const bookSchema = {
+        "@context": "https://schema.org",
+        "@type": ["Book", "Audiobook"],
+        "name": activeBook.title,
+        "author": {
+          "@type": "Person",
+          "name": activeBook.author
+        },
+        "description": activeBook.description,
+        "image": `${baseUrl}${activeBook.coverImage}`,
+        "url": `${baseUrl}${path}`
+      };
+
       if (view === 'chapter' && activeChapter) {
+        const chapterPath = `${path}/${activeChapter.chapterNumber}`;
+        breadcrumbs.push({ name: `Chapter ${activeChapter.chapterNumber}`, item: `${baseUrl}${chapterPath}` });
+
         return {
           title: `${activeChapter.courseTitle}: ${activeChapter.title} | ${activeBook.title}`,
-          description: activeChapter.description.substring(0, 160) // Truncate for standard SEO length
+          description: activeChapter.description.substring(0, 160),
+          canonicalUrl: `${baseUrl}${chapterPath}`,
+          schemaData: {
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "BreadcrumbList",
+                "itemListElement": breadcrumbs.map((b, i) => ({
+                  "@type": "ListItem",
+                  "position": i + 1,
+                  "name": b.name,
+                  "item": b.item
+                }))
+              },
+              {
+                ...bookSchema,
+                "@type": "Audiobook",
+                "name": `${activeBook.title} - ${activeChapter.title}`,
+                "description": activeChapter.description
+              }
+            ]
+          }
         };
       }
 
       if (view === 'audio-collection') {
         return {
           title: `Audio Archive | ${activeBook.title}`,
-          description: `Complete audio collection for ${activeBook.title}. Access narrations, timestamps, and external platform links for all chapters.`
+          description: `Complete audio collection for ${activeBook.title}. Access narrations, timestamps, and external platform links for all chapters.`,
+          canonicalUrl: `${baseUrl}${path}/archive`,
+          schemaData: {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": breadcrumbs.map((b, i) => ({
+              "@type": "ListItem",
+              "position": i + 1,
+              "name": b.name,
+              "item": b.item
+            }))
+          }
         };
       }
 
       // Book Home
       return {
         title: `${activeBook.title} | Free Audio Textbook`,
-        description: activeBook.description
+        description: activeBook.description,
+        canonicalUrl: `${baseUrl}${path}`,
+        schemaData: {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": breadcrumbs.map((b, i) => ({
+                "@type": "ListItem",
+                "position": i + 1,
+                "name": b.name,
+                "item": b.item
+              }))
+            },
+            bookSchema
+          ]
+        }
       };
     }
 
     // Fallback
     return {
       title: 'OpenAudio - Accessible Textbook Audio',
-      description: 'Free, open-source textbooks enhanced with professional audio narration.'
+      description: 'Free, open-source textbooks enhanced with professional audio narration.',
+      canonicalUrl: baseUrl
     };
   };
 
@@ -238,6 +347,12 @@ function App() {
     }
   };
 
+  const handleNavClick = (e: React.MouseEvent, newBookId: string | null, newChapterId: number | null, newView: ViewMode) => {
+    if (e.metaKey || e.ctrlKey) return; // Allow opening in new tab
+    e.preventDefault();
+    navigate(newBookId, newChapterId, newView);
+  };
+
   const goHome = () => {
     if (activeBook) {
       navigate(activeBook.id, null, 'home');
@@ -278,7 +393,12 @@ function App() {
 
   return (
     <div className={`min-h-screen bg-gray-50 flex flex-col ${isEmbed ? 'bg-transparent' : ''}`}>
-      <SEO title={seoData.title} description={seoData.description} />
+      <SEO
+        title={seoData.title}
+        description={seoData.description}
+        canonicalUrl={seoData.canonicalUrl}
+        schemaData={seoData.schemaData}
+      />
 
       {view === 'landing' ? (
         <LandingPage onNavigateLibrary={goLibrary} onNavigateBook={selectBook} onNavigateRecognition={goRecognition} />
@@ -291,6 +411,7 @@ function App() {
           {!isEmbed && (
             <Navbar
               bookTitle={activeBook.title}
+              bookId={activeBook.id}
               currentChapter={view === 'chapter' ? activeChapter?.chapterNumber : undefined}
               customPageTitle={view === 'audio-collection' ? 'Audio Archive' : undefined}
               onGoHome={goHome}
@@ -299,9 +420,13 @@ function App() {
 
           {!isEmbed && (
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-2">
-              <button onClick={goLibrary} className="text-xs font-bold text-slate-400 hover:text-brand-600 flex items-center gap-1">
+              <a
+                href="/library"
+                onClick={(e) => handleNavClick(e, null, null, 'library')}
+                className="text-xs font-bold text-slate-400 hover:text-brand-600 flex items-center gap-1"
+              >
                 <ChevronRight size={12} className="rotate-180" /> Back to Library
-              </button>
+              </a>
             </div>
           )}
 
@@ -349,9 +474,10 @@ function App() {
 
                 <div className="grid gap-6 pb-20">
                   {activeBook.chapters.map((chapter) => (
-                    <button
+                    <a
                       key={chapter.chapterNumber}
-                      onClick={() => selectChapter(chapter.chapterNumber)}
+                      href={`/${activeBook.id}/${chapter.chapterNumber}`}
+                      onClick={(e) => handleNavClick(e, activeBook.id, chapter.chapterNumber, 'chapter')}
                       className="group relative bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-brand-200 transition-all duration-300 text-left w-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
                     >
                       <div className="flex-grow space-y-3">
@@ -385,12 +511,13 @@ function App() {
                           <ChevronRight size={24} />
                         </div>
                       </div>
-                    </button>
+                    </a>
                   ))}
 
                   {/* Audio Archive Tile */}
-                  <button
-                    onClick={goToAudioCollection}
+                  <a
+                    href={`/${activeBook.id}/archive`}
+                    onClick={(e) => handleNavClick(e, activeBook.id, null, 'audio-collection')}
                     className="group relative bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-brand-200 transition-all duration-300 text-left w-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
                   >
                     <div className="flex-grow space-y-3">
@@ -420,7 +547,7 @@ function App() {
                         <ChevronRight size={24} />
                       </div>
                     </div>
-                  </button>
+                  </a>
                 </div>
               </div>
             )}
