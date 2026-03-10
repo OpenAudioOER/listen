@@ -259,6 +259,27 @@ export const Recognition: React.FC<RecognitionProps> = ({ onNavigateHome, onNavi
                                     <span className="text-sm font-medium text-slate-500">Nanyang Technological University</span>
                                 </div>
                             </div>
+
+                            {/* Incarcerated Student Program */}
+                            <div className="group flex flex-col gap-6 p-8 rounded-3xl bg-surface-white border border-slate-100 shadow-soft hover:shadow-hover hover:border-primary/20 transition-all duration-300 h-full relative overflow-hidden hover:-translate-y-2">
+                                <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
+                                    <span className="material-symbols-outlined text-9xl text-slate-500">balance</span>
+                                </div>
+                                <div className="size-14 rounded-2xl bg-slate-50 text-slate-600 flex items-center justify-center mb-2 shadow-sm border border-slate-200 group-hover:bg-slate-700 group-hover:text-white transition-colors duration-300">
+                                    <span className="material-symbols-outlined text-3xl">balance</span>
+                                </div>
+                                <div className="flex flex-col gap-2">
+                                    <p className="text-slate-600 text-sm font-bold uppercase tracking-wider">Adoption • 2024</p>
+                                    <h3 className="text-slate-900 text-2xl font-bold font-serif leading-tight">Incarcerated Students Program</h3>
+                                </div>
+                                <p className="text-slate-600 leading-relaxed">
+                                    OpenAudio resources are utilized by Feather River College’s Incarcerated Student Program. Because students within California's correctional facilities cannot access internet or streaming platforms, our downloadable chapter audio files provide a crucial, California Department of Corrections and Rehabilitation-approved offline learning tool for students pursuing higher education while incarcerated.
+                                </p>
+                                <div className="mt-auto pt-6 border-t border-slate-50 flex items-center gap-3">
+                                    <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-500">FR</div>
+                                    <span className="text-sm font-medium text-slate-500">Feather River College</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
