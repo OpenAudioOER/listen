@@ -141,7 +141,7 @@ function App() {
 
   // Determine SEO Metadata
   const getSEO = () => {
-    const baseUrl = 'https://www.openaudio.us';
+    const baseUrl = 'https://listen.openaudio.us';
     let path = '/';
     const breadcrumbs = [
       { name: 'Home', item: baseUrl }
