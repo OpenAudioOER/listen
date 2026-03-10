@@ -269,7 +269,7 @@ export const Recognition: React.FC<RecognitionProps> = ({ onNavigateHome, onNavi
                                     <span className="material-symbols-outlined text-3xl">balance</span>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <p className="text-slate-600 text-sm font-bold uppercase tracking-wider">Adoption • 2024</p>
+                                    <p className="text-slate-600 text-sm font-bold uppercase tracking-wider">Adoption • 2026</p>
                                     <h3 className="text-slate-900 text-2xl font-bold font-serif leading-tight">Incarcerated Students Program</h3>
                                 </div>
                                 <p className="text-slate-600 leading-relaxed">
