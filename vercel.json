@@ -25,10 +25,10 @@
       "has": [
         {
           "type": "host",
-          "value": "www.openaudio.us"
+          "value": "listen.openaudio.us"
         }
       ],
-      "destination": "https://listen.openaudio.us/$1",
+      "destination": "https://www.openaudio.us/$1",
       "permanent": true
     }
   ],

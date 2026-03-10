@@ -1,66 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://listen.openaudio.us/</loc>
+    <loc>https://www.openaudio.us/</loc>
     <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://listen.openaudio.us/library</loc>
+    <loc>https://www.openaudio.us/library</loc>
     <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://listen.openaudio.us/recognition</loc>
+    <loc>https://www.openaudio.us/recognition</loc>
     <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <!-- American Government 4e -->
   <url>
-    <loc>https://listen.openaudio.us/am-gov-4e</loc>
+    <loc>https://www.openaudio.us/am-gov-4e</loc>
     <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://listen.openaudio.us/am-gov-4e/archive</loc>
+    <loc>https://www.openaudio.us/am-gov-4e/archive</loc>
     <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <!-- Introduction to Sociology 3e -->
   <url>
-    <loc>https://listen.openaudio.us/intro-soc-3e</loc>
+    <loc>https://www.openaudio.us/intro-soc-3e</loc>
     <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://listen.openaudio.us/intro-soc-3e/archive</loc>
+    <loc>https://www.openaudio.us/intro-soc-3e/archive</loc>
     <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <!-- U.S. History -->
   <url>
-    <loc>https://listen.openaudio.us/us-history</loc>
+    <loc>https://www.openaudio.us/us-history</loc>
     <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <!-- World History Vol 1 -->
   <url>
-    <loc>https://listen.openaudio.us/world-hist-v1</loc>
+    <loc>https://www.openaudio.us/world-hist-v1</loc>
     <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <!-- American Government 3e -->
   <url>
-    <loc>https://listen.openaudio.us/am-gov-3e</loc>
+    <loc>https://www.openaudio.us/am-gov-3e</loc>
     <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

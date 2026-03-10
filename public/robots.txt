@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://listen.openaudio.us/sitemap.xml
+Sitemap: https://www.openaudio.us/sitemap.xml
