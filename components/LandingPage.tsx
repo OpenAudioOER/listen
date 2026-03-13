@@ -5,6 +5,7 @@ interface LandingPageProps {
   onNavigateLibrary: () => void;
   onNavigateBook: (bookId: string) => void;
   onNavigateRecognition: () => void;
+  onNavigateAbout: () => void;
 }
 
 function Counter({ target, duration = 2000, suffix = "", suffixClassName = "" }: { target: number, duration?: number, suffix?: string, suffixClassName?: string }) {
@@ -44,7 +45,7 @@ function Counter({ target, duration = 2000, suffix = "", suffixClassName = "" }:
   );
 }
 
-export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecognition }: LandingPageProps) {
+export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecognition, onNavigateAbout }: LandingPageProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -83,11 +84,12 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
     }
   };
 
-  const handleNavClick = (e: React.MouseEvent, type: 'library' | 'recognition' | 'book', id?: string) => {
+  const handleNavClick = (e: React.MouseEvent, type: 'library' | 'recognition' | 'book' | 'about', id?: string) => {
     if (e.metaKey || e.ctrlKey) return;
     e.preventDefault();
     if (type === 'library') onNavigateLibrary();
     else if (type === 'recognition') onNavigateRecognition();
+    else if (type === 'about') onNavigateAbout();
     else if (type === 'book' && id) onNavigateBook(id);
   };
 
@@ -127,8 +129,11 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
             Recognition
           </a>
           <a
-            href="#"
-            onClick={() => setIsMenuOpen(false)}
+            href="/about"
+            onClick={(e) => {
+              setIsMenuOpen(false);
+              handleNavClick(e, 'about');
+            }}
             className="text-2xl font-serif text-slate-900 hover:text-primary transition-colors"
           >
             About
@@ -170,7 +175,13 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
               >
                 Recognition
               </a>
-              <a className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">About</a>
+              <a 
+                href="/about"
+                onClick={(e) => handleNavClick(e, 'about')}
+                className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal" 
+              >
+                About
+              </a>
             </nav>
           </div>
           <button

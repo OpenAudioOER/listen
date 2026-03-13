@@ -8,12 +8,13 @@ import { AudioCollection } from './components/AudioCollection';
 import { Library } from './components/Library';
 import { LandingPage } from './components/LandingPage';
 import { Recognition } from './components/Recognition';
+import { About } from './components/About';
 import { Footer } from './components/Footer';
 import { SEO } from './components/SEO';
 import { library } from './data/chapters';
 import { BookOpen, PlayCircle, ChevronRight, Headphones } from 'lucide-react';
 
-type ViewMode = 'landing' | 'library' | 'home' | 'chapter' | 'audio-collection' | 'recognition';
+type ViewMode = 'landing' | 'library' | 'home' | 'chapter' | 'audio-collection' | 'recognition' | 'about';
 
 // Legacy default for backward compatibility with ?chapter=X links
 const DEFAULT_LEGACY_BOOK = 'am-gov-4e';
@@ -62,6 +63,10 @@ function App() {
 
       if (bookId === 'recognition') {
         return { bookId: null, chapterId: null, isEmbed, view: 'recognition' };
+      }
+
+      if (bookId === 'about') {
+        return { bookId: null, chapterId: null, isEmbed, view: 'about' };
       }
 
       let chapterId: number | null = null;
@@ -202,6 +207,26 @@ function App() {
       };
     }
 
+    if (view === 'about') {
+      path = '/about';
+      breadcrumbs.push({ name: 'About', item: `${baseUrl}${path}` });
+      return {
+        title: 'About OpenAudio | Our Mission & Story',
+        description: 'Learn about OpenAudio, our mission to make education accessible through free, high-quality audio textbooks, and the team behind the project.',
+        canonicalUrl: `${baseUrl}${path}`,
+        schemaData: {
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": breadcrumbs.map((b, i) => ({
+            "@type": "ListItem",
+            "position": i + 1,
+            "name": b.name,
+            "item": b.item
+          }))
+        }
+      };
+    }
+
     if (activeBook) {
       path = `/${activeBook.id}`;
       breadcrumbs.push({ name: 'Library', item: `${baseUrl}/library` });
@@ -321,6 +346,8 @@ function App() {
           path = '/library';
         } else if (newView === 'recognition') {
           path = '/recognition';
+        } else if (newView === 'about') {
+          path = '/about';
         } else if (newBookId) {
           path = `/${newBookId}`;
           if (newView === 'audio-collection') {
@@ -373,6 +400,10 @@ function App() {
     navigate(null, null, 'recognition');
   };
 
+  const goAbout = () => {
+    navigate(null, null, 'about');
+  };
+
   const selectChapter = (id: number) => {
     if (activeBook) {
       navigate(activeBook.id, id, 'chapter');
@@ -401,9 +432,11 @@ function App() {
       />
 
       {view === 'landing' ? (
-        <LandingPage onNavigateLibrary={goLibrary} onNavigateBook={selectBook} onNavigateRecognition={goRecognition} />
+        <LandingPage onNavigateLibrary={goLibrary} onNavigateBook={selectBook} onNavigateRecognition={goRecognition} onNavigateAbout={goAbout} />
       ) : view === 'recognition' ? (
-        <Recognition onNavigateHome={goLanding} onNavigateLibrary={goLibrary} />
+        <Recognition onNavigateHome={goLanding} onNavigateLibrary={goLibrary} onNavigateAbout={goAbout} />
+      ) : view === 'about' ? (
+        <About onNavigateHome={goLanding} onNavigateLibrary={goLibrary} onNavigateRecognition={goRecognition} />
       ) : view === 'library' || !activeBook ? (
         <Library books={Object.values(library)} onSelectBook={selectBook} onNavigateHome={goLanding} />
       ) : (

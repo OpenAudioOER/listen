@@ -4,9 +4,10 @@ import { EmailLink } from './EmailLink';
 interface RecognitionProps {
     onNavigateHome: () => void;
     onNavigateLibrary: () => void;
+    onNavigateAbout: () => void;
 }
 
-export const Recognition: React.FC<RecognitionProps> = ({ onNavigateHome, onNavigateLibrary }) => {
+export const Recognition: React.FC<RecognitionProps> = ({ onNavigateHome, onNavigateLibrary, onNavigateAbout }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
@@ -23,14 +24,12 @@ export const Recognition: React.FC<RecognitionProps> = ({ onNavigateHome, onNavi
         setIsMenuOpen(false);
         if (type === 'home') onNavigateHome();
         else if (type === 'library') onNavigateLibrary();
+        else if (type === 'about') onNavigateAbout();
         else if (type === 'instructors') {
             onNavigateHome();
             setTimeout(() => {
                 document.getElementById('instructors')?.scrollIntoView({ behavior: 'smooth' });
             }, 100);
-        } else if (type === 'about') {
-            onNavigateHome();
-            // Scroll to about if/when implemented
         }
     };
 
@@ -64,7 +63,7 @@ export const Recognition: React.FC<RecognitionProps> = ({ onNavigateHome, onNavi
                         Recognition
                     </a>
                     <a
-                        href="/#"
+                        href="/about"
                         onClick={(e) => handleNavClick(e, 'about')}
                         className="text-2xl font-serif text-slate-900 hover:text-primary transition-colors"
                     >
@@ -121,7 +120,7 @@ export const Recognition: React.FC<RecognitionProps> = ({ onNavigateHome, onNavi
                                 Recognition
                             </a>
                             <a
-                                href="/#"
+                                href="/about"
                                 onClick={(e) => handleNavClick(e, 'about')}
                                 className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal"
                             >
