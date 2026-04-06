@@ -300,7 +300,7 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
                   <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">Total Streams</p>
                 </div>
                 <p className="text-slate-900 tracking-tight text-6xl lg:text-7xl font-bold font-serif-polished leading-tight relative z-10">
-                  <Counter target={738000} suffix="+" suffixClassName="text-orange-500" />
+                  <Counter target={756000} suffix="+" suffixClassName="text-orange-500" />
                 </p>
                 <p className="text-slate-600 text-lg relative z-10">Downloads and Streams as of March 2026</p>
               </div>
