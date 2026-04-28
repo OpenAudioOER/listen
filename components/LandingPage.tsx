@@ -300,7 +300,7 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
                   <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">Total Streams</p>
                 </div>
                 <p className="text-slate-900 tracking-tight text-6xl lg:text-7xl font-bold font-serif-polished leading-tight relative z-10">
-                  <Counter target={765000} suffix="+" suffixClassName="text-orange-500" />
+                  <Counter target={776000} suffix="+" suffixClassName="text-orange-500" />
                 </p>
                 <p className="text-slate-600 text-lg relative z-10">Downloads and Streams as of April 2026</p>
               </div>
@@ -311,7 +311,7 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
                   <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">Streaming Time</p>
                 </div>
                 <p className="text-slate-900 tracking-tight text-6xl lg:text-7xl font-bold font-serif-polished leading-tight relative z-10">
-                  <Counter target={24} suffix="+" suffixClassName="text-primary" /> Years
+                  <Counter target={25} suffix="+" suffixClassName="text-primary" /> Years
                 </p>
                 <p className="text-slate-600 text-lg relative z-10">Of cumulative listening across platforms</p>
               </div>
