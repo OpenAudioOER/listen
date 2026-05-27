@@ -302,7 +302,7 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
                 <p className="text-slate-900 tracking-tight text-6xl lg:text-7xl font-bold font-serif-polished leading-tight relative z-10">
                   <Counter target={794000} suffix="+" suffixClassName="text-orange-500" />
                 </p>
-                <p className="text-slate-600 text-lg relative z-10">Downloads and Streams as of April 2026</p>
+                <p className="text-slate-600 text-lg relative z-10">Downloads and Streams as of May 2026</p>
               </div>
               <div className="flex flex-col justify-center gap-4 rounded-3xl p-10 bg-white shadow-sm border border-blue-100 text-center md:text-left relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-blue-200 group">
                 <div className="absolute -right-10 -top-10 w-40 h-40 bg-blue-100 rounded-full opacity-50 transition-transform duration-500 group-hover:scale-110"></div>
