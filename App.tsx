@@ -540,7 +540,7 @@ function App() {
                       </div>
 
                       <div className="flex-shrink-0 self-start sm:self-center">
-                        <div className="h-12 w-12 rounded-full bg-slate-50 text-slate-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-all transform group-hover:scale-110">
+                        <div className="h-12 w-12 rounded-full bg-slate-50 text-slate-600 flex items-center justify-center group-hover:bg-brand-500 group-hover:text-slate-900 transition-all transform group-hover:scale-110">
                           <ChevronRight size={24} />
                         </div>
                       </div>
@@ -576,7 +576,7 @@ function App() {
                     </div>
 
                     <div className="flex-shrink-0 self-start sm:self-center">
-                      <div className="h-12 w-12 rounded-full bg-slate-50 text-slate-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-all transform group-hover:scale-110">
+                      <div className="h-12 w-12 rounded-full bg-slate-50 text-slate-600 flex items-center justify-center group-hover:bg-brand-500 group-hover:text-slate-900 transition-all transform group-hover:scale-110">
                         <ChevronRight size={24} />
                       </div>
                     </div>

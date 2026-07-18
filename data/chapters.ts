@@ -4,6 +4,7 @@ import { amGov3eChapters } from './books/am-gov-3e';
 import { introSocChapters } from './books/sociology-3e';
 import { usHistoryChapters } from './books/us-history';
 import { worldHistChapters } from './books/world-history';
+import { business2eChapters } from './books/business-2e';
 
 // --- THEMES ---
 
@@ -72,7 +73,30 @@ const worldHistTheme = {
   accent700: '#006960',
 };
 
+// Introduction to Business 2e: Brand Cyan-Blue (#4bbeda), Accent Orange
+const business2eTheme = {
+  brand50: '#e0f7fc',
+  brand100: '#b3ebf7',
+  brand500: '#4bbeda',
+  brand600: '#1c7a91', // Darkened for accessibility (WCAG AA Pass)
+  brand700: '#115a6e', // Dark teal (WCAG AAA Pass)
+  brand900: '#0a3845', // Very dark teal
+  accent500: '#bf5d30',
+  accent600: '#a64c24', // Deep burnt orange (WCAG AA Pass)
+  accent700: '#8c3a18',
+};
+
 export const library: Record<string, Book> = {
+  'business-2e': {
+    id: 'business-2e',
+    title: 'Introduction to Business 2e',
+    author: 'OpenStax',
+    description: 'Learn the foundational concepts of modern business, from entrepreneurship and economics to marketing and management, with accessible audio for on-the-go learning.',
+    coverImage: '/cover_business.webp',
+    coverImageWide: '/cover_business-wide.webp',
+    theme: business2eTheme,
+    chapters: business2eChapters
+  },
   'am-gov-4e': {
     id: 'am-gov-4e',
     title: 'American Government 4e',

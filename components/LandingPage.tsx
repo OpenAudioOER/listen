@@ -220,9 +220,10 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
                 </a>
               </div>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8 pt-12">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8 pt-12">
               {[
-                { id: 'am-gov-4e', title: 'American Government', edition: 'OpenStax 4e', isNew: true, img: '/cover.webp', color: '#c60033' },
+                { id: 'business-2e', title: 'Introduction to Business', edition: 'OpenStax 2e', isNew: true, img: '/cover_business.webp', color: '#4bbeda' },
+                { id: 'am-gov-4e', title: 'American Government', edition: 'OpenStax 4e', isNew: false, img: '/cover.webp', color: '#c60033' },
                 { id: 'intro-soc-3e', title: 'Introduction to Sociology', edition: 'OpenStax 3e', isNew: false, img: '/cover_soc.webp', color: '#1e3366' },
                 { id: 'us-history', title: 'US History', edition: 'OpenStax', isNew: false, img: '/cover_us_history.webp', color: '#212e66' },
                 { id: 'world-hist-v1', title: 'World History: To 1500', edition: 'OpenStax Vol. 1', isNew: false, img: '/cover_world_hist.webp', color: '#29a078' },
@@ -236,6 +237,7 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
                 >
                   <div className="w-full aspect-square overflow-hidden relative" style={{ backgroundColor: book.color }}>
                     <div className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110 will-change-transform" style={{ backgroundImage: `url('${book.img}')` }}></div>
+
                     {book.isNew && (
                       <div className="absolute top-4 left-4 z-10 bg-white/20 backdrop-blur-md border border-white/30 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-white shadow-sm">New</div>
                     )}
