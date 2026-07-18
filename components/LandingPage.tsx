@@ -6,6 +6,7 @@ interface LandingPageProps {
   onNavigateBook: (bookId: string) => void;
   onNavigateRecognition: () => void;
   onNavigateAbout: () => void;
+  onNavigateInstructors?: () => void;
 }
 
 function Counter({ target, duration = 2000, suffix = "", suffixClassName = "" }: { target: number, duration?: number, suffix?: string, suffixClassName?: string }) {
@@ -45,7 +46,7 @@ function Counter({ target, duration = 2000, suffix = "", suffixClassName = "" }:
   );
 }
 
-export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecognition, onNavigateAbout }: LandingPageProps) {
+export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecognition, onNavigateAbout, onNavigateInstructors }: LandingPageProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -84,12 +85,13 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
     }
   };
 
-  const handleNavClick = (e: React.MouseEvent, type: 'library' | 'recognition' | 'book' | 'about', id?: string) => {
+  const handleNavClick = (e: React.MouseEvent, type: 'library' | 'recognition' | 'book' | 'about' | 'instructors', id?: string) => {
     if (e.metaKey || e.ctrlKey) return;
     e.preventDefault();
     if (type === 'library') onNavigateLibrary();
     else if (type === 'recognition') onNavigateRecognition();
     else if (type === 'about') onNavigateAbout();
+    else if (type === 'instructors' && onNavigateInstructors) onNavigateInstructors();
     else if (type === 'book' && id) onNavigateBook(id);
   };
 
@@ -112,8 +114,11 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
             Listen
           </a>
           <a
-            href="#instructors"
-            onClick={() => setIsMenuOpen(false)}
+            href="/instructors"
+            onClick={(e) => {
+              setIsMenuOpen(false);
+              handleNavClick(e, 'instructors');
+            }}
             className="text-2xl font-serif text-slate-900 hover:text-primary transition-colors"
           >
             Instructor Resources
@@ -167,7 +172,13 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
               >
                 Listen
               </a>
-              <a className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal" href="#instructors">Instructor Resources</a>
+              <a
+                href="/instructors"
+                onClick={(e) => handleNavClick(e, 'instructors')}
+                className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal"
+              >
+                Instructor Resources
+              </a>
               <a
                 href="/recognition"
                 onClick={(e) => handleNavClick(e, 'recognition')}
@@ -355,12 +366,14 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
                   </li>
                 </ul>
                 <div className="pt-4">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/5 border border-primary/10">
-                    <span className="material-symbols-outlined text-primary text-sm">info</span>
-                    <span className="text-slate-700 text-sm font-semibold tracking-tight">
-                      Search <span className="text-primary font-bold">“OpenAudio”</span> in the Canvas Commons
-                    </span>
-                  </div>
+                  <a 
+                    href="/instructors"
+                    onClick={(e) => handleNavClick(e, 'instructors')}
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-white hover:bg-primary/90 transition-colors font-semibold tracking-tight shadow-md"
+                  >
+                    <span className="material-symbols-outlined text-sm">download</span>
+                    Download Canvas Course Shells
+                  </a>
                 </div>
               </div>
               <div className="flex-1 w-full">

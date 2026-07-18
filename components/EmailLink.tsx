@@ -10,8 +10,8 @@ export const EmailLink: React.FC<EmailLinkProps> = ({ className, title, children
     const handleContact = (e: React.MouseEvent) => {
         e.preventDefault();
         // Reconstruct email address on click to hide from bots
-        const user = "audiobook";
-        const domain = "fastmail.com";
+        const user = "hello";
+        const domain = "openaudio.us";
         const subject = "OpenAudio Website Inquiry";
         window.location.href = `mailto:${user}@${domain}?subject=${encodeURIComponent(subject)}`;
     };

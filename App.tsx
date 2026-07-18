@@ -9,12 +9,13 @@ import { Library } from './components/Library';
 import { LandingPage } from './components/LandingPage';
 import { Recognition } from './components/Recognition';
 import { About } from './components/About';
+import { Instructors } from './components/Instructors';
 import { Footer } from './components/Footer';
 import { SEO } from './components/SEO';
 import { library } from './data/chapters';
 import { BookOpen, PlayCircle, ChevronRight, Headphones } from 'lucide-react';
 
-type ViewMode = 'landing' | 'library' | 'home' | 'chapter' | 'audio-collection' | 'recognition' | 'about';
+type ViewMode = 'landing' | 'library' | 'home' | 'chapter' | 'audio-collection' | 'recognition' | 'about' | 'instructors';
 
 // Legacy default for backward compatibility with ?chapter=X links
 const DEFAULT_LEGACY_BOOK = 'am-gov-4e';
@@ -67,6 +68,10 @@ function App() {
 
       if (bookId === 'about') {
         return { bookId: null, chapterId: null, isEmbed, view: 'about' };
+      }
+
+      if (bookId === 'instructors') {
+        return { bookId: null, chapterId: null, isEmbed, view: 'instructors' };
       }
 
       let chapterId: number | null = null;
@@ -348,6 +353,8 @@ function App() {
           path = '/recognition';
         } else if (newView === 'about') {
           path = '/about';
+        } else if (newView === 'instructors') {
+          path = '/instructors';
         } else if (newBookId) {
           path = `/${newBookId}`;
           if (newView === 'audio-collection') {
@@ -404,6 +411,10 @@ function App() {
     navigate(null, null, 'about');
   };
 
+  const goInstructors = () => {
+    navigate(null, null, 'instructors');
+  };
+
   const selectChapter = (id: number) => {
     if (activeBook) {
       navigate(activeBook.id, id, 'chapter');
@@ -432,11 +443,13 @@ function App() {
       />
 
       {view === 'landing' ? (
-        <LandingPage onNavigateLibrary={goLibrary} onNavigateBook={selectBook} onNavigateRecognition={goRecognition} onNavigateAbout={goAbout} />
+        <LandingPage onNavigateLibrary={goLibrary} onNavigateBook={selectBook} onNavigateRecognition={goRecognition} onNavigateAbout={goAbout} onNavigateInstructors={goInstructors} />
       ) : view === 'recognition' ? (
-        <Recognition onNavigateHome={goLanding} onNavigateLibrary={goLibrary} onNavigateAbout={goAbout} />
+        <Recognition onNavigateHome={goLanding} onNavigateLibrary={goLibrary} onNavigateAbout={goAbout} onNavigateInstructors={goInstructors} />
       ) : view === 'about' ? (
-        <About onNavigateHome={goLanding} onNavigateLibrary={goLibrary} onNavigateRecognition={goRecognition} />
+        <About onNavigateHome={goLanding} onNavigateLibrary={goLibrary} onNavigateRecognition={goRecognition} onNavigateInstructors={goInstructors} />
+      ) : view === 'instructors' ? (
+        <Instructors onNavigateHome={goLanding} onNavigateLibrary={goLibrary} onNavigateRecognition={goRecognition} onNavigateAbout={goAbout} />
       ) : view === 'library' || !activeBook ? (
         <Library books={Object.values(library)} onSelectBook={selectBook} onNavigateHome={goLanding} />
       ) : (
@@ -540,7 +553,7 @@ function App() {
                       </div>
 
                       <div className="flex-shrink-0 self-start sm:self-center">
-                        <div className="h-12 w-12 rounded-full bg-slate-50 text-slate-600 flex items-center justify-center group-hover:bg-brand-500 group-hover:text-slate-900 transition-all transform group-hover:scale-110">
+                        <div className="h-12 w-12 rounded-full bg-slate-50 text-slate-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-all transform group-hover:scale-110">
                           <ChevronRight size={24} />
                         </div>
                       </div>
@@ -576,7 +589,7 @@ function App() {
                     </div>
 
                     <div className="flex-shrink-0 self-start sm:self-center">
-                      <div className="h-12 w-12 rounded-full bg-slate-50 text-slate-600 flex items-center justify-center group-hover:bg-brand-500 group-hover:text-slate-900 transition-all transform group-hover:scale-110">
+                      <div className="h-12 w-12 rounded-full bg-slate-50 text-slate-600 flex items-center justify-center group-hover:bg-brand-600 group-hover:text-white transition-all transform group-hover:scale-110">
                         <ChevronRight size={24} />
                       </div>
                     </div>

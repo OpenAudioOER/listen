@@ -5,9 +5,10 @@ interface RecognitionProps {
     onNavigateHome: () => void;
     onNavigateLibrary: () => void;
     onNavigateAbout: () => void;
+    onNavigateInstructors?: () => void;
 }
 
-export const Recognition: React.FC<RecognitionProps> = ({ onNavigateHome, onNavigateLibrary, onNavigateAbout }) => {
+export const Recognition: React.FC<RecognitionProps> = ({ onNavigateHome, onNavigateLibrary, onNavigateAbout, onNavigateInstructors }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
@@ -26,10 +27,7 @@ export const Recognition: React.FC<RecognitionProps> = ({ onNavigateHome, onNavi
         else if (type === 'library') onNavigateLibrary();
         else if (type === 'about') onNavigateAbout();
         else if (type === 'instructors') {
-            onNavigateHome();
-            setTimeout(() => {
-                document.getElementById('instructors')?.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
+            if (onNavigateInstructors) onNavigateInstructors();
         }
     };
 
@@ -49,7 +47,7 @@ export const Recognition: React.FC<RecognitionProps> = ({ onNavigateHome, onNavi
                         Listen
                     </a>
                     <a
-                        href="/#instructors"
+                        href="/instructors"
                         onClick={(e) => handleNavClick(e, 'instructors')}
                         className="text-2xl font-serif text-slate-900 hover:text-primary transition-colors"
                     >
@@ -106,7 +104,7 @@ export const Recognition: React.FC<RecognitionProps> = ({ onNavigateHome, onNavi
                                 Listen
                             </a>
                             <a
-                                href="/#instructors"
+                                href="/instructors"
                                 onClick={(e) => handleNavClick(e, 'instructors')}
                                 className="text-slate-600 hover:text-primary transition-colors text-sm font-medium leading-normal"
                             >
