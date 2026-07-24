@@ -1,5 +1,5 @@
-import React from 'react';
-import { PlayCircle, Mic, Video, Podcast, Headphones } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { PlayCircle, Mic, Video, Podcast, Headphones, Play, Clock } from 'lucide-react';
 import { Timestamp, ResourceLink } from '../types';
 
 interface AudioSectionProps {
@@ -9,7 +9,36 @@ interface AudioSectionProps {
 }
 
 export const AudioSection: React.FC<AudioSectionProps> = ({ embedUrl, links, timestamps }) => {
-  
+  const [currentEmbedUrl, setCurrentEmbedUrl] = useState(embedUrl);
+  const [activeTimestampIndex, setActiveTimestampIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    setCurrentEmbedUrl(embedUrl);
+    setActiveTimestampIndex(null);
+  }, [embedUrl]);
+
+  const parseTimeToSeconds = (timeStr: string): number => {
+    const parts = timeStr.trim().split(':').map(Number);
+    if (parts.some(isNaN)) return 0;
+    if (parts.length === 3) {
+      return parts[0] * 3600 + parts[1] * 60 + parts[2];
+    }
+    if (parts.length === 2) {
+      return parts[0] * 60 + parts[1];
+    }
+    return 0;
+  };
+
+  const handleTimestampClick = (timeStr: string, idx: number) => {
+    const seconds = parseTimeToSeconds(timeStr);
+    setActiveTimestampIndex(idx);
+
+    let cleanUrl = embedUrl.replace(/([?&])t=\d+/, '');
+    const separator = cleanUrl.includes('?') ? '&' : '?';
+    const updatedUrl = `${cleanUrl}${separator}t=${seconds}`;
+    setCurrentEmbedUrl(updatedUrl);
+  };
+
   const getIconForPlatform = (platform: string) => {
     switch (platform) {
       case 'Spotify': return <Podcast size={20} className="text-green-500" />;
@@ -30,11 +59,11 @@ export const AudioSection: React.FC<AudioSectionProps> = ({ embedUrl, links, tim
         
         {/* Left Column: Player (7 cols) */}
         <div className="lg:col-span-7 space-y-6">
-          <div className="bg-slate-900 rounded-2xl p-1 shadow-lg overflow-hidden">
+          <div className="bg-slate-900 rounded-2xl p-1 shadow-lg overflow-hidden relative">
              {/* Spotify Embed */}
              <iframe 
                 style={{ borderRadius: '12px' }} 
-                src={embedUrl} 
+                src={currentEmbedUrl} 
                 width="100%" 
                 height="352" 
                 frameBorder="0" 
@@ -77,21 +106,56 @@ export const AudioSection: React.FC<AudioSectionProps> = ({ embedUrl, links, tim
         {/* Full Width: Timestamps */}
         <div className="col-span-1 lg:col-span-12">
             <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-                <div className="px-6 py-4 bg-slate-50 border-b border-slate-100 flex items-center gap-2">
-                    <Headphones size={16} className="text-slate-500" />
-                    <h3 className="font-bold text-slate-800 text-sm uppercase tracking-wide">Audio Timestamps</h3>
+                <div className="px-6 py-4 bg-slate-50 border-b border-slate-100 flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                        <Headphones size={16} className="text-slate-500" />
+                        <h3 className="font-bold text-slate-800 text-sm uppercase tracking-wide">Audio Timestamps</h3>
+                    </div>
+                    <span className="text-xs text-slate-400 font-medium hidden sm:inline-block">
+                      Click any timestamp to jump to that section
+                    </span>
                 </div>
                 <div className="divide-y divide-slate-100">
-                    {timestamps.map((ts, idx) => (
-                        <div key={idx} className="flex items-start sm:items-center gap-4 px-6 py-3 hover:bg-slate-50 transition-colors">
-                            <span className="flex-shrink-0 px-2 py-1 bg-brand-50 text-brand-700 text-xs font-mono rounded border border-brand-100">
-                                {ts.time}
-                            </span>
-                            <span className="text-slate-700 font-medium text-sm sm:text-base">
-                                {ts.label}
-                            </span>
-                        </div>
-                    ))}
+                    {timestamps.map((ts, idx) => {
+                        const isActive = activeTimestampIndex === idx;
+                        return (
+                            <button
+                                key={idx}
+                                onClick={() => handleTimestampClick(ts.time, idx)}
+                                className={`w-full text-left flex items-center justify-between px-6 py-3.5 transition-all group cursor-pointer ${
+                                  isActive 
+                                    ? 'bg-brand-50/80 border-l-4 border-l-brand-600' 
+                                    : 'hover:bg-slate-50 border-l-4 border-l-transparent'
+                                }`}
+                            >
+                                <div className="flex items-center gap-4">
+                                    <span className={`flex-shrink-0 px-2.5 py-1 text-xs font-mono rounded border transition-colors ${
+                                      isActive
+                                        ? 'bg-brand-600 text-white border-brand-600 font-bold'
+                                        : 'bg-brand-50 text-brand-700 border-brand-100 group-hover:bg-brand-100'
+                                    }`}>
+                                        {ts.time}
+                                    </span>
+                                    <span className={`text-sm sm:text-base transition-colors ${
+                                      isActive
+                                        ? 'text-brand-900 font-bold'
+                                        : 'text-slate-700 font-medium group-hover:text-brand-700'
+                                    }`}>
+                                        {ts.label}
+                                    </span>
+                                </div>
+                                
+                                <div className={`flex items-center gap-1.5 text-xs font-semibold rounded-full px-2.5 py-1 transition-all ${
+                                  isActive
+                                    ? 'bg-brand-600 text-white opacity-100'
+                                    : 'text-brand-600 bg-brand-50 opacity-0 group-hover:opacity-100'
+                                }`}>
+                                    {isActive ? <Clock size={12} /> : <Play size={12} className="fill-current" />}
+                                    <span>{isActive ? `Cued at ${ts.time}` : 'Jump to'}</span>
+                                </div>
+                            </button>
+                        );
+                    })}
                 </div>
             </div>
         </div>

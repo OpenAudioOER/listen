@@ -154,18 +154,18 @@ export const Instructors: React.FC<InstructorsProps> = ({ onNavigateHome, onNavi
                     <div className="mb-20 bg-slate-50 rounded-2xl p-8 lg:p-12 border border-slate-200">
                         <h2 className="text-3xl font-bold font-serif text-slate-900 mb-8 text-center">How to import into Canvas</h2>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            <div className="flex flex-col items-center text-center group cursor-default">
-                                <div className="w-16 h-16 bg-white rounded-full shadow-sm border border-slate-200 flex items-center justify-center text-primary font-bold text-2xl mb-4 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-md group-hover:border-primary/30 group-hover:bg-primary/5">1</div>
+                            <div className="flex flex-col items-center text-center">
+                                <div className="w-16 h-16 bg-white rounded-full shadow-sm border border-slate-200 flex items-center justify-center text-primary font-bold text-2xl mb-4">1</div>
                                 <h3 className="text-xl font-bold text-slate-800 mb-2">Download Package</h3>
                                 <p className="text-slate-600 text-sm">Download the .imscc course export package for your textbook from the library below.</p>
                             </div>
-                            <div className="flex flex-col items-center text-center group cursor-default">
-                                <div className="w-16 h-16 bg-white rounded-full shadow-sm border border-slate-200 flex items-center justify-center text-primary font-bold text-2xl mb-4 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-md group-hover:border-primary/30 group-hover:bg-primary/5">2</div>
+                            <div className="flex flex-col items-center text-center">
+                                <div className="w-16 h-16 bg-white rounded-full shadow-sm border border-slate-200 flex items-center justify-center text-primary font-bold text-2xl mb-4">2</div>
                                 <h3 className="text-xl font-bold text-slate-800 mb-2">Canvas Settings</h3>
                                 <p className="text-slate-600 text-sm">Navigate to your Canvas course, click <strong>Settings</strong>, then select <strong>Import Course Content</strong>.</p>
                             </div>
-                            <div className="flex flex-col items-center text-center group cursor-default">
-                                <div className="w-16 h-16 bg-white rounded-full shadow-sm border border-slate-200 flex items-center justify-center text-primary font-bold text-2xl mb-4 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-md group-hover:border-primary/30 group-hover:bg-primary/5">3</div>
+                            <div className="flex flex-col items-center text-center">
+                                <div className="w-16 h-16 bg-white rounded-full shadow-sm border border-slate-200 flex items-center justify-center text-primary font-bold text-2xl mb-4">3</div>
                                 <h3 className="text-xl font-bold text-slate-800 mb-2">Import Canvas Export</h3>
                                 <p className="text-slate-600 text-sm">Select "Canvas Course Export Package", upload the downloaded file, and click <strong>Import</strong>.</p>
                             </div>
@@ -180,10 +180,6 @@ export const Instructors: React.FC<InstructorsProps> = ({ onNavigateHome, onNavi
                                 <div key={book.id} className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col group">
                                     <div className="aspect-[4/3] rounded-lg bg-slate-100 overflow-hidden mb-6 relative border border-slate-200/50">
                                         <img src={book.coverImageWide} alt={book.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
-                                        <div className="absolute bottom-4 left-4 right-4 text-white">
-                                            <div className="text-xs font-bold uppercase tracking-wider text-white/80 mb-1">{book.author}</div>
-                                        </div>
                                     </div>
                                     <h3 className="text-xl font-bold text-slate-900 mb-2">{book.title}</h3>
                                     <p className="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">{book.description}</p>
