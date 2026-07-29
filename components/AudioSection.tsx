@@ -52,7 +52,6 @@ export const AudioSection: React.FC<AudioSectionProps> = ({ embedUrl, links, tim
     <section className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto mb-20">
       <div className="flex items-center gap-3 mb-6">
         <h2 className="text-2xl font-bold text-slate-900 font-serif">Audio Resources</h2>
-        <span className="px-2 py-0.5 rounded text-xs font-bold bg-green-100 text-green-700 tracking-wide">NEW</span>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
