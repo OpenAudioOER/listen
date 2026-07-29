@@ -193,7 +193,7 @@ export const About: React.FC<AboutProps> = ({ onNavigateHome, onNavigateLibrary,
                         <div className="my-16 pl-6 border-l-2 border-slate-200">
                              <h2 className="text-3xl font-bold font-serif text-slate-900 mb-6 mt-0">What That Work Has Added Up To</h2>
                              <p className="mb-8 text-2xl lg:text-3xl font-serif text-primary leading-relaxed">
-                                 Five free audiobooks. More than 160 hours of narrated content. Hundreds of thousands of streams and downloads worldwide.
+                                 Six free audiobooks. More than 190 hours of narrated content. Hundreds of thousands of streams and downloads worldwide.
                              </p>
                              <p className="mb-0">
                                 OpenAudio received the 2024 Open Education Award for Excellence in the "Open with AI" category and was named a finalist for the 2023 Significant Impact OER award by Open Education Global. Our audiobooks have also been approved as an offline learning tool for incarcerated students pursuing higher education without internet access, a use case that reminds us every day why this work matters.

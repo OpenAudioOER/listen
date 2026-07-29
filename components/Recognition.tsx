@@ -294,11 +294,11 @@ export const Recognition: React.FC<RecognitionProps> = ({ onNavigateHome, onNavi
                             </div>
                             <div className="flex gap-4">
                                 <div className="flex flex-col items-center bg-white p-6 rounded-2xl shadow-sm border border-slate-100 w-32 md:w-40 transition-transform hover:-translate-y-1">
-                                    <span className="text-4xl font-bold text-primary font-serif mb-1">5</span>
+                                    <span className="text-4xl font-bold text-primary font-serif mb-1">6</span>
                                     <span className="text-xs font-bold uppercase text-slate-400 tracking-wider text-center">Free OER Audiobooks</span>
                                 </div>
                                 <div className="flex flex-col items-center bg-white p-6 rounded-2xl shadow-sm border border-slate-100 w-32 md:w-40 transition-transform hover:-translate-y-1">
-                                    <span className="text-4xl font-bold text-primary font-serif mb-1">160+</span>
+                                    <span className="text-4xl font-bold text-primary font-serif mb-1">190+</span>
                                     <span className="text-xs font-bold uppercase text-slate-400 tracking-wider text-center">Hours of Audio</span>
                                 </div>
                                 <div className="flex flex-col items-center bg-white p-6 rounded-2xl shadow-sm border border-slate-100 w-32 md:w-40 transition-transform hover:-translate-y-1">
