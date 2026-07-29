@@ -48,6 +48,13 @@ export const AudioSection: React.FC<AudioSectionProps> = ({ embedUrl, links, tim
     }
   };
 
+  const formatSpotifyEmbedUrl = (url: string) => {
+    if (!url || !url.includes('spotify.com/embed')) return url;
+    if (url.includes('theme=0')) return url;
+    if (url.includes('theme=')) return url.replace(/theme=\d/, 'theme=0');
+    return url.includes('?') ? `${url}&theme=0` : `${url}?theme=0`;
+  };
+
   return (
     <section className="px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto mb-20">
       <div className="flex items-center gap-3 mb-6">
@@ -62,7 +69,7 @@ export const AudioSection: React.FC<AudioSectionProps> = ({ embedUrl, links, tim
              {/* Spotify Embed */}
              <iframe 
                 style={{ borderRadius: '12px' }} 
-                src={currentEmbedUrl} 
+                src={formatSpotifyEmbedUrl(currentEmbedUrl)} 
                 width="100%" 
                 height="352" 
                 frameBorder="0" 

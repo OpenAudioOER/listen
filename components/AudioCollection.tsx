@@ -7,6 +7,13 @@ interface AudioCollectionProps {
   bookTitle: string;
 }
 
+const formatSpotifyEmbedUrl = (url: string) => {
+  if (!url || !url.includes('spotify.com/embed')) return url;
+  if (url.includes('theme=0')) return url;
+  if (url.includes('theme=')) return url.replace(/theme=\d/, 'theme=0');
+  return url.includes('?') ? `${url}&theme=0` : `${url}?theme=0`;
+};
+
 export const AudioCollection: React.FC<AudioCollectionProps> = ({ chapters, bookTitle }) => {
   const [expandedId, setExpandedId] = useState<number | null>(null);
   const [copied, setCopied] = useState(false);
@@ -108,7 +115,7 @@ export const AudioCollection: React.FC<AudioCollectionProps> = ({ chapters, book
                   <div className="bg-slate-900 rounded-xl overflow-hidden shadow-md">
                     <iframe
                       style={{ borderRadius: '12px' }}
-                      src={chapter.audioEmbedUrl}
+                      src={formatSpotifyEmbedUrl(chapter.audioEmbedUrl)}
                       width="100%"
                       height="152"
                       frameBorder="0"

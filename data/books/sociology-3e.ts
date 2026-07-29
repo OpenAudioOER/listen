@@ -8,7 +8,7 @@ export const introSocChapters: ChapterData[] = [
     subtitle: "Everyday routines and personal choices are shaped by powerful social forces you may not even notice.",
     description: "This chapter introduces sociology as the systematic study of society and social interaction. You will learn what sociologists study, how sociological thinking developed, and why understanding social patterns helps explain individual behavior and larger social issues.",
     textbookUrl: "https://openstax.org/books/introduction-sociology-3e/pages/1-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/2agJEPRBvQhu1E0XzQvnMH?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/2agJEPRBvQhu1E0XzQvnMH?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/2agJEPRBvQhu1E0XzQvnMH?si=PU0LWingRlqY32YLV9hslg" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-1-an-introduction-to-sociology/id1724098879?i=1000640483913" },
@@ -31,7 +31,7 @@ export const introSocChapters: ChapterData[] = [
     subtitle: "Sociology uses systematic investigation to explore how human behavior and social life are shaped.",
     description: "This chapter explains how sociologists study society using structured research methods. It introduces the scientific method and other interpretive frameworks, details various research designs (like surveys, experiments, and ethnography), and discusses ethical responsibilities that researchers must uphold to ensure their findings are valid, reliable, and respectful of participants.",
     textbookUrl: "https://openstax.org/books/introduction-sociology-3e/pages/2-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/5CnwkVzUkG86yZGg6R95gd?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/5CnwkVzUkG86yZGg6R95gd?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/5CnwkVzUkG86yZGg6R95gd?si=t2bQYpwOQV6Pl5ii8dsH_w" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-2-sociological-research/id1724098879?i=1000640487940" },
@@ -53,7 +53,7 @@ export const introSocChapters: ChapterData[] = [
     subtitle: "Culture shapes how people interpret the world and interact with others.",
     description: "This chapter explores what culture is and how it differs from society. It breaks down elements of culture—such as values, beliefs, norms, language, and symbols—and examines different types of cultures, including subcultures and countercultures. It also looks at how culture changes over time and how sociological theories help explain cultural patterns and influences.",
     textbookUrl: "https://openstax.org/books/introduction-sociology-3e/pages/3-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/14VfXq8qfhOnnRIq1Tjb3y?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/14VfXq8qfhOnnRIq1Tjb3y?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/14VfXq8qfhOnnRIq1Tjb3y?si=ZqfTN_QpRNm-p32o3za1fw" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-3-culture/id1724098879?i=1000640495533" },
@@ -76,7 +76,7 @@ export const introSocChapters: ChapterData[] = [
     subtitle: "The organization of society and the way people interact form the foundations of everyday life.",
     description: "This chapter introduces how societies differ based on technology and organization, from preindustrial to postindustrial types. It also covers major sociological theories about society, including perspectives from Durkheim, Marx, and Weber. Finally, it discusses the social construction of reality and how roles and interactions shape personal identities and social relationships.",
     textbookUrl: "https://openstax.org/books/introduction-sociology-3e/pages/4-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/4ZaWzmCqKxAp82FPkC2ROI?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/4ZaWzmCqKxAp82FPkC2ROI?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/4ZaWzmCqKxAp82FPkC2ROI?si=Q-AQClRSQa6fUyMc46yx3w" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-4-society-and-social-interaction/id1724098879?i=1000640495337" },
@@ -98,7 +98,7 @@ export const introSocChapters: ChapterData[] = [
     subtitle: "People learn who they are and how to behave through lifelong socialization.",
     description: "This chapter focuses on how individuals develop their sense of self and become functioning members of society. It begins with theories of self-development, explains why socialization is critical for both individuals and social continuity, identifies key agents of socialization such as family and institutions, and describes how socialization continues throughout life and changes as people transition into new social roles.",
     textbookUrl: "https://openstax.org/books/introduction-sociology-3e/pages/5-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/0w5YO363Y3kFZnBo90S0cI?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/0w5YO363Y3kFZnBo90S0cI?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/0w5YO363Y3kFZnBo90S0cI?si=bt88d2RGTnWP8ElkpZGagw" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-5-socialization/id1724098879?i=1000640495584" },
@@ -121,7 +121,7 @@ export const introSocChapters: ChapterData[] = [
     subtitle: "Groups and organizations shape identity, influence behavior, and structure social life.",
     description: "This chapter examines the social dynamics of groups and organizations. It explains different types of groups (like primary and secondary), how group size and structure influence behavior and leadership styles, and how conformity operates within groups. It also explores formal organizations, their bureaucratic structures, and how societal trends like McDonaldization affect organizational life.",
     textbookUrl: "https://openstax.org/books/introduction-sociology-3e/pages/6-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/2Aarh1a4X5I8YLKcga6bV8?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/2Aarh1a4X5I8YLKcga6bV8?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/2Aarh1a4X5I8YLKcga6bV8?si=2h1v1wJFTyShBLSJWp4EKA" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-6-groups-and-organization/id1724098879?i=1000640570928" },
@@ -143,7 +143,7 @@ export const introSocChapters: ChapterData[] = [
     subtitle: "What counts as deviant behavior depends on time, place, and social reaction.",
     description: "This chapter examines how societies define and respond to behaviors that violate norms, and the social mechanisms that maintain order. You’ll explore why certain acts are labeled deviant or criminal, how theories from different sociological perspectives explain deviance and crime, and the ways in which social control operates through both formal and informal sanctions to shape behavior.",
     textbookUrl: "https://openstax.org/books/introduction-sociology-3e/pages/7-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/2rTXlbaWERVztqjIUgNJKV?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/2rTXlbaWERVztqjIUgNJKV?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/2rTXlbaWERVztqjIUgNJKV?si=AYOlmLaLQ-CTIY_hpXWVyQ" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-7-deviance-crime-and-social-control/id1724098879?i=1000640572289" },
@@ -165,7 +165,7 @@ export const introSocChapters: ChapterData[] = [
     subtitle: "Media and technology reshape how people communicate, connect, and understand the world around them.",
     description: "This chapter explores the relationship between society and the media technologies that transmit information and culture. It covers the evolution of media, the social roles media play, and the ways technology influences social interaction, access to information, inequality, globalization, and cultural change. The chapter also considers both the opportunities and challenges that come with new and emerging media.",
     textbookUrl: "https://openstax.org/books/introduction-sociology-3e/pages/8-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/15Kx3ufXmMvYyXD3IAwMIw?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/15Kx3ufXmMvYyXD3IAwMIw?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/15Kx3ufXmMvYyXD3IAwMIw?si=FQxf_JNWQIOZ0HHX_Y0iyg" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-8-media-and-technology/id1724098879?i=1000640577753" },
@@ -188,7 +188,7 @@ export const introSocChapters: ChapterData[] = [
     subtitle: "Societies sort people into hierarchies that influence life chances, opportunities, and inequality.",
     description: "This chapter introduces the concept of social stratification and how it shapes people’s lives in the U.S. and beyond. You’ll learn what stratification is, how class and inequality work, patterns of social mobility, global comparisons of stratification, and how major sociological theories interpret these systems of inequality.",
     textbookUrl: "https://openstax.org/books/introduction-sociology-3e/pages/9-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/4NPvmJpiELKZVBDzCBnFIk?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/4NPvmJpiELKZVBDzCBnFIk?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/4NPvmJpiELKZVBDzCBnFIk?si=FQxf_JNWQIOZ0HHX_Y0iyg" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-9-social-stratification-in-the-united-states/id1724098879?i=1000640587286" },
@@ -211,7 +211,7 @@ export const introSocChapters: ChapterData[] = [
     subtitle: "Economic and social inequalities stretch across nations, shaping lives unevenly across the globe.",
     description: "This chapter expands the discussion of stratification to the global level by examining how wealth and poverty are distributed between countries. It looks at systems of global stratification, patterns of development and underdevelopment, and theoretical perspectives that help explain why nations and their citizens experience such divergent life outcomes.",
     textbookUrl: "https://openstax.org/books/introduction-sociology-3e/pages/10-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/3IYQzofNj136DGzexK8wv4?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/3IYQzofNj136DGzexK8wv4?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/3IYQzofNj136DGzexK8wv4?si=-1VXmHSkSGO3DOqNxg3GQA" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-10-global-inequality/id1724098879?i=1000640588823" },
@@ -233,7 +233,7 @@ export const introSocChapters: ChapterData[] = [
     subtitle: "Race and ethnicity significantly influence individual opportunities, group relations, and institutional processes.",
     description: "This chapter introduces key concepts in the study of racial and ethnic groups, including definitions, theoretical perspectives, and forms of prejudice, discrimination, and racism. It also explores how intergroup relations take shape in societies, with special emphasis on race and ethnicity in the United States, and the social consequences these categories have for individuals and communities.",
     textbookUrl: "https://openstax.org/books/introduction-sociology-3e/pages/11-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/4ju9mgvf3Cxs1lKFItCxX1?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/4ju9mgvf3Cxs1lKFItCxX1?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/4ju9mgvf3Cxs1lKFItCxX1?si=FqEKeUA2S0ixwvgnXVdSvg" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-11-race-and-ethnicity/id1724098879?i=1000640594172" },
@@ -257,7 +257,7 @@ export const introSocChapters: ChapterData[] = [
     subtitle: "Gender and sexuality are central to personal identity and social organization, yet their meanings vary across cultures and contexts.",
     description: "This chapter explores how gender and sexual identities are constructed and lived in society. It covers the differences between sex and gender, the processes that produce gender inequality, and sociological perspectives on how gender shapes people’s opportunities and roles. The chapter also examines the social meanings of sexuality and the ways cultural norms influence sexual behavior and attitudes.",
     textbookUrl: "https://openstax.org/books/introduction-sociology-3e/pages/12-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/2TX80z7bdnFdT1J6Bt7QLb?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/2TX80z7bdnFdT1J6Bt7QLb?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/2TX80z7bdnFdT1J6Bt7QLb?si=HQLOFJiOQvyRvY6hJHwbQA" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-12-gender-sex-and-sexuality/id1724098879?i=1000640626173" },
@@ -279,7 +279,7 @@ export const introSocChapters: ChapterData[] = [
     subtitle: "Aging transforms personal lives and societal roles in ways that challenge individuals and the communities around them.",
     description: "This chapter explores how aging shapes identities, experiences, and social expectations in society. You’ll learn who the elderly are demographically, how aging unfolds biologically and socially, what challenges older adults and their families face, and how major sociological perspectives help explain roles and realities in later life.",
     textbookUrl: "https://openstax.org/books/introduction-sociology-3e/pages/13-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/6mLqVrkhDJ1bye8YRurxLW?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/6mLqVrkhDJ1bye8YRurxLW?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/6mLqVrkhDJ1bye8YRurxLW?si=pyIBZLMWR3iia3wkGYAfQw" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-13-aging-and-the-elderly/id1724098879?i=1000640628829" },
@@ -302,7 +302,7 @@ export const introSocChapters: ChapterData[] = [
     subtitle: "Marriage and family are central social institutions that shape personal identity and social structures across cultures.",
     description: "This chapter examines the sociological meanings of marriage and family in different cultural contexts. It discusses how definitions of relationships and families vary, highlights changing family forms and life courses, and addresses contemporary challenges families face, such as evolving norms, economic pressures, and shifting roles within households.",
     textbookUrl: "https://openstax.org/books/introduction-sociology-3e/pages/14-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/0aKSW83oLPQ42Fb53oUBZw?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/0aKSW83oLPQ42Fb53oUBZw?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/0aKSW83oLPQ42Fb53oUBZw?si=OifI0Vv5RfGi648oqqv5_g" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-14-relationships-marriage-and-family/id1724098879?i=1000640631584" },
@@ -324,7 +324,7 @@ export const introSocChapters: ChapterData[] = [
     subtitle: "Religion remains a powerful social force, influencing beliefs, norms, and cultural identities throughout the world.",
     description: "This chapter introduces why sociologists study religion and how religious beliefs and practices shape societies. It covers how religion functions as an institution, surveys major world religions, and explores contemporary patterns of religious life, including diversity, secularization, and the social effects of religious practices and organizations in the United States and globally.",
     textbookUrl: "https://openstax.org/books/introduction-sociology-3e/pages/15-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/6loL8SLkeDy1K9kqub6M4S?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/6loL8SLkeDy1K9kqub6M4S?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/6loL8SLkeDy1K9kqub6M4S?si=JP7YNS11TJGB7Wzob6BEsQ" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-15-religion/id1724098879?i=1000640637195" },
@@ -346,7 +346,7 @@ export const introSocChapters: ChapterData[] = [
     subtitle: "Education is a key social institution that both reflects and shapes societal opportunities, inequalities, and cultural values.",
     description: "This chapter looks at how education systems operate around the world and how they influence individuals’ life chances. It discusses disparities in educational access and outcomes, the social significance of schooling, and the social theories used to understand education’s role in society, including debates over equity, credentialism, and the value of higher education.",
     textbookUrl: "https://openstax.org/books/introduction-sociology-3e/pages/16-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/1C5LOhntz5Wm2gaMtbMVfT?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/1C5LOhntz5Wm2gaMtbMVfT?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/1C5LOhntz5Wm2gaMtbMVfT?si=VFLerJjFQx6YSWDnwaYFKw" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-16-education/id1724098879?i=1000640791032" },
@@ -368,7 +368,7 @@ export const introSocChapters: ChapterData[] = [
     subtitle: "Government and politics organize collective life and distribute power, shaping how societies function and who has influence.",
     description: "This chapter examines the sociological study of power, authority, and political systems. It discusses forms of government, the practice of politics in the United States, and how sociological perspectives explain the distribution and exercise of power in society—highlighting the interplay between individuals, institutions, and social forces.",
     textbookUrl: "https://openstax.org/books/introduction-sociology-3e/pages/17-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/4uVGib2YWwJ40XysJaGuSL?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/4uVGib2YWwJ40XysJaGuSL?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/4uVGib2YWwJ40XysJaGuSL?si=PTfgkP8uQ2W4IUDd5CQvdA" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-17-government-and-politics/id1724098879?i=1000640934726" },
@@ -391,7 +391,7 @@ export const introSocChapters: ChapterData[] = [
     subtitle: "Work and economic systems structure people’s daily lives and shape how societies distribute resources.",
     description: "This chapter explores the social institution of the economy and how it organizes the production, distribution, and exchange of goods and services. It covers different types of economic systems, the effects of globalization on labor and markets, and features of work in the United States—including how employment patterns, wage disparities, and economic changes impact individuals and broader society.",
     textbookUrl: "https://openstax.org/books/introduction-sociology-3e/pages/18-introduction-to-work-and-the-economy",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/1JMipBm5slmOy7GOWMvONG?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/1JMipBm5slmOy7GOWMvONG?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/1JMipBm5slmOy7GOWMvONG?si=LE0fKvEaS5C0Ab9IqepfOg" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-18-work-and-the-economy/id1724098879?i=1000640939713" },
@@ -413,7 +413,7 @@ export const introSocChapters: ChapterData[] = [
     subtitle: "Health and illness are not just biological.  They’re shaped by social structures, culture, and access to care.",
     description: "This chapter introduces medical sociology, focusing on how health, illness, and healthcare are understood as social phenomena. It looks at the social construction of health, global health issues, healthcare systems in the United States and elsewhere, and how sociological theories explain disparities in health outcomes and access to medical care.",
     textbookUrl: "https://openstax.org/books/introduction-sociology-3e/pages/19-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/1o7u726cyWXhqwDbVJ0NDS?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/1o7u726cyWXhqwDbVJ0NDS?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/1o7u726cyWXhqwDbVJ0NDS?si=tQl-OteQRPKW2eCWki1D4g" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-19-health-and-medicine/id1724098879?i=1000640942058" },
@@ -437,7 +437,7 @@ export const introSocChapters: ChapterData[] = [
     subtitle: "Population size and city growth interact with social and environmental systems in ways that shape life worldwide.",
     description: "This chapter examines population dynamics, urbanization trends, and the interplay between people and their environment. It introduces demography, explores how and why population patterns differ, discusses the growth of urban areas and their social consequences, and addresses environmental issues that arise as populations and cities expand.",
     textbookUrl: "https://openstax.org/books/introduction-sociology-3e/pages/20-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/3Ig2nL7J3DIdtHTHFGbCnY?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/3Ig2nL7J3DIdtHTHFGbCnY?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/3Ig2nL7J3DIdtHTHFGbCnY?si=GtNcd2qtQ7iQTN04dpM30Q" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-20-population-urbanization-and-the-environment/id1724098879?i=1000640947491" },
@@ -459,7 +459,7 @@ export const introSocChapters: ChapterData[] = [
     subtitle: "People collectively shape society by challenging norms, organizing movements, and driving lasting change.",
     description: "This chapter explores how social change happens through collective behavior and organized social movements. It describes what constitutes a social movement, gives examples of everyday and historical activism, and examines the relationship between movements and broader societal shifts—including how culture, institutions, and technology influence change.",
     textbookUrl: "https://openstax.org/books/introduction-sociology-3e/pages/21-introduction-to-social-movements-and-social-change",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/4d7qVKcJXeKXdNT783ZMqK?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/4d7qVKcJXeKXdNT783ZMqK?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/4d7qVKcJXeKXdNT783ZMqK?si=v46IP6ioSPuAuIoRyYxhPQ" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-21-social-movements-and-social-change/id1724098879?i=1000640949736" },

@@ -8,7 +8,7 @@ export const amGov3eChapters: ChapterData[] = [
     subtitle: "Government shapes nearly every part of your daily life, even when you don’t notice it.",
     description: "This chapter introduces what government is, why it exists, and how citizens influence it. You will explore different forms of government, theories about who holds power, and the many ways people participate in democracy.",
     textbookUrl: "https://openstax.org/books/american-government-3e/pages/1-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/3Nbuw8ZeBoS8Dq8lGvbj4p?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/3Nbuw8ZeBoS8Dq8lGvbj4p?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/3Nbuw8ZeBoS8Dq8lGvbj4p?si=nh75GMiERVSHaF4vFCwY4g" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-1-american-government-and-civic-engagement/id1636232477?i=1000571037882" },
@@ -30,7 +30,7 @@ export const amGov3eChapters: ChapterData[] = [
     subtitle: "The U.S. Constitution serves as both a blueprint for government and a document that continues to shape American society.",
     description: "This chapter traces the historical roots of the Constitution, from colonial rule through the Articles of Confederation and the Constitutional Convention. You will learn how the Constitution was created, debated, ratified, and adapted over time.",
     textbookUrl: "https://openstax.org/books/american-government-3e/pages/2-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/2LboVLpaeko7geJAe7dRYI?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/2LboVLpaeko7geJAe7dRYI?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/2LboVLpaeko7geJAe7dRYI?si=KFSG3cY-T7WNg5IjB0dKjA" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-2-the-constitution-and-its-origins/id1636232477?i=1000575930172" },
@@ -54,7 +54,7 @@ export const amGov3eChapters: ChapterData[] = [
     subtitle: "Power in the United States is divided like a shared puzzle between national and state governments.",
     description: "This chapter explains how federalism distributes authority across multiple levels of government. You will examine how this system evolved, how governments cooperate and compete, and the benefits and challenges of shared power.",
     textbookUrl: "https://openstax.org/books/american-government-3e/pages/3-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/1fa0wi29tNt62pcfIcaA5D?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/1fa0wi29tNt62pcfIcaA5D?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/1fa0wi29tNt62pcfIcaA5D?si=LhzrlM-qRR-XywTjf8c0Zg" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-3-american-federalism/id1636232477?i=1000575930368" },
@@ -78,7 +78,7 @@ export const amGov3eChapters: ChapterData[] = [
     subtitle: "Your freedoms, including speech, religion, and privacy, are protected but often debated and challenged.",
     description: "This chapter explores the constitutional protections that safeguard individual freedoms. You will examine the Bill of Rights, how courts interpret liberties, and how civil liberties apply in areas such as criminal justice and public safety.",
     textbookUrl: "https://openstax.org/books/american-government-3e/pages/4-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/4Z21MMTezh3X4EMhDfETje?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/4Z21MMTezh3X4EMhDfETje?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/4Z21MMTezh3X4EMhDfETje?si=o7C-ttUKQsGk-tJk1NdJLQ" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-4-civil-liberties/id1636232477?i=1000571168051" },
@@ -101,7 +101,7 @@ export const amGov3eChapters: ChapterData[] = [
     subtitle: "The struggle for equality has shaped American history and continues to influence modern society.",
     description: "This chapter focuses on how laws and social movements have worked to guarantee equal treatment under the law. You will study major civil rights movements, key legislation, and ongoing efforts to expand equality for diverse groups.",
     textbookUrl: "https://openstax.org/books/american-government-3e/pages/5-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/1aORzvdyPcTPflaRU45Chr?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/1aORzvdyPcTPflaRU45Chr?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/1aORzvdyPcTPflaRU45Chr?si=GW331HZ4QlOJPnoOEkwwbw" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-5-civil-rights/id1636232477?i=1000574704097" },
@@ -125,7 +125,7 @@ export const amGov3eChapters: ChapterData[] = [
     subtitle: "Public opinion shapes elections, influences policy, and helps define political priorities.",
     description: "This chapter examines how people form political beliefs and how those beliefs are measured. You will learn how public opinion affects political leaders, government decisions, and the broader democratic process.",
     textbookUrl: "https://openstax.org/books/american-government-3e/pages/6-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/7hahi5wUipLQp9cYUPDL2i?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/7hahi5wUipLQp9cYUPDL2i?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/7hahi5wUipLQp9cYUPDL2i?si=aVq8xME3SzCmAr_G2q_7dA" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-6-the-politics-of-public-opinion/id1636232477?i=1000575336148" },
@@ -148,7 +148,7 @@ export const amGov3eChapters: ChapterData[] = [
     subtitle: "Elections allow citizens to choose leaders and influence the direction of government.",
     description: "This chapter explains how elections operate in the United States, including voter registration, turnout, campaign strategies, and voting systems. You will also explore direct democracy tools such as initiatives and referendums.",
     textbookUrl: "https://openstax.org/books/american-government-3e/pages/7-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/2X9BRTFutBgyA2AJXYDf1b?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/2X9BRTFutBgyA2AJXYDf1b?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/2X9BRTFutBgyA2AJXYDf1b?si=07sFm0BcRdCFr2Fr37a-cg" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-7-voting-and-elections/id1636232477?i=1000575969773" },
@@ -172,7 +172,7 @@ export const amGov3eChapters: ChapterData[] = [
     subtitle: "The media reports political events and shapes what people believe is important.",
     description: "This chapter explores how traditional and digital media influence politics and public understanding. You will examine media development, regulation, bias, and the powerful role media plays in shaping political agendas.",
     textbookUrl: "https://openstax.org/books/american-government-3e/pages/8-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/4ZJTCy1NQlNlmoSanXB2Hr?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/4ZJTCy1NQlNlmoSanXB2Hr?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/4ZJTCy1NQlNlmoSanXB2Hr?si=ojmXOafwShOOMP9IyHh-Fg" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-8-the-media/id1636232477?i=1000576023232" },
@@ -195,7 +195,7 @@ export const amGov3eChapters: ChapterData[] = [
     subtitle: "Political parties organize ideas, mobilize voters, and drive political competition in the United States.",
     description: "This chapter explains how political parties formed, why the two-party system dominates American politics, and how parties operate today. You will also examine polarization and its impact on governance.",
     textbookUrl: "https://openstax.org/books/american-government-3e/pages/9-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/02ShiQenjI96P5ONjw4QmJ?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/02ShiQenjI96P5ONjw4QmJ?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/02ShiQenjI96P5ONjw4QmJ?si=bY-PtS4tTjyUDJcOWQBmZg" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-9-political-parties/id1636232477?i=1000576568094" },
@@ -218,7 +218,7 @@ export const amGov3eChapters: ChapterData[] = [
     subtitle: "Organized groups work to influence laws, policies, and public debate.",
     description: "This chapter examines how interest groups form, operate, and shape public policy. You will explore lobbying strategies, political participation through advocacy, and debates about regulation and free speech.",
     textbookUrl: "https://openstax.org/books/american-government-3e/pages/10-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/21cb1xivm1aYmB8Jd3gdPA?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/21cb1xivm1aYmB8Jd3gdPA?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/21cb1xivm1aYmB8Jd3gdPA?si=jWIlY0xeQVa03meQ_8DBrg" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-10-interest-groups-and-lobbying/id1636232477?i=1000576669155" },
@@ -242,7 +242,7 @@ export const amGov3eChapters: ChapterData[] = [
     subtitle: "Congress is where national laws are proposed, debated, and created.",
     description: "This chapter explains the structure and function of the legislative branch. You will learn about congressional elections, representation, leadership organization, and the process through which laws are passed.",
     textbookUrl: "https://openstax.org/books/american-government-3e/pages/11-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/7u36Wip1F2CWS3m3mRKRjF?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/7u36Wip1F2CWS3m3mRKRjF?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/7u36Wip1F2CWS3m3mRKRjF?si=Fpq9DIiBS62vdoRPfjlCgQ" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-11-congress/id1636232477?i=1000577544686" },
@@ -266,7 +266,7 @@ export const amGov3eChapters: ChapterData[] = [
     subtitle: "The presidency combines leadership, policy influence, and public persuasion in a single office.",
     description: "This chapter explores how the presidency was designed and how it has expanded over time. You will examine presidential elections, executive powers, administrative leadership, and the president’s role in shaping policy.",
     textbookUrl: "https://openstax.org/books/american-government-3e/pages/12-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/5j4Tho7gi1EKhIy9RPtObQ?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/5j4Tho7gi1EKhIy9RPtObQ?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/5j4Tho7gi1EKhIy9RPtObQ?si=A-q5l8zBTFqQf8_I2PH90Q" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-12-the-presidency/id1636232477?i=1000577557528" },
@@ -290,7 +290,7 @@ export const amGov3eChapters: ChapterData[] = [
     subtitle: "Courts interpret laws and determine how the Constitution is applied in modern society.",
     description: "This chapter explains the structure and purpose of the judicial system. You will study how courts operate, how cases reach the Supreme Court, and how judicial decisions influence public policy and individual rights.",
     textbookUrl: "https://openstax.org/books/american-government-3e/pages/13-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/3cz8xND1haFlz2irXuwdc0?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/3cz8xND1haFlz2irXuwdc0?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/3cz8xND1haFlz2irXuwdc0?si=ba7ngMFfTrqJlSiL6xMWFg" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-13-the-courts/id1636232477?i=1000571169371" },
@@ -314,7 +314,7 @@ export const amGov3eChapters: ChapterData[] = [
     subtitle: "Many government decisions that affect your daily life are made at the state and local level.",
     description: "This chapter explores how state and local governments function and interact with citizens. You will examine state political culture, leadership roles, and how counties and cities deliver essential public services.",
     textbookUrl: "https://openstax.org/books/american-government-3e/pages/14-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/1aSQxcCHUzPPJM768mT5o3?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/1aSQxcCHUzPPJM768mT5o3?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/1aSQxcCHUzPPJM768mT5o3?si=m0NFZ479TACUk6lg4LV53Q" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-14-state-and-local-government/id1636232477?i=1000577606354" },
@@ -338,7 +338,7 @@ export const amGov3eChapters: ChapterData[] = [
     subtitle: "Government policies often depend on bureaucratic agencies to turn laws into action.",
     description: "This chapter explains how government agencies are structured and how they implement laws and programs. You will learn about the development of the civil service, types of agencies, and methods used to oversee bureaucratic power.",
     textbookUrl: "https://openstax.org/books/american-government-3e/pages/15-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/6EG8JTBs2NuTJQxF3jkobm?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/6EG8JTBs2NuTJQxF3jkobm?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/6EG8JTBs2NuTJQxF3jkobm?si=bbbKAnReSguY2FtgtoIgEA" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-15-the-bureaucracy/id1636232477?i=1000579043071" },
@@ -361,7 +361,7 @@ export const amGov3eChapters: ChapterData[] = [
     subtitle: "Domestic policy decisions influence education, healthcare, the economy, and everyday life.",
     description: "This chapter examines how public policies are created, categorized, and implemented within the United States. You will explore policymaking processes, major policy areas, and the role of budgeting and taxation.",
     textbookUrl: "https://openstax.org/books/american-government-3e/pages/16-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/47I76Y2VekJ5vP4kGkiOcY?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/47I76Y2VekJ5vP4kGkiOcY?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/47I76Y2VekJ5vP4kGkiOcY?si=UFNY6aB5RVaXP9d6vnerbg" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-16-domestic-policy/id1636232477?i=1000579053501" },
@@ -385,7 +385,7 @@ export const amGov3eChapters: ChapterData[] = [
     subtitle: "Decisions made by the United States abroad influence global security, diplomacy, and economic relationships.",
     description: "This chapter explores how the United States interacts with other nations and international organizations. You will examine foreign policy goals, diplomatic and military tools, and the institutions responsible for global decision-making.",
     textbookUrl: "https://openstax.org/books/american-government-3e/pages/17-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/6x9eGIQevjdsjtjT8TJLSo?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/6x9eGIQevjdsjtjT8TJLSo?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/6x9eGIQevjdsjtjT8TJLSo?si=1E_BdbDjSwGXH2uGMB2MWQ" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-17-foreign-policy/id1636232477?i=1000579067522" },

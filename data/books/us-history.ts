@@ -8,7 +8,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "Long before Europeans arrived, vibrant societies flourished in the Americas and Africa, setting the stage for transformative global encounters.",
     description: "This chapter looks at the diverse peoples and civilizations that existed in the Americas prior to 1492, from complex mound-building cultures in North America to powerful empires like the Aztec and Inca. It also explores Europe’s growing interest in overseas trade following the Crusades and West Africa’s varied societies and slavery systems, showing how these regions would soon be drawn into an expanding Atlantic world.",
     textbookUrl: "https://openstax.org/books/us-history/pages/1-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/57CS8zEcpKrSR9obXUF4ME?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/57CS8zEcpKrSR9obXUF4ME?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/57CS8zEcpKrSR9obXUF4ME?si=kWnhHffaRiazcZRjjcmyJQ" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-1-the-americas-europe-and-africa-before-1492/id1740390382?i=1000651936505" },
@@ -30,7 +30,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "The Age of Exploration launched a new global system that reshaped economies, cultures, and human lives through exchange and conquest.",
     description: "This chapter traces the beginnings of European exploration and conquest in the Atlantic, from Portuguese voyages along Africa’s coast to Spanish conquests in the Americas. It examines the spread of Protestantism and religious conflict in Europe, growing rivalries among imperial powers, and the profound impacts of the Columbian Exchange on labor systems, trade, and indigenous populations in the New World.",
     textbookUrl: "https://openstax.org/books/us-history/pages/2-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/6aFSyMpOZZuzM06T6zctID?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/6aFSyMpOZZuzM06T6zctID?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/6aFSyMpOZZuzM06T6zctID?si=peStcm7eREyUnISbRUlZBA" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-2-early-globalization-the-atlantic-world-1492-1650/id1740390382?i=1000651936477" },
@@ -53,7 +53,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "Colonial expansion created new and often unequal social worlds in North America as Europeans, Africans, and Native peoples interacted and clashed.",
     description: "This chapter examines how European powers established colonies in the Americas, from Spanish outposts and missions to Dutch and French trading societies and English settlements like Jamestown and Plymouth. It looks at the struggles and adaptations of these colonial societies, including conflicts with Native Americans, the development of labor systems, and the long-term cultural consequences of early colonization.",
     textbookUrl: "https://openstax.org/books/us-history/pages/3-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/472TfrXXOWuwxQmgV62pci?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/472TfrXXOWuwxQmgV62pci?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/472TfrXXOWuwxQmgV62pci?si=0gGDxKj6ROK0XFcyRSnJjQ" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-3-creating-new-social-orders-colonial-societies/id1740390382?i=1000651936476" },
@@ -76,7 +76,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "In the seventeenth and early eighteenth centuries, England built a powerful Atlantic empire that influenced colonial politics, culture, and economy.",
     description: "This chapter explores the evolution of English rule in North America after the Civil War, including the establishment of proprietary colonies and the spread of slavery. It also examines how political changes in England, such as the Glorious Revolution and Enlightenment ideas, shaped colonial governance and identity. Imperial wars with France and Spain deepened British control over North America, setting the stage for later colonial unrest.",
     textbookUrl: "https://openstax.org/books/us-history/pages/4-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/35aDrPRuLCUlGdKRis3JFO?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/35aDrPRuLCUlGdKRis3JFO?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/35aDrPRuLCUlGdKRis3JFO?si=6bj0gV5jREq0Pn2tC2SRRQ" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-4-rule-britannia-the-english-empire-1660-1763/id1740390382?i=1000651936221" },
@@ -100,7 +100,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "After the French and Indian War, British imperial reforms triggered widespread colonial resistance and a growing sense of American identity.",
     description: "This chapter examines the imperial policies that followed Britain’s victory in the French and Indian War, including a series of taxes and regulatory acts designed to help repay war debts and strengthen control. Colonial protests against the Stamp Act, Townshend Acts, and Tea Act helped unite diverse colonies in opposition. Tensions culminated in punitive measures like the Coercive Acts and the gathering of the First Continental Congress, signaling a decisive break with British authority.",
     textbookUrl: "https://openstax.org/books/us-history/pages/5-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/1uKS5OoPOKjPLdy3zHx50a?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/1uKS5OoPOKjPLdy3zHx50a?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/1uKS5OoPOKjPLdy3zHx50a?si=cSQhV3k1Smmm6jkuuOZDmA" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-5-imperial-reforms-and-colonial-protests-1763-1774/id1740390382?i=1000651936427" },
@@ -124,7 +124,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "The American Revolution transformed a group of disparate colonies into an independent nation through struggle, sacrifice, and shifting loyalties.",
     description: "This chapter follows the outbreak of war between Britain and the American colonists, beginning with conflicts like Lexington and Concord. It explores key phases of the war, from British military strategies in New York and the South to decisive turning points like Saratoga and the alliance with France. The chapter also considers how the war reshaped identities, as Patriots, Loyalists, and other groups navigated upheaval and negotiated what independence would mean for the new United States.",
     textbookUrl: "https://openstax.org/books/us-history/pages/6-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/2tbiKof0klkuvt8HuPaVPT?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/2tbiKof0klkuvt8HuPaVPT?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/2tbiKof0klkuvt8HuPaVPT?si=4bcWEncKTLKVEadwZJu0Aw" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-6-americas-war-for-independence-1775-1783/id1740390382?i=1000651936258" },
@@ -147,7 +147,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "The United States’ earliest leaders struggled to build a stable republic from revolution’s democratic ideals.",
     description: "This chapter examines how Americans reacted to independence and tackled the challenges of creating a national government. It explores early debates over the Articles of Confederation, the drafting and ratification of the U.S. Constitution, and the contentious politics of forming a new republic. The chapter also highlights conflicts over federal versus state power, the Bill of Rights, and the emergence of political factions that set precedents for the nation’s future.",
     textbookUrl: "https://openstax.org/books/us-history/pages/7-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/6uc8VHcg3i7gu31NKqIGFc?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/6uc8VHcg3i7gu31NKqIGFc?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/6uc8VHcg3i7gu31NKqIGFc?si=yGl0Ee-HQoanNRDy0QNlpA" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-7-creating-republican-governments-1776-1790/id1740390382?i=1000651936576" },
@@ -170,7 +170,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "In the early 1800s, the United States expanded its territory and wrestling with how its democratic experiment would thrive.",
     description: "This chapter explores the Jeffersonian and Madison administrations and how they shaped the young nation’s political identity. Key topics include the Louisiana Purchase, U.S. expansionist ambitions, economic challenges, relations with Native Americans, and the War of 1812 with Britain. These events tested the durability of American institutions, expanded national boundaries, and influenced the young republic’s confidence on the world stage.",
     textbookUrl: "https://openstax.org/books/us-history/pages/8-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/2MVPWDr5NlNfHqYuLZvF9c?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/2MVPWDr5NlNfHqYuLZvF9c?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/2MVPWDr5NlNfHqYuLZvF9c?si=IdvGb-XrRcGCx7B_Vbey1w" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-8-growing-pains-the-new-republic-1790-1820/id1740390382?i=1000651936506" },
@@ -193,7 +193,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "After the War of 1812, Americans sought unity but soon entered an era defined by growing sectional and political divisions.",
     description: "This chapter traces the post-war period known as the “Era of Good Feelings,” when national pride grew even as debates over federal power, economic policy, and regional interests emerged. It examines the expansion of suffrage, the rise of new political parties, contentious issues like the national bank and tariffs, and how these developments revealed fractures between North, South, and West that would shape political conflict in the coming decades.",
     textbookUrl: "https://openstax.org/books/us-history/pages/9-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/5euASbakrkGcNsE7HC5WB1?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/5euASbakrkGcNsE7HC5WB1?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/5euASbakrkGcNsE7HC5WB1?si=XgQhA38HQYuexx5XRUQwCQ" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-9-industrial-transformation-in-the-north-1800-1850/id1740390382?i=1000651936575" },
@@ -216,7 +216,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "Economic transformation reshaped the North as industries, transportation networks, and labor systems evolved.",
     description: "This chapter explores major changes in the northern United States during the early nineteenth century. It highlights the Market Revolution—an era of rapid industrialization, innovations in transportation and communication, and the rise of wage labor. The chapter also considers how these transformations influenced social life, including immigration, urban growth, and shifting ideas about work, gender roles, and community.",
     textbookUrl: "https://openstax.org/books/us-history/pages/10-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/3W34YS4G1KWDmLLKvXOoQj?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/3W34YS4G1KWDmLLKvXOoQj?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/3W34YS4G1KWDmLLKvXOoQj?si=TNAja24bS-uZEakuHU4j3Q" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-10-jacksonian-democracy-1820-1840/id1740390382?i=1000651936504" },
@@ -240,7 +240,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "U.S. expansion into the West reshaped the nation geographically, politically, and culturally in ways that deepened conflict.",
     description: "This chapter examines the westward movement of Americans throughout the early nineteenth century, including settlement patterns, motivations behind migration, and expansionist policies like Manifest Destiny. It explores how western expansion affected Native American nations, influenced debates over slavery in new territories, and paved the way for territorial conflicts and compromises that would have lasting effects on national unity.",
     textbookUrl: "https://openstax.org/books/us-history/pages/11-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/75menM5UyFEGsvb4UxX51g?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/75menM5UyFEGsvb4UxX51g?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/75menM5UyFEGsvb4UxX51g?si=ZGZ83lOqR8GsHmQ65nQuRQ" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-11-a-nation-on-the-move-westward-expansion-1800-1860/id1740390382?i=1000651936445" },
@@ -264,7 +264,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "Slavery shaped the South’s economy, culture, and politics in ways that would fuel the nation’s greatest crisis.",
     description: "This chapter focuses on the institution of slavery in the antebellum South and its implications for society. It discusses how slavery became increasingly entrenched as an economic system, the lives and resistance of enslaved people, and how Southern leaders defended slavery ideologically and politically. The chapter also considers how debates over slavery escalated tensions with the North, contributing to national polarization before the Civil War.",
     textbookUrl: "https://openstax.org/books/us-history/pages/12-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/3pjAsGZa0qz2B62L2vJmh6?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/3pjAsGZa0qz2B62L2vJmh6?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/3pjAsGZa0qz2B62L2vJmh6?si=7Pg-B7jBRK-L-ch6daUiHA" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-12-cotton-is-king-the-antebellum-south-1800-1860/id1740390382?i=1000652150589" },
@@ -287,7 +287,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "Driven by religious revival and optimism about human progress, Americans launched wide-ranging reform movements that reshaped society’s goals and values.",
     description: "This chapter examines how the Second Great Awakening encouraged renewed religious fervor, individual moral responsibility, and social activism. Reformers experimented with communal living, advanced causes such as temperance and health reform, and challenged social norms through movements addressing slavery and women’s rights. These efforts reflected a belief in self-improvement and societal perfectibility, even as debates over slavery deepened sectional divisions.",
     textbookUrl: "https://openstax.org/books/us-history/pages/13-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/0OCtIhq1eVMVwu0g2Wouq9?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/0OCtIhq1eVMVwu0g2Wouq9?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/0OCtIhq1eVMVwu0g2Wouq9?si=yivXOlINQo-ClMOjAuqUjQ" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-13-antebellum-idealism-and-reform-impulses/id1740390382?i=1000652621928" },
@@ -311,7 +311,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "The nation’s attempt to reconcile sectional differences in the 1850s instead intensified conflict and pushed the United States toward disunion.",
     description: "This chapter explores how efforts to placate both North and South, beginning with the Compromise of 1850, revealed deep fractures over slavery’s future. Popular sovereignty in the Kansas-Nebraska Act sparked violent clashes, the Dred Scott decision inflamed political controversy, and John Brown’s raid heightened tensions. These developments fractured political parties and set the stage for Abraham Lincoln’s election and the eventual secession of Southern states.",
     textbookUrl: "https://openstax.org/books/us-history/pages/14-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/2VqV4lF1DpwlzrlJw2w4BE?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/2VqV4lF1DpwlzrlJw2w4BE?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/2VqV4lF1DpwlzrlJw2w4BE?si=kLKm_wghRTulKjyTlFjAAw" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-14-troubled-times-the-tumultuous-1850s/id1740390382?i=1000653343596" },
@@ -334,7 +334,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "A constitutional crisis over slavery and union led the United States into its most destructive conflict, permanently altering the nation’s political and social fabric.",
     description: "This chapter traces the Civil War’s origins and course, from initial skirmishes and mobilization to pivotal turning points in 1863 and the ultimate Union victory. It explores how strategies evolved on both sides, the human toll of prolonged combat, and how military developments reflected broader social and economic changes. The war not only preserved the Union but also transformed federal authority and set in motion the end of slavery.",
     textbookUrl: "https://openstax.org/books/us-history/pages/15-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/3DMvzCkIf1BtWL9jLjoV3r?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/3DMvzCkIf1BtWL9jLjoV3r?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/3DMvzCkIf1BtWL9jLjoV3r?si=faXfVFMeSrqGKpWA05E2pg" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-15-the-civil-war-1860-1865/id1740390382?i=1000653579905" },
@@ -357,7 +357,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "Postwar America grappled with reintegrating the South and defining freedom for millions newly liberated from slavery.",
     description: "This chapter examines the ambitious but contested effort to rebuild the Union and guarantee civil rights for formerly enslaved people. It looks at competing plans for reconstruction, including presidential and congressional approaches, the passage of constitutional amendments expanding citizenship and voting rights, and how Reconstruction policies shaped Southern society. The eventual retreat from these reforms allowed white supremacist structures to reassert control, shaping race relations for decades.",
     textbookUrl: "https://openstax.org/books/us-history/pages/16-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/6hMcXO40wifgqestdhh7tx?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/6hMcXO40wifgqestdhh7tx?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/6hMcXO40wifgqestdhh7tx?si=-Wt5DxaNRMuqCAF_b0F-tA" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-16-the-era-of-reconstruction-1865-1877/id1740390382?i=1000653688207" },
@@ -380,7 +380,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "Expansion into the American West redefined the nation’s borders and sparked cultural, economic, and political transformations.",
     description: "This chapter explores the ideology of Manifest Destiny and the mass movement of settlers who crossed the Mississippi in hopes of land, wealth, and opportunity. It addresses the rugged realities of homesteading, frontier life, and the environmental challenges settlers faced, along with the profound consequences for Native American societies. The chapter also touches on the experiences of immigrants and Hispanic communities caught in the tide of expansion.",
     textbookUrl: "https://openstax.org/books/us-history/pages/17-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/45muHnK86CIbEzxpYhH7VN?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/45muHnK86CIbEzxpYhH7VN?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/45muHnK86CIbEzxpYhH7VN?si=ngjL0LbLRVWxhsnuq3oecA" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-17-go-west-young-man-westward-expansion-1840-1900/id1740390382?i=1000654344957" },
@@ -404,7 +404,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "In the late nineteenth century, the United States transformed into an industrial powerhouse, reshaping how Americans worked, lived, and organized society.",
     description: "This chapter examines how technological innovation and entrepreneurial ambition fueled rapid industrial growth. Inventors and business leaders turned ideas into profitable enterprises, expanding steel, oil, and communication industries. The rise of large factories and corporate power altered labor patterns, drawing workers into urban centers under difficult conditions and inspiring early movements for labor rights and unionization.",
     textbookUrl: "https://openstax.org/books/us-history/pages/18-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/0u6OsUKd7Yeaatw2rb0S5O?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/0u6OsUKd7Yeaatw2rb0S5O?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/0u6OsUKd7Yeaatw2rb0S5O?si=epEYqTORRv-cA7cvV9kYCA" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-18-industrialization-and-the-rise-of/id1740390382?i=1000654435553" },
@@ -427,7 +427,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "Rapid city growth after 1870 brought opportunity and innovation, but also overcrowding, inequality, and social strain.",
     description: "This chapter explores how U.S. cities expanded dramatically as industrialization drew millions of people from rural areas and around the world into urban centers. Rapid urbanization strained housing, sanitation, and infrastructure while creating stark divides between rich and poor. Immigrants and African Americans found both new opportunities and significant challenges, and thinkers, writers, and reformers responded to urban chaos with new ideas about society and culture as cities became crucibles of modern American life.",
     textbookUrl: "https://openstax.org/books/us-history/pages/19-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/5yAFuqTcBGAFTZ0Q4q1R6V?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/5yAFuqTcBGAFTZ0Q4q1R6V?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/5yAFuqTcBGAFTZ0Q4q1R6V?si=oFI_odcjQ5mxL494SE148w" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-19-the-growing-pains-of-urbanization-1870-1900/id1740390382?i=1000659895753" },
@@ -450,7 +450,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "The Gilded Age was marked by political corruption, weak federal leadership, and contentious debates over patronage, tariffs, and farmers’ interests.",
     description: "This chapter examines how post-Civil War American politics were dominated by party machines and entrenched graft, leaving the national government often ineffective at addressing social and economic change. Key issues such as the spoils system, tariff policy, and monetary debates shaped elections and legislation, while agrarian discontent led to the rise of the Populist movement. Although some reforms like the Sherman Antitrust Act emerged, persistent political dysfunction characterized the era’s governance.",
     textbookUrl: "https://openstax.org/books/us-history/pages/20-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/4eCWfc5S0XBlSkTiEuQ2ht?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/4eCWfc5S0XBlSkTiEuQ2ht?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/4eCWfc5S0XBlSkTiEuQ2ht?si=SPSYC-owQqi--FyjiUpN6g" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-20-politics-in-the-gilded-age-1870-1900/id1740390382?i=1000655115607" },
@@ -473,7 +473,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "Progressivism brought concerted efforts to confront social and economic problems through expanded democracy, regulation, and social justice.",
     description: "This chapter explores how a diverse set of reformers, led largely by middle-class Americans, responded to the challenges of industrial inequality, urbanization, and political corruption. Progressives sought to strengthen democracy, improve government efficiency, regulate industry, and promote social welfare. Movements for women’s suffrage and civil rights gained prominence, and presidents like Theodore Roosevelt, William Howard Taft, and Woodrow Wilson used federal power to pursue reform—though World War I would shift national priorities away from domestic agendas.",
     textbookUrl: "https://openstax.org/books/us-history/pages/21-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/4ORSPhjoNAyYW55KVXpJTd?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/4ORSPhjoNAyYW55KVXpJTd?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/4ORSPhjoNAyYW55KVXpJTd?si=jYW7d0yxTxGk0h9FMd31vg" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-21-leading-the-way-the-progressive-movement/id1740390382?i=1000655175456" },
@@ -496,7 +496,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "At the turn of the twentieth century, the United States shifted from isolationism to assertive global engagement and territorial expansion.",
     description: "This chapter analyzes how industrial growth and new ideas about national strength propelled the United States to embrace expansion beyond its borders. Influential thinkers and strategists argued for overseas markets and naval power, the Spanish-American War produced new American territories, and subsequent policies blended military might with economic outreach. Presidents such as Roosevelt and Taft pursued varied strategies—from “big stick” diplomacy to economic coercion—that aimed to secure U.S. influence in the Caribbean, Latin America, and Asia.",
     textbookUrl: "https://openstax.org/books/us-history/pages/22-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/07UhGbKPuwDolPpyzoz6U2?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/07UhGbKPuwDolPpyzoz6U2?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/07UhGbKPuwDolPpyzoz6U2?si=n9fFiXR3RC6PhpD5TiJjpw" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-22-age-of-empire-american-foreign-policy-1890-1914/id1740390382?i=1000655554210" },
@@ -520,7 +520,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "World War I transformed the United States from an isolationist nation to a wartime power with profound domestic and international consequences.",
     description: "This chapter traces how the United States initially sought to stay out of World War I despite the conflict raging in Europe, only to be drawn into the war as global realities made neutrality untenable. Once involved, the government reoriented economic and social life to support the war effort, mobilizing troops, industry, and public sentiment. Postwar peace efforts and domestic tensions, including demobilization challenges and social unrest, reshaped American society and signaled changing national priorities as the war ended.",
     textbookUrl: "https://openstax.org/books/us-history/pages/23-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/4yFibfdrM3MO3x9rmPhnBy?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/4yFibfdrM3MO3x9rmPhnBy?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/4yFibfdrM3MO3x9rmPhnBy?si=NK5Y_0XZRvWnZ1Swd1Z1JQ" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-23-americans-and-the-great-war-1914-1919/id1740390382?i=1000659950892" },
@@ -544,7 +544,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "The 1920s became a decade of economic prosperity, cultural innovation, and intense social change that transformed American life.",
     description: "This chapter explores the “Jazz Age,” a period characterized by booming consumer culture, dramatic social transformations, and sharp cultural conflicts. Technological advances and rising incomes fueled popular entertainment and mass consumption, while cultural friction surfaced over immigration, religion, and modernity. Young people embraced new forms of expression in music and lifestyle, women experienced expanded roles after suffrage, and racial and artistic movements flourished alongside nativism and political conservatism in a decade of vibrant contrasts and contradictions.",
     textbookUrl: "https://openstax.org/books/us-history/pages/24-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/6MXjf55LPlOQHDKd90t8H7?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/6MXjf55LPlOQHDKd90t8H7?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/6MXjf55LPlOQHDKd90t8H7?si=eSeUUyvSSDenZyx3ahIoPg" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-24-the-jazz-age-redefining-the-nation-1919-1929/id1740390382?i=1000660195813" },
@@ -567,7 +567,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "The stock market’s dramatic collapse marked the start of a crisis that transformed the American economy and shattered millions of lives.",
     description: "This chapter explores how the booming 1920s economy collapsed with the stock market crash of 1929, ushering in the Great Depression. As banks failed, unemployment soared, and industries contracted, Americans struggled to survive amidst growing poverty and homelessness. President Herbert Hoover’s belief in limited government intervention shaped an initial federal response that failed to alleviate the suffering, leading to widespread frustration and protest. The depth and breadth of the economic collapse challenged traditional ideas about individualism and set the stage for transformative policy responses under Franklin Roosevelt.",
     textbookUrl: "https://openstax.org/books/us-history/pages/25-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/5h9PozuYqYuBSpSJUDvfs8?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/5h9PozuYqYuBSpSJUDvfs8?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/5h9PozuYqYuBSpSJUDvfs8?si=EsB0uVVrRMa2fI99pkE6dw" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-25-brother-can-you-spare-a-dime-the/id1740390382?i=1000659439983" },
@@ -590,7 +590,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "Faced with unprecedented economic collapse, Americans turned to a bold new leadership and vision for government action.",
     description: "This chapter examines how Franklin D. Roosevelt responded to the Great Depression with optimism, experimentation, and policy innovation. Beginning with his landslide election in 1932, Roosevelt’s administration launched the First New Deal to stabilize banks, create jobs, and boost confidence. As critics emerged and Supreme Court rulings challenged key programs, Roosevelt pushed a Second New Deal of expanded reforms, including social safety net legislation such as Social Security. Together these efforts transformed the role of the federal government in the economy and shaped American political culture for decades.",
     textbookUrl: "https://openstax.org/books/us-history/pages/26-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/3iSpGu2vsEtqikK7Z6GxtW?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/3iSpGu2vsEtqikK7Z6GxtW?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/3iSpGu2vsEtqikK7Z6GxtW?si=FPv7mZE_SLivqTRyP6FGuw" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-26-franklin-roosevelt-and-the-new-deal-1932-1941/id1740390382?i=1000659439984" },
@@ -612,7 +612,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "Initially hesitant, the United States eventually mobilized for a global struggle that reshaped the nation and the world.",
     description: "This chapter traces the United States’ path from relative isolation in the early 1930s to full engagement in World War II after Japan’s attack on Pearl Harbor. The conflict drew millions of Americans into military service and required an unprecedented mobilization of industry and labor at home. Through major campaigns in both Europe and the Pacific, Allied victory was achieved, leaving the United States in a dominant global position and transforming its economy and society.",
     textbookUrl: "https://openstax.org/books/us-history/pages/27-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/1iig31nQiGp8E3z2U4X6TT?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/1iig31nQiGp8E3z2U4X6TT?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/1iig31nQiGp8E3z2U4X6TT?si=WE5asamKR0iJRTiSQKmEKg" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-27-fighting-the-good-fight-in-world-war-ii-1941-1945/id1740390382?i=1000659523249" },
@@ -635,7 +635,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "The end of World War II ushered in peace and prosperity, but also new global rivalries and domestic tensions.",
     description: "This chapter explores how returning veterans and a booming wartime economy helped fuel postwar prosperity, supported by policies such as the GI Bill that expanded education and homeownership. At the same time, the onset of the Cold War with the Soviet Union shaped U.S. foreign policy and domestic life, contributing to fears of communism, a nuclear arms race, and new geopolitical commitments. Though many Americans enjoyed economic growth and expanding opportunities, social inequalities persisted.",
     textbookUrl: "https://openstax.org/books/us-history/pages/28-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/6GevgdNbbiw4SRfsLfNxj4?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/6GevgdNbbiw4SRfsLfNxj4?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/6GevgdNbbiw4SRfsLfNxj4?si=9WhVahU6Qfy9x6KU8Y90QA" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-28-post-war-prosperity-and-cold-war-fears-1945-1960/id1740390382?i=1000659641378" },
@@ -659,7 +659,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "The 1960s were a decade of intense aspirations, cultural revolutions, and pressing calls for political and social transformation.",
     description: "This chapter discusses how the United States faced sweeping changes at home and abroad during the 1960s. Movements for civil rights challenged segregation and discrimination, young people questioned established norms, and debates over the role of government and society intensified. Cold War conflicts, including the Vietnam War, influenced public opinion and political life, while cultural innovation redefined American identity and expectations about equality and opportunity for all.",
     textbookUrl: "https://openstax.org/books/us-history/pages/29-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/1eiL4jIPXCL1Y05uOWCTXZ?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/1eiL4jIPXCL1Y05uOWCTXZ?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/1eiL4jIPXCL1Y05uOWCTXZ?si=J02VAO4DTeeHvQsafPNVag" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-29-contesting-futures-america-in-the-1960s/id1740390382?i=1000660317872" },
@@ -682,7 +682,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "The late twentieth century began with fractures in politics and society as the nation confronted war, social change, and economic challenges.",
     description: "This chapter analyzes how the United States grappled with turbulent national and global events from the late 1960s through 1980. Protests against the Vietnam War, shifting political coalitions, and growing distrust in government marked domestic life. Abroad, the Cold War continued to shape foreign policy, while movements for rights and representation pushed for greater inclusion and justice. Economic pressures, including inflation and energy crises, added to domestic anxieties, underscoring a period of intense change and realignment in American politics.",
     textbookUrl: "https://openstax.org/books/us-history/pages/30-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/5lFcICY1JPCJSYSmrcHmjf?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/5lFcICY1JPCJSYSmrcHmjf?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/5lFcICY1JPCJSYSmrcHmjf?si=lXoaNqpiQL-8_gIng0tmyQ" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-30-political-storms-at-home-and-abroad-1968-1980/id1740390382?i=1000659768664" },
@@ -706,7 +706,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "In the final decades of the twentieth century, U.S. politics and society shifted as Cold War priorities ended and cultural conflicts took center stage.",
     description: "This chapter begins with the Reagan Revolution, where Ronald Reagan’s conservative policies sought to reduce the size of government, cut taxes, and reshape the economy, even as defense spending increased and debates over social values intensified. The era’s “culture wars” pitted social conservatives against advocates for expanded rights and inclusion, and issues like the war on drugs, HIV/AIDS, and debates over family values became politically charged. The end of the Cold War brought a new world order, highlighted by U.S. involvement in the Middle East, while the presidency of Bill Clinton reflected a political landscape reshaped by conservatism and economic change—mixing centrist policies with lingering ideological divisions as the century closed.",
     textbookUrl: "https://openstax.org/books/us-history/pages/31-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/1WpCElNF0lwoEfxW70v0Xl?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/1WpCElNF0lwoEfxW70v0Xl?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/1WpCElNF0lwoEfxW70v0Xl?si=N-mlPV1gRP6ijixGvadJyQ" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-31-from-cold-war-to-culture-wars-1980-2000/id1740390382?i=1000660435611" },
@@ -729,7 +729,7 @@ export const usHistoryChapters: ChapterData[] = [
     subtitle: "The early twenty-first century brought new forms of conflict at home and abroad, as the United States confronted terrorism, political polarization, and complex domestic issues.",
     description: "This chapter begins with the September 11, 2001 terrorist attacks and their profound impact on U.S. foreign and domestic policy, including the launch of the War on Terror and wars in Afghanistan and Iraq. The U.S. government expanded its security apparatus through laws like the Patriot Act while facing debates about civil liberties. Domestically, political battles over immigration, climate change, and civil rights reflected continuing cultural divisions. The chapter also examines the responses to the Great Recession, shifts in social movements, and the rise of new political dynamics as the nation entered the new century with both opportunities and deeply rooted challenges.",
     textbookUrl: "https://openstax.org/books/us-history/pages/32-introduction",
-    audioEmbedUrl: "https://open.spotify.com/embed/episode/5q2EUC3hQa08jFnsifbF3B?utm_source=generator",
+    audioEmbedUrl: "https://open.spotify.com/embed/episode/5q2EUC3hQa08jFnsifbF3B?utm_source=generator&theme=0",
     resourceLinks: [
       { platform: "Spotify", url: "https://open.spotify.com/episode/5q2EUC3hQa08jFnsifbF3B?si=m56r3Mb6RKuWdp09JCF3dQ" },
       { platform: "Apple Podcasts", url: "https://podcasts.apple.com/us/podcast/chapter-32-the-challenges-of-the-twenty-first-century/id1740390382?i=1000661708750" },
