@@ -393,4 +393,116 @@ export const business2eChapters: ChapterData[] = [
       { time: '1:52:27', label: `Credits` }
     ]
   },
+  {
+    chapterNumber: 14,
+    courseTitle: "Introduction to Business",
+    title: `Using Financial Information and Accounting`,
+    subtitle: `Financial statements serve as the language of business, providing the data required to measure performance.`,
+    description: `Accounting is often called the "language of business," but it is much more than just crunching numbers. It is the essential tool for telling a company’s story. In this chapter, we explore how financial statements—the balance sheet, income statement, and statement of cash flows—provide a clear picture of a firm’s health. Discover how managers, investors, and creditors use this data to make high-stakes decisions and identify the trends shaping the future of the profession.`,
+    textbookUrl: `https://openstax.org/books/introduction-business-2e/pages/14-introduction`,
+    audioEmbedUrl: `https://open.spotify.com/embed/episode/5gVqikEP5HBkOHEHx8w7yE?utm_source=generator&theme=0&si=dad18ccaf4a34ba5`,
+    resourceLinks: [
+      { platform: 'Spotify', url: `https://open.spotify.com/episode/5gVqikEP5HBkOHEHx8w7yE?si=s1jwPKvQRaSVQIN7-Ozo8A` },
+      { platform: 'Apple Podcasts', url: `https://podcasts.apple.com/us/podcast/14-using-financial-information-and-accounting/id1895426875?i=1000777803023` },
+      { platform: 'YouTube', url: `https://youtu.be/PucxT7uwBG0` }
+    ],
+    timestamps: [
+      { time: '0:00:00', label: `Welcome` },
+      { time: '0:00:36', label: `Introduction` },
+      { time: '0:05:42', label: `Accounting: More than Numbers (14.1)` },
+      { time: '0:20:29', label: `The Accounting Profession (14.2)` },
+      { time: '0:34:36', label: `Basic Accounting Procedures (14.3)` },
+      { time: '0:45:52', label: `The Balance Sheet (14.4)` },
+      { time: '0:55:51', label: `The Income Statement (14.5)` },
+      { time: '1:04:34', label: `The Statement of Cash Flows (14.6)` },
+      { time: '1:08:30', label: `Analyzing Financial Statements (14.7)` },
+      { time: '1:22:26', label: `Trends in Accounting (14.8)` },
+      { time: '1:33:45', label: `Preparing for Tomorrow's Workplace Skills` },
+      { time: '1:44:13', label: `Ethics Activity` },
+      { time: '1:46:02', label: `Critical Thinking Case` },
+      { time: '1:49:12', label: `Credits` }
+    ]
+  },
+  {
+    chapterNumber: 15,
+    courseTitle: "Introduction to Business",
+    title: `Understanding Money and Financial Institutions`,
+    subtitle: `Financial institutions bridge the gap between saving and investing while adapting to a digital-first world.`,
+    description: `Financial institutions have always served as the bridge between saving and investing, but the tools they use are evolving. In this chapter, we will explore how the Federal Reserve maintains economic balance and how new technology is reshaping the industry. From the rise of online payment platforms to the growing focus on data-driven customer service, learn how banks are adapting to meet the demands of a digital-first world.`,
+    textbookUrl: `https://openstax.org/books/introduction-business-2e/pages/15-introduction`,
+    audioEmbedUrl: `https://open.spotify.com/embed/episode/6AGzLqzHO8fJDGV7SEXYO6?utm_source=generator&theme=0&si=52102a0a26924c40`,
+    resourceLinks: [
+      { platform: 'Spotify', url: `https://open.spotify.com/episode/6AGzLqzHO8fJDGV7SEXYO6?si=185da6598d0142fc` },
+      { platform: 'Apple Podcasts', url: `https://podcasts.apple.com/us/podcast/15-understanding-money-and-financial-institutions/id1895426875?i=1000777803446` },
+      { platform: 'YouTube', url: `https://youtu.be/Jdo40R6qoxY` }
+    ],
+    timestamps: [
+      { time: '0:00:00', label: `Welcome` },
+      { time: '0:00:36', label: `Introduction` },
+      { time: '0:06:18', label: `Show Me the Money (15.1)` },
+      { time: '0:15:57', label: `The Federal Reserve System (15.2)` },
+      { time: '0:29:44', label: `U.S. Financial Institutions (15.3)` },
+      { time: '0:51:33', label: `Insuring Bank Deposits (15.4)` },
+      { time: '0:57:10', label: `International Banking (15.5)` },
+      { time: '1:01:50', label: `Trends in Financial Institutions (15.6)` },
+      { time: '1:08:25', label: `Preparing for Tomorrow's Workplace Skills` },
+      { time: '1:12:46', label: `Ethics Activity` },
+      { time: '1:14:35', label: `Critical Thinking Case` },
+      { time: '1:19:16', label: `Credits` }
+    ]
+  },
+  {
+    chapterNumber: 16,
+    courseTitle: "Introduction to Business",
+    title: `Understanding Financial Management and Securities Markets`,
+    subtitle: `Corporate finance governs how firms manage cash flow, secure capital, and fuel long-term growth.`,
+    description: `How do businesses decide when to take on debt, issue stock, or reinvest their own profits? This chapter dives into the world of corporate finance, where managers must constantly plan for future growth while managing current cash flow. We will break down the differences between short-term and long-term financing, the mechanics of securities markets, and how modern financial officers are evolving to lead their companies in a competitive global market.`,
+    textbookUrl: `https://openstax.org/books/introduction-business-2e/pages/16-introduction`,
+    audioEmbedUrl: `https://open.spotify.com/embed/episode/0OV1W2N7KYuojtuMyiZlvQ?utm_source=generator&theme=0&si=75ac5fe34e8040bd`,
+    resourceLinks: [
+      { platform: 'Spotify', url: `https://open.spotify.com/episode/0OV1W2N7KYuojtuMyiZlvQ?si=3170dc26d4e74afc` },
+      { platform: 'Apple Podcasts', url: `https://podcasts.apple.com/us/podcast/16-understanding-financial-management-and-securities/id1895426875?i=1000778753242` }
+    ],
+    timestamps: [
+      { time: '0:00:00', label: `Welcome` },
+      { time: '0:00:37', label: `Introduction` },
+      { time: '0:06:30', label: `The Role of Finance and the Financial Manager (16.1)` },
+      { time: '0:15:22', label: `How Organizations Use Funds (16.2)` },
+      { time: '0:27:12', label: `Obtaining Short-Term Financing (16.3)` },
+      { time: '0:32:38', label: `Raising Long-Term Financing (16.4)` },
+      { time: '0:39:24', label: `Equity Financing (16.5)` },
+      { time: '0:48:41', label: `Securities Markets (16.6)` },
+      { time: '1:10:17', label: `Buying and Selling at Securities Exchanges (16.7)` },
+      { time: '1:31:03', label: `Trends in Financial Management and Securities Markets (16.8)` },
+      { time: '1:35:00', label: `Preparing for Tomorrow's Workplace Skills` },
+      { time: '1:38:05', label: `Ethics Activity` },
+      { time: '1:39:50', label: `Critical Thinking Case` },
+      { time: '1:45:08', label: `Credits` }
+    ]
+  },
+  {
+    chapterNumber: 17,
+    courseTitle: "Introduction to Business",
+    title: `Your Career in Business`,
+    subtitle: `Professional success is achieved through deliberate planning, self-assessment, and the mastery of transferable skills.`,
+    description: `Professional success is rarely an accident. It is the result of careful planning and deliberate effort. In our final chapter, we dive into the hidden skills that employers are actually looking for, specifically the transferable competencies that transcend any specific job description. From decoding office politics and mastering the interview process to finding the right mentor, these lessons provide the foundational advice you need to navigate your career path with confidence.`,
+    textbookUrl: `https://openstax.org/books/introduction-business-2e/pages/17-introduction`,
+    audioEmbedUrl: `https://open.spotify.com/embed/episode/1TosTNrjzQSQodD8aTY6w5?utm_source=generator&theme=0&si=f8c473cf82554a2d`,
+    resourceLinks: [
+      { platform: 'Spotify', url: `https://open.spotify.com/episode/1TosTNrjzQSQodD8aTY6w5?si=ee4d845879794665` },
+      { platform: 'Apple Podcasts', url: `https://podcasts.apple.com/us/podcast/17-your-career-in-business/id1895426875?i=1000778753873` },
+      { platform: 'YouTube', url: `https://youtu.be/h0M_IqrUC8Q` }
+    ],
+    timestamps: [
+      { time: '0:00:00', label: `Welcome` },
+      { time: '0:00:35', label: `Introduction` },
+      { time: '0:03:11', label: `Learn the Basics of Business (17.1)` },
+      { time: '0:04:56', label: `Developing Interpersonal Skills Is Key to Your Success (17.2)` },
+      { time: '0:22:33', label: `Make Your Future Happen: Learn to Plan (17.3)` },
+      { time: '0:32:34', label: `Optimize Your Education (17.4)` },
+      { time: '0:55:28', label: `Get Your Career Off on the Right Track (17.5)` },
+      { time: '1:33:56', label: `Self-Test Scoring Guidelines (17.6)` },
+      { time: '1:43:27', label: `Credits` }
+    ]
+  },
 ];
