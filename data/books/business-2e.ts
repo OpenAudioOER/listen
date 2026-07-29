@@ -461,7 +461,8 @@ export const business2eChapters: ChapterData[] = [
     audioEmbedUrl: `https://open.spotify.com/embed/episode/0OV1W2N7KYuojtuMyiZlvQ?utm_source=generator&theme=0&si=75ac5fe34e8040bd`,
     resourceLinks: [
       { platform: 'Spotify', url: `https://open.spotify.com/episode/0OV1W2N7KYuojtuMyiZlvQ?si=3170dc26d4e74afc` },
-      { platform: 'Apple Podcasts', url: `https://podcasts.apple.com/us/podcast/16-understanding-financial-management-and-securities/id1895426875?i=1000778753242` }
+      { platform: 'Apple Podcasts', url: `https://podcasts.apple.com/us/podcast/16-understanding-financial-management-and-securities/id1895426875?i=1000778753242` },
+      { platform: 'YouTube', url: `https://youtu.be/tZ5MwZFQOEo` }
     ],
     timestamps: [
       { time: '0:00:00', label: `Welcome` },
