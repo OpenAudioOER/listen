@@ -3,6 +3,17 @@ import { EmailLink } from './EmailLink';
 import { library } from '../data/chapters';
 import { Download } from 'lucide-react';
 
+const imsccFilenameMap: Record<string, string> = {
+    'business-2e': 'Business2e-Audiobook.imscc',
+    'am-gov-4e': 'AmerGov4e-Audiobook.imscc',
+    'intro-soc-3e': 'Sociology3e-Audiobook.imscc',
+    'sociology-3e': 'Sociology3e-Audiobook.imscc',
+    'us-history': 'USHistory-Audiobook.imscc',
+    'world-hist-v1': 'WorldHistoryVol1-Audiobook.imscc',
+    'world-history': 'WorldHistoryVol1-Audiobook.imscc',
+    'am-gov-3e': 'AmerGov3e-Audiobook.imscc',
+};
+
 interface InstructorsProps {
     onNavigateHome: () => void;
     onNavigateLibrary: () => void;
@@ -176,23 +187,32 @@ export const Instructors: React.FC<InstructorsProps> = ({ onNavigateHome, onNavi
                     <div className="mb-8">
                         <h2 className="text-3xl font-bold font-serif text-slate-900 mb-8">Download Course Shells</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {Object.values(library).map((book) => (
-                                <div key={book.id} className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col group">
-                                    <div className="aspect-[4/3] rounded-lg bg-slate-100 overflow-hidden mb-6 relative border border-slate-200/50">
-                                        <img src={book.coverImageWide} alt={book.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                            {Object.values(library).map((book) => {
+                                const filename = imsccFilenameMap[book.id];
+                                const downloadUrl = filename 
+                                    ? `https://github.com/OpenAudioOER/listen/releases/download/v1.0.0/${filename}` 
+                                    : '#';
+
+                                return (
+                                    <div key={book.id} className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col group">
+                                        <div className="aspect-[4/3] rounded-lg bg-slate-100 overflow-hidden mb-6 relative border border-slate-200/50">
+                                            <img src={book.coverImageWide} alt={book.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                        </div>
+                                        <h3 className="text-xl font-bold text-slate-900 mb-2">{book.title}</h3>
+                                        <p className="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">{book.description}</p>
+                                        
+                                        <a 
+                                            href={downloadUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-full py-3 px-4 bg-primary hover:bg-primary-dark text-white rounded-xl font-semibold flex items-center justify-center gap-2 transition-colors focus:ring-4 focus:ring-primary/20 outline-none cursor-pointer"
+                                        >
+                                            <Download size={18} />
+                                            Download .imscc
+                                        </a>
                                     </div>
-                                    <h3 className="text-xl font-bold text-slate-900 mb-2">{book.title}</h3>
-                                    <p className="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">{book.description}</p>
-                                    
-                                    <button 
-                                        className="w-full py-3 px-4 bg-primary hover:bg-primary-dark text-white rounded-xl font-semibold flex items-center justify-center gap-2 transition-colors focus:ring-4 focus:ring-primary/20 outline-none"
-                                        onClick={() => alert('Download package for ' + book.title + ' is coming soon!')}
-                                    >
-                                        <Download size={18} />
-                                        Download .imscc
-                                    </button>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     </div>
 

@@ -30,3 +30,5 @@ next-env.d.ts
 
 # working files
 _raw_assets/
+canvas-shells/
+*.imscc
