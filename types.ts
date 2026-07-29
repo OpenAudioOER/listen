@@ -9,7 +9,7 @@ export interface ResourceLink {
 }
 
 export interface ChapterData {
-  chapterNumber: number;
+  chapterNumber: number | string;
   courseTitle: string;
   title: string;
   subtitle: string;

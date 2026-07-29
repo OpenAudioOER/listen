@@ -505,4 +505,26 @@ export const business2eChapters: ChapterData[] = [
       { time: '1:43:27', label: `Credits` }
     ]
   },
+  {
+    chapterNumber: "Appendix A",
+    courseTitle: "Introduction to Business",
+    title: `Understanding the Legal and Tax Environment`,
+    subtitle: `The legal and tax environment governs how businesses navigate regulations, protect their assets, and ensure compliance.`,
+    description: `Every business decision, from signing a lease to hiring employees, operates within a complex web of laws, regulations, and tax obligations. In this appendix, we will explore the foundational legal framework that governs commerce, the basics of business law, and how tax structures impact operational choices. Learn how understanding the rules of the game is essential for protecting your assets and ensuring long-term business survival.`,
+    textbookUrl: `https://openstax.org/books/introduction-business-2e/pages/a-understanding-the-legal-and-tax-environment`,
+    audioEmbedUrl: `https://open.spotify.com/embed/episode/4AGkK3SCKogbB3gTMR2dyK?utm_source=generator&theme=0&si=b5b458a52ecc45c3`,
+    resourceLinks: [
+      { platform: 'Spotify', url: `https://open.spotify.com/episode/4AGkK3SCKogbB3gTMR2dyK?si=58d8f66b0f8a47cd` },
+      { platform: 'Apple Podcasts', url: `https://podcasts.apple.com/us/podcast/appendix-a-understanding-the-legal-and-tax-environment/id1895426875?i=1000778754626` },
+      { platform: 'YouTube', url: `https://youtu.be/VS7hDM0auo8` }
+    ],
+    timestamps: [
+      { time: '0:00:00', label: `Welcome` },
+      { time: '0:00:31', label: `Learning Objectives` },
+      { time: '0:01:03', label: `Understanding the Legal Environment` },
+      { time: '0:12:37', label: `Contract Law` },
+      { time: '0:45:03', label: `Understanding the Tax Environment of Business` },
+      { time: '0:48:59', label: `Credits` }
+    ]
+  },
 ];

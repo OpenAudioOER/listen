@@ -74,7 +74,7 @@ function App() {
         return { bookId: null, chapterId: null, isEmbed, view: 'instructors' };
       }
 
-      let chapterId: number | null = null;
+      let chapterId: number | string | null = null;
       let view: ViewMode = 'home';
 
       if (segments.length > 0) {
@@ -84,10 +84,8 @@ function App() {
             view = 'audio-collection';
           } else {
             const parsed = parseInt(secondSegment, 10);
-            if (!isNaN(parsed)) {
-              chapterId = parsed;
-              view = 'chapter';
-            }
+            chapterId = !isNaN(parsed) ? parsed : decodeURIComponent(secondSegment);
+            view = 'chapter';
           }
         }
       }
@@ -106,13 +104,18 @@ function App() {
 
   const initialParams = getParamsFromUrl();
   const [bookId, setBookId] = useState<string | null>(initialParams.bookId);
-  const [chapterId, setChapterId] = useState<number | null>(initialParams.chapterId);
+  const [chapterId, setChapterId] = useState<number | string | null>(initialParams.chapterId);
   const [view, setView] = useState<ViewMode>(initialParams.view);
   const [isEmbed, setIsEmbed] = useState<boolean>(initialParams.isEmbed);
 
   // Derive active data
   const activeBook = bookId && library[bookId] ? library[bookId] : null;
-  const activeChapter = activeBook ? activeBook.chapters.find(c => c.chapterNumber === chapterId) : null;
+  const activeChapter = activeBook 
+    ? activeBook.chapters.find(c => 
+        String(c.chapterNumber).toLowerCase() === String(chapterId).toLowerCase() ||
+        String(c.chapterNumber).toLowerCase().replace(/\s+/g, '-') === String(chapterId).toLowerCase()
+      ) 
+    : null;
 
   // DYNAMIC THEMING EFFECT
   useEffect(() => {
@@ -252,7 +255,8 @@ function App() {
 
       if (view === 'chapter' && activeChapter) {
         const chapterPath = `${path}/${activeChapter.chapterNumber}`;
-        breadcrumbs.push({ name: `Chapter ${activeChapter.chapterNumber}`, item: `${baseUrl}${chapterPath}` });
+        const chapterLabel = typeof activeChapter.chapterNumber === 'number' ? `Chapter ${activeChapter.chapterNumber}` : activeChapter.chapterNumber;
+        breadcrumbs.push({ name: chapterLabel, item: `${baseUrl}${chapterPath}` });
 
         return {
           title: `${activeChapter.courseTitle}: ${activeChapter.title} | ${activeBook.title}`,
@@ -528,8 +532,8 @@ function App() {
                     >
                       <div className="flex-grow space-y-3">
                         <div className="flex items-start gap-4">
-                          <span className="flex-shrink-0 flex items-center justify-center w-12 h-7 text-xs font-bold text-white bg-accent-600 rounded shadow-sm">
-                            CH {chapter.chapterNumber}
+                          <span className="flex-shrink-0 flex items-center justify-center min-w-12 px-2.5 h-7 text-xs font-bold text-white bg-accent-600 rounded shadow-sm whitespace-nowrap">
+                            {typeof chapter.chapterNumber === 'number' ? `CH ${chapter.chapterNumber}` : chapter.chapterNumber}
                           </span>
                           <h2 className="text-xl font-bold text-slate-900 group-hover:text-brand-700 transition-colors leading-7">
                             {chapter.title}
