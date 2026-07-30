@@ -473,7 +473,7 @@ function App() {
               <a
                 href="/library"
                 onClick={(e) => handleNavClick(e, null, null, 'library')}
-                className="text-xs font-bold text-slate-400 hover:text-brand-600 flex items-center gap-1"
+                className="text-xs font-bold text-slate-600 hover:text-brand-700 flex items-center gap-1"
               >
                 <ChevronRight size={12} className="rotate-180" /> Back to Library
               </a>
@@ -487,7 +487,7 @@ function App() {
 
                 <header className="mb-16 flex flex-col md:flex-row items-center gap-8 md:gap-12">
                   <div className="flex-1 text-center md:text-left order-2 md:order-1">
-                    <span className="inline-block px-3 py-1 bg-brand-50 text-brand-600 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-brand-100">
+                    <span className="inline-block px-3 py-1 bg-brand-50 text-brand-700 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-brand-100">
                       Textbook & Audiobook
                     </span>
                     <h1 className="text-3xl sm:text-5xl font-serif font-bold text-slate-900 mb-6 leading-tight">
