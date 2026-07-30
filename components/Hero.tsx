@@ -41,7 +41,7 @@ export const Hero: React.FC<HeroProps> = ({ courseTitle, title, subtitle, isEmbe
         {!isEmbed && (
           <button 
             onClick={handleShare}
-            className="flex-shrink-0 ml-4 p-2 text-slate-400 hover:text-brand-600 hover:bg-brand-50 rounded-full transition-all flex items-center gap-2 group"
+            className="flex-shrink-0 ml-4 p-2 text-slate-600 hover:text-brand-600 hover:bg-brand-50 rounded-full transition-all flex items-center gap-2 group"
             title="Copy link to chapter"
             aria-label="Copy link to chapter"
           >

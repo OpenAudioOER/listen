@@ -545,11 +545,11 @@ function App() {
                         </p>
 
                         <div className="flex items-center gap-4 pt-2">
-                          <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-400">
+                          <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-600">
                             <BookOpen size={16} />
                             <span>Text</span>
                           </div>
-                          <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-400">
+                          <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-600">
                             <PlayCircle size={16} />
                             <span>Audio</span>
                           </div>
