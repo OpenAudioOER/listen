@@ -90,7 +90,7 @@ export const AudioCollection: React.FC<AudioCollectionProps> = ({ chapters, book
               >
                 <div className="flex items-center gap-4">
                   <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-colors ${isExpanded ? 'bg-brand-600 text-white' : 'bg-slate-100 text-slate-700'}`}>
-                    {isExpanded ? <PlayCircle size={20} /> : <span className="font-bold text-sm">{chapter.chapterNumber}</span>}
+                    {isExpanded ? <PlayCircle size={20} /> : <span className="font-bold text-sm">{typeof chapter.chapterNumber === 'string' ? chapter.chapterNumber.replace(/^Appendix\s*/i, '') : chapter.chapterNumber}</span>}
                   </div>
                   <div>
                     <h2 className={`text-lg font-bold transition-colors ${isExpanded ? 'text-brand-700' : 'text-slate-900'}`}>
