@@ -201,13 +201,15 @@ export const Instructors: React.FC<InstructorsProps> = ({ onNavigateHome, onNavi
                                         <h3 className="text-xl font-bold text-slate-900 mb-2">{book.title}</h3>
                                         <p className="text-slate-600 text-sm line-clamp-2 mb-6 flex-grow">{book.description}</p>
                                         
-                                        <button 
-                                            className="w-full py-3 px-4 bg-slate-200 text-slate-600 rounded-xl font-semibold flex items-center justify-center gap-2 cursor-not-allowed outline-none"
-                                            onClick={() => alert('Updated Canvas Course Shells (.imscc) are currently being prepared and will be available shortly!')}
+                                        <a 
+                                            href={downloadUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-full py-3 px-4 bg-primary hover:bg-primary-dark text-white rounded-xl font-semibold flex items-center justify-center gap-2 transition-colors focus:ring-4 focus:ring-primary/20 outline-none cursor-pointer"
                                         >
                                             <Download size={18} />
-                                            Updated Shells Coming Soon
-                                        </button>
+                                            Download .imscc
+                                        </a>
                                     </div>
                                 );
                             })}
