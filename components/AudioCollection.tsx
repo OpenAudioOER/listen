@@ -50,7 +50,7 @@ export const AudioCollection: React.FC<AudioCollectionProps> = ({ chapters, book
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="text-center mb-12">
         <div className="flex items-center justify-center gap-2 mb-4">
-          <span className="inline-block px-3 py-1 bg-brand-50 text-brand-600 rounded-full text-xs font-bold uppercase tracking-wider border border-brand-100">
+          <span className="inline-block px-3 py-1 bg-brand-50 text-brand-700 rounded-full text-xs font-bold uppercase tracking-wider border border-brand-100">
             Complete Archive
           </span>
         </div>
@@ -62,7 +62,7 @@ export const AudioCollection: React.FC<AudioCollectionProps> = ({ chapters, book
 
           <button
             onClick={handleShare}
-            className="mt-2 inline-flex items-center gap-2 px-3 py-1.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-brand-50 rounded-full transition-all"
+            className="mt-2 inline-flex items-center gap-2 px-3 py-1.5 text-sm text-slate-700 hover:text-brand-700 hover:bg-brand-50 rounded-full transition-all"
             title="Copy link to this collection"
           >
             {copied ? <Check size={16} className="text-green-500" /> : <Share2 size={16} />}
@@ -89,19 +89,19 @@ export const AudioCollection: React.FC<AudioCollectionProps> = ({ chapters, book
                 className="w-full px-6 py-5 flex items-center justify-between bg-white text-left focus:outline-none"
               >
                 <div className="flex items-center gap-4">
-                  <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-colors ${isExpanded ? 'bg-brand-600 text-white' : 'bg-slate-100 text-slate-600'}`}>
+                  <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-colors ${isExpanded ? 'bg-brand-600 text-white' : 'bg-slate-100 text-slate-700'}`}>
                     {isExpanded ? <PlayCircle size={20} /> : <span className="font-bold text-sm">{chapter.chapterNumber}</span>}
                   </div>
                   <div>
-                    <h3 className={`text-lg font-bold transition-colors ${isExpanded ? 'text-brand-700' : 'text-slate-900'}`}>
+                    <h2 className={`text-lg font-bold transition-colors ${isExpanded ? 'text-brand-700' : 'text-slate-900'}`}>
                       {chapter.title}
-                    </h3>
+                    </h2>
                     <p className="text-sm text-slate-600 hidden sm:block">
                       {chapter.subtitle}
                     </p>
                   </div>
                 </div>
-                <div className={`text-slate-600 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}>
+                <div className={`text-slate-700 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}>
                   <ChevronDown size={20} />
                 </div>
               </button>
@@ -129,7 +129,7 @@ export const AudioCollection: React.FC<AudioCollectionProps> = ({ chapters, book
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Platform Links */}
                     <div>
-                      <h4 className="text-xs font-bold text-slate-600 uppercase tracking-wider mb-3">Listen on Platforms</h4>
+                      <h3 className="text-xs font-bold text-slate-700 uppercase tracking-wider mb-3">Listen on Platforms</h3>
                       <div className="space-y-2">
                         {chapter.resourceLinks.map((link, idx) => (
                           <a
@@ -143,7 +143,7 @@ export const AudioCollection: React.FC<AudioCollectionProps> = ({ chapters, book
                               {getIconForPlatform(link.platform)}
                               {link.platform}
                             </div>
-                            <span className="text-slate-600 group-hover:text-brand-700 transition-colors">→</span>
+                            <span className="text-slate-700 group-hover:text-brand-700 transition-colors">→</span>
                           </a>
                         ))}
                       </div>
@@ -151,19 +151,19 @@ export const AudioCollection: React.FC<AudioCollectionProps> = ({ chapters, book
 
                     {/* Timestamps */}
                     <div>
-                      <div className="flex items-center gap-2 mb-3 text-slate-600">
+                      <div className="flex items-center gap-2 mb-3 text-slate-700">
                         <Headphones size={16} />
-                        <h4 className="text-xs font-bold uppercase tracking-wider">Audio Timestamps</h4>
+                        <h3 className="text-xs font-bold uppercase tracking-wider">Audio Timestamps</h3>
                       </div>
                       <div className="bg-white rounded-lg border border-slate-200 overflow-hidden">
                         <div className="divide-y divide-slate-100">
                           {chapter.timestamps.map((ts, idx) => (
                             <div key={idx} className="flex items-start gap-3 px-3 py-2 text-sm hover:bg-slate-50">
-                              <div className="flex items-center gap-1.5 flex-shrink-0 text-brand-600 font-mono text-xs bg-brand-50 px-1.5 py-0.5 rounded border border-brand-100 mt-0.5">
+                              <div className="flex items-center gap-1.5 flex-shrink-0 text-brand-800 font-mono text-xs font-bold bg-brand-50 px-1.5 py-0.5 rounded border border-brand-100 mt-0.5">
                                 <Clock size={10} />
                                 <span>{ts.time}</span>
                               </div>
-                              <span className="text-slate-600 leading-snug">{ts.label}</span>
+                              <span className="text-slate-700 leading-snug">{ts.label}</span>
                             </div>
                           ))}
                         </div>
