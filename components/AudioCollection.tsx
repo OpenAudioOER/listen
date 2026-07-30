@@ -62,11 +62,11 @@ export const AudioCollection: React.FC<AudioCollectionProps> = ({ chapters, book
 
           <button
             onClick={handleShare}
-            className="mt-2 inline-flex items-center gap-2 px-3 py-1.5 text-sm text-slate-400 hover:text-brand-600 hover:bg-brand-50 rounded-full transition-all"
+            className="mt-2 inline-flex items-center gap-2 px-3 py-1.5 text-sm text-slate-600 hover:text-brand-700 hover:bg-brand-50 rounded-full transition-all"
             title="Copy link to this collection"
           >
             {copied ? <Check size={16} className="text-green-500" /> : <Share2 size={16} />}
-            <span className="font-medium">{copied ? 'Copied!' : 'Share Collection'}</span>
+            <span className="font-semibold">{copied ? 'Copied!' : 'Share Collection'}</span>
           </button>
         </div>
 
@@ -89,19 +89,19 @@ export const AudioCollection: React.FC<AudioCollectionProps> = ({ chapters, book
                 className="w-full px-6 py-5 flex items-center justify-between bg-white text-left focus:outline-none"
               >
                 <div className="flex items-center gap-4">
-                  <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-colors ${isExpanded ? 'bg-brand-600 text-white' : 'bg-slate-100 text-slate-500'}`}>
+                  <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-colors ${isExpanded ? 'bg-brand-600 text-white' : 'bg-slate-100 text-slate-600'}`}>
                     {isExpanded ? <PlayCircle size={20} /> : <span className="font-bold text-sm">{chapter.chapterNumber}</span>}
                   </div>
                   <div>
                     <h3 className={`text-lg font-bold transition-colors ${isExpanded ? 'text-brand-700' : 'text-slate-900'}`}>
                       {chapter.title}
                     </h3>
-                    <p className="text-sm text-slate-500 hidden sm:block">
+                    <p className="text-sm text-slate-600 hidden sm:block">
                       {chapter.subtitle}
                     </p>
                   </div>
                 </div>
-                <div className={`text-slate-400 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}>
+                <div className={`text-slate-600 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}>
                   <ChevronDown size={20} />
                 </div>
               </button>
@@ -129,7 +129,7 @@ export const AudioCollection: React.FC<AudioCollectionProps> = ({ chapters, book
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Platform Links */}
                     <div>
-                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Listen on Platforms</h4>
+                      <h4 className="text-xs font-bold text-slate-600 uppercase tracking-wider mb-3">Listen on Platforms</h4>
                       <div className="space-y-2">
                         {chapter.resourceLinks.map((link, idx) => (
                           <a
@@ -139,11 +139,11 @@ export const AudioCollection: React.FC<AudioCollectionProps> = ({ chapters, book
                             rel="noopener noreferrer"
                             className="flex items-center justify-between p-2.5 bg-white rounded-lg border border-slate-200 hover:border-brand-300 hover:shadow-sm transition-all text-sm group"
                           >
-                            <div className="flex items-center gap-2.5">
+                            <div className="flex items-center gap-2.5 font-medium text-slate-800">
                               {getIconForPlatform(link.platform)}
-                              <span className="font-medium text-slate-700">{link.platform}</span>
+                              {link.platform}
                             </div>
-                            <ExternalLink size={14} className="text-slate-300 group-hover:text-brand-500" />
+                            <span className="text-slate-600 group-hover:text-brand-700 transition-colors">→</span>
                           </a>
                         ))}
                       </div>
@@ -151,7 +151,7 @@ export const AudioCollection: React.FC<AudioCollectionProps> = ({ chapters, book
 
                     {/* Timestamps */}
                     <div>
-                      <div className="flex items-center gap-2 mb-3 text-slate-400">
+                      <div className="flex items-center gap-2 mb-3 text-slate-600">
                         <Headphones size={16} />
                         <h4 className="text-xs font-bold uppercase tracking-wider">Audio Timestamps</h4>
                       </div>

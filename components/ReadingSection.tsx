@@ -16,12 +16,12 @@ export const ReadingSection: React.FC<ReadingSectionProps> = ({ textbookUrl }) =
         {/* External Link Card */}
         <div className="bg-white rounded-xl p-5 border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4 transition-all hover:border-brand-200">
           <div className="flex items-center gap-4">
-            <div className="p-3 bg-brand-50 rounded-lg text-brand-600">
+            <div className="p-3 bg-brand-50 rounded-lg text-brand-700">
               <BookOpen size={24} />
             </div>
             <div>
               <h3 className="font-semibold text-slate-900">Official Textbook Source</h3>
-              <p className="text-sm text-slate-500">Access the full chapter on OpenStax</p>
+              <p className="text-sm text-slate-600">Access the full chapter on OpenStax</p>
             </div>
           </div>
           <a 
@@ -42,15 +42,15 @@ export const ReadingSection: React.FC<ReadingSectionProps> = ({ textbookUrl }) =
             className="w-full px-5 py-4 flex items-center justify-between bg-white hover:bg-slate-50 transition-colors text-left"
           >
             <div className="flex items-center gap-4">
-              <div className="p-3 bg-slate-100 rounded-lg text-slate-600">
+              <div className="p-3 bg-slate-100 rounded-lg text-slate-700">
                 <Book size={24} />
               </div>
               <div>
                 <h3 className="font-semibold text-slate-900">Read Chapter on This Page</h3>
-                <p className="text-sm text-slate-500">Quick view mode with simplified formatting</p>
+                <p className="text-sm text-slate-600">Quick view mode with simplified formatting</p>
               </div>
             </div>
-            <div className={`text-slate-400 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}>
+            <div className={`text-slate-600 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}>
               <ChevronDown size={20} />
             </div>
           </button>
@@ -70,11 +70,11 @@ export const ReadingSection: React.FC<ReadingSectionProps> = ({ textbookUrl }) =
                    />
                  ) : null}
                  {/* Loading Spinner Background */}
-                 <div className="absolute inset-0 flex items-center justify-center text-slate-400 bg-white">
+                 <div className="absolute inset-0 flex items-center justify-center text-slate-600 bg-white">
                     <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-600"></div>
                  </div>
               </div>
-              <div className="p-2 text-center text-xs text-slate-500">
+              <div className="p-2 text-center text-xs text-slate-600 font-medium">
                 Note: Some external providers may prevent embedding. If the content does not load, please use the "Read on OpenStax" button above.
               </div>
             </div>

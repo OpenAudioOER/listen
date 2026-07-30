@@ -30,7 +30,7 @@ export const Hero: React.FC<HeroProps> = ({ courseTitle, title, subtitle, isEmbe
     <header className={`${isEmbed ? 'pt-4 pb-4' : 'pt-10 pb-8'} px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto`}>
       <div className="flex items-start justify-between">
         <div>
-          <span className="inline-block text-brand-600 font-bold text-xs tracking-wider uppercase mb-3">
+          <span className="inline-block text-brand-700 font-bold text-xs tracking-wider uppercase mb-3">
             {courseTitle}
           </span>
           <h1 className={`${isEmbed ? 'text-2xl sm:text-3xl' : 'text-4xl sm:text-5xl'} font-serif font-bold text-slate-900 leading-[1.15] mb-4`}>

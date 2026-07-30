@@ -86,7 +86,7 @@ export const AudioSection: React.FC<AudioSectionProps> = ({ embedUrl, links, tim
           
           {/* Platform Links */}
           <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4">Listen on Platforms</h3>
+            <h3 className="text-xs font-bold text-slate-600 uppercase tracking-wider mb-4">Listen on Platforms</h3>
             <div className="space-y-3">
               {links.map((link, idx) => (
                 <a 
@@ -96,13 +96,13 @@ export const AudioSection: React.FC<AudioSectionProps> = ({ embedUrl, links, tim
                   rel="noopener noreferrer"
                   className="flex items-center justify-between p-3 rounded-lg hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-all group"
                 >
-                  <div className="flex items-center gap-3 font-medium text-slate-700">
+                  <div className="flex items-center gap-3 font-medium text-slate-800">
                     <div className="p-2 bg-slate-50 rounded-full group-hover:bg-white transition-colors">
                       {getIconForPlatform(link.platform)}
                     </div>
                     {link.platform}
                   </div>
-                  <span className="text-slate-400 group-hover:text-brand-600 transition-colors">→</span>
+                  <span className="text-slate-600 group-hover:text-brand-700 transition-colors">→</span>
                 </a>
               ))}
             </div>
@@ -114,10 +114,10 @@ export const AudioSection: React.FC<AudioSectionProps> = ({ embedUrl, links, tim
             <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
                 <div className="px-6 py-4 bg-slate-50 border-b border-slate-100 flex items-center justify-between gap-2">
                     <div className="flex items-center gap-2">
-                        <Headphones size={16} className="text-slate-500" />
+                        <Headphones size={16} className="text-slate-600" />
                         <h3 className="font-bold text-slate-800 text-sm uppercase tracking-wide">Audio Timestamps</h3>
                     </div>
-                    <span className="text-xs text-slate-400 font-medium hidden sm:inline-block">
+                    <span className="text-xs text-slate-600 font-semibold hidden sm:inline-block">
                       Click any timestamp to jump to that section
                     </span>
                 </div>
@@ -145,7 +145,7 @@ export const AudioSection: React.FC<AudioSectionProps> = ({ embedUrl, links, tim
                                     <span className={`text-sm sm:text-base transition-colors ${
                                       isActive
                                         ? 'text-brand-900 font-bold'
-                                        : 'text-slate-700 font-medium group-hover:text-brand-700'
+                                        : 'text-slate-800 font-medium group-hover:text-brand-700'
                                     }`}>
                                         {ts.label}
                                     </span>
@@ -154,7 +154,7 @@ export const AudioSection: React.FC<AudioSectionProps> = ({ embedUrl, links, tim
                                 <div className={`flex items-center gap-1.5 text-xs font-semibold rounded-full px-2.5 py-1 transition-all ${
                                   isActive
                                     ? 'bg-brand-600 text-white opacity-100'
-                                    : 'text-brand-600 bg-brand-50 opacity-0 group-hover:opacity-100'
+                                    : 'text-brand-700 bg-brand-50 opacity-0 group-hover:opacity-100'
                                 }`}>
                                     {isActive ? <Clock size={12} /> : <Play size={12} className="fill-current" />}
                                     <span>{isActive ? `Cued at ${ts.time}` : 'Jump to'}</span>
