@@ -337,7 +337,7 @@ function App() {
   const seoData = getSEO();
 
   // Unified Navigation Handler
-  const navigate = (newBookId: string | null, newChapterId: number | null, newView: ViewMode) => {
+  const navigate = (newBookId: string | null, newChapterId: number | string | null, newView: ViewMode) => {
     // Update State
     setBookId(newBookId);
     setChapterId(newChapterId);
@@ -348,7 +348,6 @@ function App() {
     if (!isEmbed) {
       try {
         let path = '/';
-
         if (newView === 'landing') {
           path = '/';
         } else if (newView === 'library') {
@@ -385,7 +384,7 @@ function App() {
     }
   };
 
-  const handleNavClick = (e: React.MouseEvent, newBookId: string | null, newChapterId: number | null, newView: ViewMode) => {
+  const handleNavClick = (e: React.MouseEvent, newBookId: string | null, newChapterId: number | string | null, newView: ViewMode) => {
     if (e.metaKey || e.ctrlKey) return; // Allow opening in new tab
     e.preventDefault();
     navigate(newBookId, newChapterId, newView);
