@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import confetti from 'canvas-confetti';
 import { EmailLink } from './EmailLink';
 
 interface LandingPageProps {
@@ -9,8 +10,9 @@ interface LandingPageProps {
   onNavigateInstructors?: () => void;
 }
 
-function Counter({ target, duration = 2000, suffix = "", suffixClassName = "" }: { target: number, duration?: number, suffix?: string, suffixClassName?: string }) {
+function Counter({ target, duration = 2000, suffix = "", suffixClassName = "", triggerConfetti = false, displayFormat }: { target: number, duration?: number, suffix?: string, suffixClassName?: string, triggerConfetti?: boolean, displayFormat?: string }) {
   const [count, setCount] = useState(0);
+  const [isComplete, setIsComplete] = useState(false);
   const countRef = useRef<HTMLSpanElement>(null);
   const hasAnimated = useRef(false);
 
@@ -18,13 +20,30 @@ function Counter({ target, duration = 2000, suffix = "", suffixClassName = "" }:
     const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting && !hasAnimated.current) {
         hasAnimated.current = true;
+
         let startTimestamp: number | null = null;
         const step = (timestamp: number) => {
           if (!startTimestamp) startTimestamp = timestamp;
           const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-          setCount(Math.floor(progress * target));
+          const currentCount = Math.floor(progress * target);
+          setCount(currentCount);
+
           if (progress < 1) {
             window.requestAnimationFrame(step);
+          } else {
+            setIsComplete(true);
+            if (triggerConfetti) {
+              try {
+                confetti({
+                  particleCount: 100,
+                  spread: 80,
+                  origin: { y: 0.7 },
+                  colors: ['#f59e0b', '#3b82f6', '#10b981', '#ec4899', '#8b5cf6']
+                });
+              } catch (e) {
+                console.warn('Confetti error:', e);
+              }
+            }
           }
         };
         window.requestAnimationFrame(step);
@@ -36,11 +55,18 @@ function Counter({ target, duration = 2000, suffix = "", suffixClassName = "" }:
     }
 
     return () => observer.disconnect();
-  }, [target, duration]);
+  }, [target, duration, triggerConfetti]);
+
+  const renderValue = () => {
+    if (displayFormat === '1.0 Million' && isComplete) {
+      return '1.0 Million';
+    }
+    return count.toLocaleString();
+  };
 
   return (
     <span ref={countRef}>
-      {count.toLocaleString()}
+      {renderValue()}
       {suffix && <span className={suffixClassName}>{suffix}</span>}
     </span>
   );
@@ -155,8 +181,12 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
           </div>
         </div>
       </div>
-      <header className="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-blue-100 bg-white/95 backdrop-blur-md px-6 py-4 lg:px-20 shadow-sm">
-        <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
+      <header className="sticky top-0 z-50 whitespace-nowrap border-b border-blue-100 bg-white/95 backdrop-blur-md shadow-sm">
+        <div className="bg-slate-900 text-slate-100 text-xs font-semibold py-2.5 px-4 text-center tracking-wide flex items-center justify-center gap-2 border-b border-slate-800 shadow-sm">
+          <span className="bg-amber-400 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow-sm">Milestone</span>
+          <span>🎉 OpenAudio reached <strong className="text-amber-300 font-bold">1 Million streams</strong> &amp; <strong className="text-amber-300 font-bold">31+ years</strong> of cumulative listening!</span>
+        </div>
+        <div className="max-w-7xl mx-auto w-full flex items-center justify-between px-6 py-4 lg:px-20">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center bg-primary/10 rounded-full text-primary">
               <span className="material-symbols-outlined text-2xl">headphones</span>
@@ -306,27 +336,33 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
         <section className="bg-background-tint-cream">
           <div className="px-6 py-20 lg:px-20 max-w-[1440px] mx-auto w-full">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="flex flex-col justify-center gap-4 rounded-3xl p-10 bg-white shadow-sm border border-orange-100 text-center md:text-left relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-orange-200 group">
-                <div className="absolute -right-10 -top-10 w-40 h-40 bg-orange-100 rounded-full opacity-50 transition-transform duration-500 group-hover:scale-110"></div>
+              <div className="flex flex-col justify-center gap-4 rounded-3xl p-10 bg-white shadow-sm border border-amber-200 text-center md:text-left relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-amber-300 group">
+                <div className="absolute -right-10 -top-10 w-40 h-40 bg-amber-100/70 rounded-full opacity-50 transition-transform duration-500 group-hover:scale-110"></div>
                 <div className="flex items-center justify-center md:justify-start gap-3 mb-2 relative z-10">
-                  <span className="material-symbols-outlined text-orange-500 text-3xl">play_circle</span>
-                  <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">Total Streams</p>
+                  <span className="material-symbols-outlined text-amber-600 text-3xl">play_circle</span>
+                  <div className="flex items-center gap-2">
+                    <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">Total Streams</p>
+                    <span className="bg-amber-100 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider border border-amber-200">Milestone</span>
+                  </div>
                 </div>
                 <p className="text-slate-900 tracking-tight text-6xl lg:text-7xl font-bold font-serif-polished leading-tight relative z-10">
-                  <Counter target={925000} suffix="+" suffixClassName="text-orange-500" />
+                  <Counter target={1000000} suffix="+" suffixClassName="text-amber-600" triggerConfetti={true} displayFormat="1.0 Million" />
                 </p>
-                <p className="text-slate-600 text-lg relative z-10">Downloads and Streams as of July 2026</p>
+                <p className="text-slate-600 text-lg relative z-10">Downloads and streams across all platforms</p>
               </div>
               <div className="flex flex-col justify-center gap-4 rounded-3xl p-10 bg-white shadow-sm border border-blue-100 text-center md:text-left relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-blue-200 group">
                 <div className="absolute -right-10 -top-10 w-40 h-40 bg-blue-100 rounded-full opacity-50 transition-transform duration-500 group-hover:scale-110"></div>
                 <div className="flex items-center justify-center md:justify-start gap-3 mb-2 relative z-10">
                   <span className="material-symbols-outlined text-primary text-3xl">schedule</span>
-                  <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">Streaming Time</p>
+                  <div className="flex items-center gap-2">
+                    <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">Streaming Time</p>
+                    <span className="bg-blue-100 text-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider border border-blue-200">Milestone</span>
+                  </div>
                 </div>
                 <p className="text-slate-900 tracking-tight text-6xl lg:text-7xl font-bold font-serif-polished leading-tight relative z-10">
-                  <Counter target={29} suffix="+" suffixClassName="text-primary" /> Years
+                  <Counter target={31} suffix="+" suffixClassName="text-primary" /> Years
                 </p>
-                <p className="text-slate-600 text-lg relative z-10">Of cumulative listening across platforms</p>
+                <p className="text-slate-600 text-lg relative z-10">Of cumulative listening time across platforms</p>
               </div>
             </div>
           </div>
