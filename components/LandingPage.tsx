@@ -184,7 +184,7 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
       <header className="sticky top-0 z-50 whitespace-nowrap border-b border-blue-100 bg-white/95 backdrop-blur-md shadow-sm">
         <div className="bg-slate-900 text-slate-100 text-xs font-semibold py-2.5 px-4 text-center tracking-wide flex items-center justify-center gap-2 border-b border-slate-800 shadow-sm">
           <span className="bg-amber-400 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider shadow-sm">Milestone</span>
-          <span>🎉 OpenAudio reached <strong className="text-amber-300 font-bold">1 Million streams</strong> &amp; <strong className="text-amber-300 font-bold">31+ years</strong> of cumulative listening!</span>
+          <span>🎉 OpenAudio reached <strong className="text-amber-300 font-bold">1 Million streams</strong> &amp; <strong className="text-amber-300 font-bold">33+ years</strong> of cumulative listening!</span>
         </div>
         <div className="max-w-7xl mx-auto w-full flex items-center justify-between px-6 py-4 lg:px-20">
           <div className="flex items-center gap-3">
