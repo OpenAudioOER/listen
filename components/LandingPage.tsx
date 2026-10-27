@@ -360,7 +360,7 @@ export function LandingPage({ onNavigateLibrary, onNavigateBook, onNavigateRecog
                   </div>
                 </div>
                 <p className="text-slate-900 tracking-tight text-6xl lg:text-7xl font-bold font-serif-polished leading-tight relative z-10">
-                  <Counter target={31} suffix="+" suffixClassName="text-primary" /> Years
+                  <Counter target={33} suffix="+" suffixClassName="text-primary" /> Years
                 </p>
                 <p className="text-slate-600 text-lg relative z-10">Of cumulative listening time across platforms</p>
               </div>
